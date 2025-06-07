@@ -1,0 +1,75 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Thống kê và vẽ đồ thị trong R",
+    "section": "",
+    "text": "Lời mở đầu\nTác giả\nDuc Nguyen | tuhocr.com\nNội dung cuốn sách này điểm qua hầu hết các chủ đề thống kê và vẽ đồ thị thường gặp, bao gồm các trích dẫn đến tài liệu toàn văn để thuận tiện cho người đọc dễ tra cứu.\n‎\n‎\nTrích dẫn\nDuc Nguyen (2025). \"Thống kê và vẽ đồ thị trong R\". TUHOCR. https://thongkevavedothi.com\n\n@Book{Nguyen2025,\n  author    = {Duc Nguyen},\n  publisher = {TUHOCR},\n  title     = {Thống kê và vẽ đồ thị trong {R}},\n  year      = {2025},\n  url       = {https://thongkevavedothi.com},\n}",
+    "crumbs": [
+      "Lời mở đầu"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_time_series.html",
+    "href": "chapters/chapter1/introduction_time_series.html",
+    "title": "1  Phân tích chuỗi thời gian",
+    "section": "",
+    "text": "1.1 aaa\nbbb",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Phân tích chuỗi thời gian</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_time_series.html#aaa",
+    "href": "chapters/chapter1/introduction_time_series.html#aaa",
+    "title": "1  Phân tích chuỗi thời gian",
+    "section": "",
+    "text": "Nguyen, Duc. 2025. Thống Kê Và Vẽ Đồ Thị Trong R. TUHOCR. https://thongkevavedothi.com.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Phân tích chuỗi thời gian</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/references.html",
+    "href": "chapters/references.html",
+    "title": "3  References",
+    "section": "",
+    "text": "Nguyen, Duc. 2025. Thống Kê Và Vẽ Đồ Thị Trong R.\nTUHOCR. https://thongkevavedothi.com.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>References</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendices/supporting_info.html",
+    "href": "chapters/appendices/supporting_info.html",
+    "title": "Appendix A — Supporting information",
+    "section": "",
+    "text": "A.1 Citation rule\nhttps://www.bibtex.com/f/author-field/",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting information</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/appendices/supporting_info.html#citation-rule",
+    "href": "chapters/appendices/supporting_info.html#citation-rule",
+    "title": "Appendix A — Supporting information",
+    "section": "",
+    "text": "% The King of Pop: Michael Joseph Jackson\nauthor = \"Michael Joseph Jackson\"\nauthor = \"Jackson, Michael Joseph\"\nauthor = \"Jackson, Michael J\"\nauthor = \"Jackson, M J\"\n\n% An example with a suffix\nauthor = \"Stoner, Jr, Winifred Sackville\"\n\n% An exmaple with a particle\nauthor = \"Ludwig van Beethoven\"\nauthor = \"van Beethoven, Ludwig\"\nauthor = \"van Beethoven, L\"\n\n% Corporate names or names of consortia\nauthor = \"{Barnes and Noble, Inc.}\"\nauthor = \"{FCC H2020 Project}\"",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting information</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter2/data_and_basic_modeling.html",
+    "href": "chapters/chapter2/data_and_basic_modeling.html",
+    "title": "2  Data and Basic Modeling",
+    "section": "",
+    "text": "In this chapter, we will introduce the mlr3 objects and corresponding R6 classes that implement the essential building blocks of machine learning. These building blocks include the data (and the methods for creating training and test sets), the machine learning algorithm (and its training and prediction process), the configuration of a machine learning algorithm through its hyperparameters, and evaluation measures to assess the quality of predictions.\nIn the simplest definition, machine learning (ML) is the process of learning models of relationships from data. Supervised learning is a subfield of ML in which datasets consist of labeled observations, which means that each data point consists of features, which are variables to make predictions from, and a target, which is the quantity that we are trying to predict.Machine Learning/Supervised Learning",
+    "crumbs": [
+      "Fundamentals",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data and Basic Modeling</span>"
+    ]
+  }
+]
