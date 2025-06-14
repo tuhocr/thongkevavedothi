@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Thống kê và vẽ đồ thị trong R - 4&nbsp; Tài liệu tham khảo</title>
+<title>Thống kê và vẽ đồ thị trong R - 5&nbsp; Tài liệu tham khảo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/appendices/supporting_info.html" rel="next">
-<link href="../chapters/chapter3/linear_regression.html" rel="prev">
+<link href="../chapters/chapter4/variance_decomposition.html" rel="prev">
 <link href="../Figures/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -138,7 +138,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/references.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tài liệu tham khảo</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/references.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Tài liệu tham khảo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -192,21 +192,38 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hồi quy tuyến tính</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/references.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tài liệu tham khảo</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
- <span class="menu-text">Phụ lục</span></a>
+ <span class="menu-text">Công thức cơ bản</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/chapter4/variance_decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Công thức phương sai</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/references.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Tài liệu tham khảo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Phụ lục</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/appendices/supporting_info.html" class="sidebar-item-text sidebar-link">
@@ -228,7 +245,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Tài liệu tham khảo</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Tài liệu tham khảo</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -251,9 +268,8 @@ Heiss, Florian. 2020. <em>Using r, Python and Julia for Introductory
 Econometrics</em>. <a href="http://book.thuviencanhan.com:8033/results?query=&amp;dir=tuhocr%2FEconometrics%2FFlorian+Heiss&amp;after=&amp;before=&amp;sort=relevancyrating&amp;ascending=0&amp;page=1">http://book.thuviencanhan.com:8033/results?query=&amp;dir=tuhocr%2FEconometrics%2FFlorian+Heiss&amp;after=&amp;before=&amp;sort=relevancyrating&amp;ascending=0&amp;page=1</a>.
 </div>
 <div id="ref-Shumway2019" class="csl-entry" role="listitem">
-Shumway, Robert H. 2019. <em>Time Series: A Data Analysis Approach Using
-r</em>. Edited by David S. Stoffer. Boca Raton: CRC Press, Taylor &amp;
-Francis Group,. <a href="http://book.thuviencanhan.com:8033/results?query=filename:&quot;Time+Series_+A+Data+Analysis+Approach+Using+R&quot;&amp;dir=<all>&amp;after=&amp;before=&amp;sort=relevancyrating&amp;ascending=0&amp;page=1">http://book.thuviencanhan.com:8033/results?query=filename:"Time+Series_+A+Data+Analysis+Approach+Using+R"&amp;dir=&lt;all&gt;&amp;after=&amp;before=&amp;sort=relevancyrating&amp;ascending=0&amp;page=1</a>.
+Shumway, Robert H., and David S. Stoffer. 2019. <em>Time Series: A Data
+Analysis Approach Using <span>R</span></em>. CRC Press. <a href="http://book.thuviencanhan.com:8033/results?query=title%3AISBN9780367221096&amp;dir=%3Call%3E&amp;after=&amp;before=&amp;sort=relevancyrating&amp;ascending=0&amp;page=1">http://book.thuviencanhan.com:8033/results?query=title%3AISBN9780367221096&amp;dir=%3Call%3E&amp;after=&amp;before=&amp;sort=relevancyrating&amp;ascending=0&amp;page=1</a>.
 </div>
 <div id="ref-Wooldridge2019" class="csl-entry" role="listitem">
 Wooldridge, Jeffrey M. 2019. <em>Introductory Econometrics: A Modern
@@ -850,8 +866,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/chapter3/linear_regression.html" class="pagination-link" aria-label="Hồi quy tuyến tính">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Hồi quy tuyến tính</span></span>
+      <a href="../chapters/chapter4/variance_decomposition.html" class="pagination-link" aria-label="Công thức phương sai">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Công thức phương sai</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
