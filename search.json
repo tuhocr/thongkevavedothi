@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Thống kê và vẽ đồ thị trong R",
     "section": "",
-    "text": "Lời mở đầu\nTác giả\nDuc Nguyen | tuhocr.com\nNội dung cuốn sách này điểm qua hầu hết các chủ đề thống kê và vẽ đồ thị thường gặp, bao gồm các trích dẫn đến tài liệu toàn văn để thuận tiện cho người đọc dễ tra cứu.\nCách tiếp cận đi từ làm rõ định nghĩa, thuật ngữ, kế đến là công thức, thuật toán, bài tập ví dụ và lời giải, sau cùng là tình huống cụ thể.\nTrích dẫn\nDuc Nguyen (2025). \"Thống kê và vẽ đồ thị trong R\". TUHOCR. https://thongkevavedothi.com\n\n@Book{Nguyen2025,\n  author    = {Duc Nguyen},\n  publisher = {TUHOCR},\n  title     = {Thống kê và vẽ đồ thị trong {R}},\n  year      = {2025},\n  url       = {https://thongkevavedothi.com},\n}",
+    "text": "Lời mở đầu\nTác giả\nDuc Nguyen | tuhocr.com\nNội dung cuốn sách này điểm qua hầu hết các chủ đề thống kê và vẽ đồ thị thường gặp, bao gồm các trích dẫn đến tài liệu toàn văn để thuận tiện cho người đọc dễ tra cứu.\nCách tiếp cận đi từ làm rõ định nghĩa, thuật ngữ, kế đến là công thức, thuật toán, bài tập ví dụ và lời giải, sau cùng là tình huống cụ thể. aaa\nTrích dẫn\nDuc Nguyen (2025). \"Thống kê và vẽ đồ thị trong R\". TUHOCR. https://thongkevavedothi.com\n\n@Book{Nguyen2025,\n  author    = {Duc Nguyen},\n  publisher = {TUHOCR},\n  title     = {Thống kê và vẽ đồ thị trong {R}},\n  year      = {2025},\n  url       = {https://thongkevavedothi.com},\n}",
     "crumbs": [
       "Lời mở đầu"
     ]
@@ -15,6 +15,16 @@
     "title": "1  Các chủ đề thường gặp",
     "section": "",
     "text": "1.1 Person",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter1/introduction_statistics.html#person",
+    "href": "chapters/chapter1/introduction_statistics.html#person",
+    "title": "1  Các chủ đề thường gặp",
+    "section": "",
+    "text": "1.1.1 Statistician\nSamiran Sinha\nhttps://samiransinha.github.io/teaching/\nLaurent Smeets\nhttps://www.rensvandeschoot.com/colleagues/laurent-smeets/\n\n\n1.1.2 Psycholinguist\nLuca Campanelli\nhttps://www.lcampanelli.org/",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
     ]
@@ -75,16 +85,6 @@
     "title": "1  Các chủ đề thường gặp",
     "section": "1.7 Single cell RNAseq",
     "text": "1.7 Single cell RNAseq\nBenchmarking of a Bayesian single cell RNAseq differential gene expression test for dose-response study designs\nhttps://samiransinha.github.io/files/presentation/WNAR2023_presentation.pdf",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/chapter1/introduction_statistics.html#person",
-    "href": "chapters/chapter1/introduction_statistics.html#person",
-    "title": "1  Các chủ đề thường gặp",
-    "section": "",
-    "text": "1.1.1 Statistician\nSamiran Sinha\nhttps://samiransinha.github.io/teaching/\nLaurent Smeets\nhttps://www.rensvandeschoot.com/colleagues/laurent-smeets/\n\n\n1.1.2 Psycholinguist\nLuca Campanelli\nhttps://www.lcampanelli.org/",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
     ]
