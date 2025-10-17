@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Thống kê và vẽ đồ thị trong R",
     "section": "",
-    "text": "Lời mở đầu\nTác giả\nDuc Nguyen | tuhocr.com\nNội dung cuốn sách này điểm qua hầu hết các chủ đề thống kê và vẽ đồ thị thường gặp, bao gồm các trích dẫn đến tài liệu toàn văn để thuận tiện cho người đọc dễ tra cứu.\nCách tiếp cận đi từ làm rõ định nghĩa, thuật ngữ, kế đến là công thức, thuật toán, bài tập ví dụ và lời giải, sau cùng là tình huống cụ thể. aaa\nTrích dẫn\nDuc Nguyen (2025). \"Thống kê và vẽ đồ thị trong R\". TUHOCR. https://thongkevavedothi.com\n\n@Book{Nguyen2025,\n  author    = {Duc Nguyen},\n  publisher = {TUHOCR},\n  title     = {Thống kê và vẽ đồ thị trong {R}},\n  year      = {2025},\n  url       = {https://thongkevavedothi.com},\n}",
+    "text": "Lời mở đầu\nTác giả\nDuc Nguyen | tuhocr.com\nNội dung cuốn sách này điểm qua hầu hết các chủ đề thống kê và vẽ đồ thị thường gặp, bao gồm các trích dẫn đến tài liệu toàn văn để thuận tiện cho người đọc dễ tra cứu.\nCách tiếp cận đi từ làm rõ định nghĩa, thuật ngữ, kế đến là công thức, thuật toán, bài tập ví dụ và lời giải, sau cùng là tình huống cụ thể.\nTrích dẫn\nDuc Nguyen (2025). \"Thống kê và vẽ đồ thị trong R\". TUHOCR. https://thongkevavedothi.com\n\n@Book{Nguyen2025,\n  author    = {Duc Nguyen},\n  publisher = {TUHOCR},\n  title     = {Thống kê và vẽ đồ thị trong {R}},\n  year      = {2025},\n  url       = {https://thongkevavedothi.com},\n}",
     "crumbs": [
       "Lời mở đầu"
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html",
-    "href": "chapters/chapter1/introduction_statistics.html",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html",
+    "href": "chapters/introduction_statistics/introduction_statistics.html",
     "title": "1  Các chủ đề thường gặp",
     "section": "",
     "text": "1.1 Person",
@@ -20,8 +20,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#person",
-    "href": "chapters/chapter1/introduction_statistics.html#person",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#person",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#person",
     "title": "1  Các chủ đề thường gặp",
     "section": "",
     "text": "1.1.1 Statistician\nSamiran Sinha\nhttps://samiransinha.github.io/teaching/\nLaurent Smeets\nhttps://www.rensvandeschoot.com/colleagues/laurent-smeets/\n\n\n1.1.2 Psycholinguist\nLuca Campanelli\nhttps://www.lcampanelli.org/",
@@ -30,8 +30,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#dataset",
-    "href": "chapters/chapter1/introduction_statistics.html#dataset",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#dataset",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#dataset",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.2 Dataset",
     "text": "1.2 Dataset\nVanderbilt Biostatistics\nhttps://hbiostat.org/data/\nDatasets for the survival data modelling on engineering applications\nhttps://www.backblaze.com/cloud-storage/resources/hard-drive-test-data#overviewHardDriveData\nClinical proteomic datasets from NCI\nhttp://home.ccr.cancer.gov/ncifdaproteomics/ppatterns.asp\nKaggle, a platform for different kinds of data used for data science competitions.\nhttps://www.kaggle.com/data\nIt is a repository of shared datasets available through AWS resources. https://registry.opendata.aws/`",
@@ -40,8 +40,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#mixed-effects-model",
-    "href": "chapters/chapter1/introduction_statistics.html#mixed-effects-model",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#mixed-effects-model",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#mixed-effects-model",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.3 Mixed effects model",
     "text": "1.3 Mixed effects model\nMixed effects model analysis using R\nhttp://samiransinha.github.io/files/teaching/685part1.html\nBates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. “Fitting Linear Mixed-Effects Models Using Lme4.” Journal of Statistical Software 67, no. 1 (2015).\nhttps://doi.org/10.18637/jss.v067.i01\nhttp://book.thuviencanhan.com:8033/results?query=%22Bates+et+al.+-+2015+-+Fitting+Linear+Mixed-Effects+Models+Using+lme4.pdf%22&dir=%3Call%3E&after=&before=&sort=relevancyrating&ascending=0&page=1\nBates, Douglas M. Lme4: Mixed-Eﬀects Modeling with R. 2022.\nhttps://people.math.ethz.ch/~maechler/MEMo-pages/lMMwR.pdf\nLuca Campanelli. Introduction to mixed-effects modeling using the lme4 package.\nhttps://web.archive.org/web/20230313184038/https://www.lcampanelli.org/mixed-effects-modeling-lme4/\nLME4 Tutorial: Popularity Data\nhttps://www.rensvandeschoot.com/tutorials/lme4/\nFixed vs Random vs Mixed Effects Models – Examples\nhttps://vitalflux.com/fixed-vs-random-vs-mixed-effects-models-examples/\nWhat is a difference between random effects-, fixed effects- and marginal model?\nhttps://stats.stackexchange.com/questions/21760/what-is-a-difference-between-random-effects-fixed-effects-and-marginal-model\nConcepts behind fixed/random effects models\nhttps://stats.stackexchange.com/questions/33984/concepts-behind-fixed-random-effects-models\nA brief introduction to mixed effects modelling and multi-model inference in ecology\nhttps://pmc.ncbi.nlm.nih.gov/articles/PMC5970551/",
@@ -50,8 +50,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#survival-analysis",
-    "href": "chapters/chapter1/introduction_statistics.html#survival-analysis",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#survival-analysis",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#survival-analysis",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.4 Survival analysis",
     "text": "1.4 Survival analysis\nHosmer, David W., Stanley Lemeshow, and Susanne May. Applied Survival Analysis: Regression Modeling of Time‐to‐Event Data. John Wiley & Sons, Ltd, 2008.\nhttps://doi.org/10.1002/9780470258019.fmatter\nhttp://book.thuviencanhan.com:8033/results?query=%22Hosmer+et+al.+-+2008+-+Applied+Survival+Analysis+Regression+Modeling+of+Time%E2%80%90to%E2%80%90Event+Data.pdf%22&dir=%3Call%3E&after=&before=&sort=relevancyrating&ascending=0&page=1",
@@ -60,8 +60,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#b-splines",
-    "href": "chapters/chapter1/introduction_statistics.html#b-splines",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#b-splines",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#b-splines",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.5 B-splines",
     "text": "1.5 B-splines\nA short note on B-splines, and two related files for computing spline basis functions R script, Fortran subroutines\nhttp://samiransinha.github.io/files/teaching/note1.pdf\nhttp://samiransinha.github.io/files/teaching/code4Splines.R\nhttp://samiransinha.github.io/files/teaching/spline.f\nhttps://samiransinha.github.io/teaching/",
@@ -70,8 +70,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#epidemiology",
-    "href": "chapters/chapter1/introduction_statistics.html#epidemiology",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#epidemiology",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#epidemiology",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.6 Epidemiology",
     "text": "1.6 Epidemiology\n\n1.6.1 Case-control study\nCase-control studies in epidemiological research\nhttp://samiransinha.github.io/files/presentation/TAMU_Vet_School_Nov2021.pdf",
@@ -80,8 +80,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#single-cell-rnaseq",
-    "href": "chapters/chapter1/introduction_statistics.html#single-cell-rnaseq",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#single-cell-rnaseq",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#single-cell-rnaseq",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.7 Single cell RNAseq",
     "text": "1.7 Single cell RNAseq\nBenchmarking of a Bayesian single cell RNAseq differential gene expression test for dose-response study designs\nhttps://samiransinha.github.io/files/presentation/WNAR2023_presentation.pdf",
@@ -90,8 +90,8 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#multilevel-analysis",
-    "href": "chapters/chapter1/introduction_statistics.html#multilevel-analysis",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#multilevel-analysis",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#multilevel-analysis",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.8 Multilevel analysis",
     "text": "1.8 Multilevel analysis\nMultilevel analysis: Techniques and applications\nhttps://multilevel-analysis.sites.uu.nl/",
@@ -100,13 +100,64 @@
     ]
   },
   {
-    "objectID": "chapters/chapter1/introduction_statistics.html#bayesian",
-    "href": "chapters/chapter1/introduction_statistics.html#bayesian",
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#bayesian",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#bayesian",
     "title": "1  Các chủ đề thường gặp",
     "section": "1.9 Bayesian",
     "text": "1.9 Bayesian\nBürkner, (2017). brms: An R Package for Bayesian Multilevel Models Using Stan. Journal of Statistical Software, 80(1), 1–28.\nhttps://doi.org/10.18637/jss.v080.i01\nMagnusson et al. (2019). Bayesian leave-one-out cross-validation for large data (2019)\nhttps://proceedings.mlr.press/v97/magnusson19a/magnusson19a.pdf\nVehtari et al (2013). Understanding predictive information criteria for Bayesian models.\nhttps://sites.stat.columbia.edu/gelman/research/published/waic_understand3.pdf\nVehtari et al. (2018). R-squared for Bayesian regression models\nhttp://www.stat.columbia.edu/~gelman/research/unpublished/bayes_R2.pdf\nVehtari et al. (2019). Bayesian R2 and LOO-R2\nhttps://avehtari.github.io/bayes_R2/bayes_R2.html\nVehtari et al. (2021). Rank-normalization, folding, and localization: An improved R-hat for assessing convergence of MCMC (with discussion). Bayesian Data Analysis.\nhttps://projecteuclid.org/journals/bayesian-analysis/advance-publication/Rank-Normalization-Folding-and-Localization--An-Improved-R%CB%86-for/10.1214/20-BA1221.full",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#randomness",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#randomness",
+    "title": "1  Các chủ đề thường gặp",
+    "section": "1.10 Randomness",
+    "text": "1.10 Randomness\nhttps://en.wikipedia.org/wiki/Randomness#cite_note-5",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#normal-distribution",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#normal-distribution",
+    "title": "1  Các chủ đề thường gặp",
+    "section": "1.11 Normal distribution",
+    "text": "1.11 Normal distribution\nhttps://en.wikipedia.org/wiki/Normal_distribution\n\\[f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2}}e^{-\\frac{(x-\\mu)^2}{2 \\sigma^2}}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/introduction_statistics/introduction_statistics.html#sample-size",
+    "href": "chapters/introduction_statistics/introduction_statistics.html#sample-size",
+    "title": "1  Các chủ đề thường gặp",
+    "section": "1.12 Sample size",
+    "text": "1.12 Sample size\nHow to calculate sample size in randomized controlled trial?\nhttps://pubmed.ncbi.nlm.nih.gov/22263004/",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Các chủ đề thường gặp</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/chapter5/introduction_ggplot2.html",
+    "href": "chapters/chapter5/introduction_ggplot2.html",
+    "title": "2  Hướng dẫn vẽ đồ thị trong R bằng package ggplot2",
+    "section": "",
+    "text": "Cú pháp ggplot2 (Wickham 2010)\n\n\n\n\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.” Journal of Computational and Graphical Statistics 19 (1): 3–28. http://book.thuviencanhan.com:8033/results?query=&dir=tuhocr/R+programming/ggplot2/wickham2010&after=&before=&sort=relevancyrating&ascending=0&page=1.",
+    "crumbs": [
+      "Kỹ thuật vẽ đồ thị",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Hướng dẫn vẽ đồ thị trong R bằng package `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/references.html",
+    "href": "chapters/references.html",
+    "title": "3  Tài liệu tham khảo",
+    "section": "",
+    "text": "Crainiceanu, Ciprian, Brian Caffo, and John Muschelli. 2018. Methods\nin Biostatistics with R. Leanpub. https://leanpub.com/biostatmethods.\n\n\nWickham, Hadley. 2010. “A Layered Grammar of Graphics.”\nJournal of Computational and Graphical Statistics 19 (1): 3–28.\nhttp://book.thuviencanhan.com:8033/results?query=&dir=tuhocr/R+programming/ggplot2/wickham2010&after=&before=&sort=relevancyrating&ascending=0&page=1.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Tài liệu tham khảo</span>"
     ]
   }
 ]
