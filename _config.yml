@@ -7,60 +7,15 @@ sass:
   style: compressed
 
 widgets:
-- name: ggram
-  thumbnail: images/ggram.png
-  url: https://github.com/EvaMaeRey/ggram
-  ghuser: EvaMaeRey
-  ghrepo: ggram
-  tags: ggplot2 syntax,graphical poems
-  ghauthor: EvaMaeRey
-  short: >
-    Create a side-by-side code-plot display by clearing your history, executing your plot code, and then executing `ggram()`. 
-  description: >
-    ggram exists to showcase ggplot2 and extension syntax along with plots. 
-    {patchwork} is used under the hood to stich together a plot space displaying code and the plot produced by that code. 
-    
-- name: ggQQunif
-  thumbnail: images/ggQQunif.png
-  url: https://github.com/rcorty/ggQQunif
-  ghuser: rcorty
-  ghrepo: ggQQunif
-  tags: visualization,quantiles,p-values,statistics,big data
-  ghauthor: rcorty
-  short: >
-    Make QQ plots for big data expected to be uniformly distributed, e.g. p-values.
-  description: >
-    For "big data" applications, we often have thousands or millions of p-values.
-    The QQ-plot is a standard way to evaluate them, but can be horrifyingly slow when there are many p-values.
-    This package computes where all the points would go in the naive implementation, then thins them strategically to greatly reduce overplotting, resulting in much faster plotting.
-
-- name: ggupset
-  thumbnail: images/ggupset.png
-  url: https://github.com/const-ae/ggupset
-  ghuser: const-ae
-  ghrepo: ggupset
-  tags: visualization,upset,combination matrix
-  ghauthor: const-ae
-  short: >
-    Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
-  description: >
-    Replace the standard x-axis in 'ggplots' with a combination matrix
-    to visualize complex set overlaps. 'UpSet' has introduced a new way to visualize
-    the overlap of sets as an alternative to Venn diagrams. 
-    This package provides a simple way to produce such plots using 'ggplot2'. 
-    In addition it can convert any categorical axis into a combination
-    matrix axis.
 
 - name: xmrr
   thumbnail: images/xmr_chart.png
   url: https://github.com/Zanidean/xmrr
   ghuser: Zanidean
   ghrepo: xmrr
-  tags: đồ thị cột, Visualization, Control Charts, QC, XBar
+  tags: đồ thị cột, Control Charts, QC, XBar
   ghauthor: Alex Zanidean
   short: >
-    Generate XMR Control Chart Data from Time-Series Data.
-  description: >
     Use xmr() for XmR data which re-calculates to signal true change, and use xmr_chart() for XmR style control charts with recalculated process limits.
 
 - name: gg3D
@@ -68,11 +23,9 @@ widgets:
   url: https://github.com/AckerDWM/gg3D
   ghuser: AckerDWM
   ghrepo: gg3D
-  tags: 3D, Visualization
+  tags: đồ thị cột, 3D, Visualization
   ghauthor: Daniel Acker
   short: >
-    3D perspective plots for ggplot2
-  description: >
     gg3D adds 3D axes, 3D perspective projections with arbitrary rotations, and 3D wireframe plots to ggplot.
 
 - name: ggQC
@@ -80,40 +33,8 @@ widgets:
   url: https://github.com/kenithgrey/ggQC
   ghuser: kenithgrey
   ghrepo: ggQC
-  tags: QC, XmR, XbarR, SixSigma, Visualization
+  tags: đồ thị cột, QC, XmR, XbarR, SixSigma, Visualization
   ghauthor: Kenith Grey
   short: >
-    Use ggQC to plot single, faceted and multi-layered quality control charts .
-  description: >
     ggQC is used to create single, faceted, or multi-layered quality control charts using functions stat_QC(), stat_QC_lines() and stat_mR(). Supported charts include XmR, XbarR, n, c, p, np and more.
 
-- name: ggdist
-  thumbnail: images/ggdist.png
-  url: https://mjskay.github.io/ggdist
-  ghuser: mjskay
-  ghrepo: ggdist
-  tags: visualization,đồ thị cột,confidence,probability
-  ghauthor: mjskay
-  short: >
-    'ggdist' provides stats and geoms for visualizing distributions and uncertainty.
-  description: >
-    'ggdist' provides stats and geoms for visualizing distributions that are particularly tuned for
-    visualizing uncertainty in either a frequentist or Bayesian mode. Both analytical distributions (such as
-    frequentist confidence distributions or Bayesian priors) and distributions represented as samples (such as
-    bootstrap distributions or Bayesian posterior samples) are easily visualized. Visualization primitives include
-    but are not limited to: points with multiple uncertainty intervals, eye plots,
-    density plots, gradient plots, dot plots, quantile dot plots,
-    complementary cumulative distribution function (CCDF) barplots,
-    and fit curves with multiple uncertainty ribbons.
-
-- name: ggedit
-  thumbnail: images/ggedit.png
-  url: https://github.com/metrumresearchgroup/ggedit
-  ghuser: metrumresearchgroup
-  ghrepo: ggedit
-  tags: visualization, đồ thị cột, shiny, general,themes
-  ghauthor: yonicd
-  short: >
-    ggedit is aimed to interactively edit ggplot layers, scales and themes aesthetics
-  description: >
-    ggedit is aimed to allows novice and expert ggplot2 users to interactively edit ggplot layers, scales and themes aesthetics, while returning objects and scripts of updated plots using shiny gadgets and modules.
