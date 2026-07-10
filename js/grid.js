@@ -79,7 +79,7 @@ $( function() {
 
   // use value of search field to filter
   var $textfilter = $('#textfilter').keyup( debounce( function() {
-    $("#crancheckbox").prop('checked', false);
+    
     if(! $("#tagfilter").val() === "") {
       $("#tagfilter").val(0);
       $("#tagfilter").material_select();
@@ -106,7 +106,6 @@ $( function() {
     $("#tagfilter").val(0);
     $("#tagfilter").material_select();
     $("#textfilter").val("");
-    $("#crancheckbox").prop('checked', false);
     handleFilter();
   });
 
@@ -117,14 +116,10 @@ $( function() {
     $("#authorfilter").val(0);
     $("#authorfilter").material_select();
     $("#textfilter").val("");
-    $("#crancheckbox").prop('checked', false);
     handleFilter();
   });
 
-  // trigger isotope filter on #crancheckbox change
-  $("#crancheckbox").click(function() {
-    handleFilter();
-  });
+ 
 
   // look at all filter inputs and determine which ones to show
   function handleFilter() {
@@ -163,9 +158,7 @@ $( function() {
       }
 
       var cranBool = $(this).find('.widget-cran').html() === "true";
-      if($("#crancheckbox:checked").length === 0) {
-        cranBool = true;
-      }
+      
 
       var res = textBool && tagBool && authorBool && cranBool;
       if(res) {

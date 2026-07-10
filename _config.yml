@@ -13,7 +13,6 @@ widgets:
   ghuser: EvaMaeRey
   ghrepo: ggram
   tags: ggplot2 syntax,graphical poems
-  cran: false
   ghauthor: EvaMaeRey
   short: >
     Create a side-by-side code-plot display by clearing your history, executing your plot code, and then executing `ggram()`. 
@@ -27,7 +26,6 @@ widgets:
   ghuser: rcorty
   ghrepo: ggQQunif
   tags: visualization,quantiles,p-values,statistics,big data
-  cran: false
   ghauthor: rcorty
   short: >
     Make QQ plots for big data expected to be uniformly distributed, e.g. p-values.
@@ -42,7 +40,6 @@ widgets:
   ghuser: const-ae
   ghrepo: ggupset
   tags: visualization,upset,combination matrix
-  cran: false
   ghauthor: const-ae
   short: >
     Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
@@ -59,8 +56,7 @@ widgets:
   url: https://github.com/Zanidean/xmrr
   ghuser: Zanidean
   ghrepo: xmrr
-  tags: XmR, Visualization, Control Charts, QC, XBar
-  cran: false
+  tags: đồ thị cột, Visualization, Control Charts, QC, XBar
   ghauthor: Alex Zanidean
   short: >
     Generate XMR Control Chart Data from Time-Series Data.
@@ -73,7 +69,6 @@ widgets:
   ghuser: AckerDWM
   ghrepo: gg3D
   tags: 3D, Visualization
-  cran: false
   ghauthor: Daniel Acker
   short: >
     3D perspective plots for ggplot2
@@ -86,7 +81,6 @@ widgets:
   ghuser: kenithgrey
   ghrepo: ggQC
   tags: QC, XmR, XbarR, SixSigma, Visualization
-  cran: false
   ghauthor: Kenith Grey
   short: >
     Use ggQC to plot single, faceted and multi-layered quality control charts .
@@ -98,8 +92,7 @@ widgets:
   url: https://mjskay.github.io/ggdist
   ghuser: mjskay
   ghrepo: ggdist
-  tags: visualization,uncertainty,confidence,probability
-  cran: false
+  tags: visualization,đồ thị cột,confidence,probability
   ghauthor: mjskay
   short: >
     'ggdist' provides stats and geoms for visualizing distributions and uncertainty.
@@ -118,8 +111,7 @@ widgets:
   url: https://github.com/metrumresearchgroup/ggedit
   ghuser: metrumresearchgroup
   ghrepo: ggedit
-  tags: visualization, interactive, shiny, general,themes
-  cran: false
+  tags: visualization, đồ thị cột, shiny, general,themes
   ghauthor: yonicd
   short: >
     ggedit is aimed to interactively edit ggplot layers, scales and themes aesthetics
