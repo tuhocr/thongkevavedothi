@@ -27,7 +27,7 @@ widgets:
   ghuser: rcorty
   ghrepo: ggQQunif
   tags: visualization,quantiles,p-values,statistics,big data
-  cran: true
+  cran: false
   ghauthor: rcorty
   short: >
     Make QQ plots for big data expected to be uniformly distributed, e.g. p-values.
@@ -42,7 +42,7 @@ widgets:
   ghuser: const-ae
   ghrepo: ggupset
   tags: visualization,upset,combination matrix
-  cran: true
+  cran: false
   ghauthor: const-ae
   short: >
     Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
@@ -60,7 +60,7 @@ widgets:
   ghuser: Zanidean
   ghrepo: xmrr
   tags: XmR, Visualization, Control Charts, QC, XBar
-  cran: true
+  cran: false
   ghauthor: Alex Zanidean
   short: >
     Generate XMR Control Chart Data from Time-Series Data.
@@ -86,7 +86,7 @@ widgets:
   ghuser: kenithgrey
   ghrepo: ggQC
   tags: QC, XmR, XbarR, SixSigma, Visualization
-  cran: true
+  cran: false
   ghauthor: Kenith Grey
   short: >
     Use ggQC to plot single, faceted and multi-layered quality control charts .
@@ -99,7 +99,7 @@ widgets:
   ghuser: mjskay
   ghrepo: ggdist
   tags: visualization,uncertainty,confidence,probability
-  cran: true
+  cran: false
   ghauthor: mjskay
   short: >
     'ggdist' provides stats and geoms for visualizing distributions and uncertainty.
@@ -119,7 +119,7 @@ widgets:
   ghuser: metrumresearchgroup
   ghrepo: ggedit
   tags: visualization, interactive, shiny, general,themes
-  cran: true
+  cran: false
   ghauthor: yonicd
   short: >
     ggedit is aimed to interactively edit ggplot layers, scales and themes aesthetics
