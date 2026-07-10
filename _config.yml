@@ -11,18 +11,16 @@ widgets:
 - name: xmrr
   thumbnail: images/xmr_chart.png
   url: https://github.com/Zanidean/xmrr
-  ghuser: Zanidean
+  ghuser: Duc Nguyen
   ghrepo: xmrr
   tags: đồ thị cột, Control Charts, QC, XBar
-  ghauthor: Alex Zanidean
+  ghauthor: Duc Nguyen
   short: >
     Use xmr() for XmR data which re-calculates to signal true change, and use xmr_chart() for XmR style control charts with recalculated process limits.
 
 - name: gg3D
   thumbnail: images/gg3D.png
   url: https://github.com/AckerDWM/gg3D
-  ghuser: AckerDWM
-  ghrepo: gg3D
   tags: đồ thị cột, 3D, Visualization
   ghauthor: Daniel Acker
   short: >
@@ -36,5 +34,5 @@ widgets:
   tags: đồ thị cột, QC, XmR, XbarR, SixSigma, Visualization
   ghauthor: Kenith Grey
   short: >
-    ggQC is used to create single, faceted, or multi-layered quality control charts using functions stat_QC(), stat_QC_lines() and stat_mR(). Supported charts include XmR, XbarR, n, c, p, np and more.
+    ggQC is used to create single, faceted, or multi-layered quality control charts
 
