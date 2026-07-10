@@ -79,7 +79,7 @@ $( function() {
 
   // use value of search field to filter
   var $textfilter = $('#textfilter').keyup( debounce( function() {
-    
+    $("#crancheckbox").prop('checked', false);
     if(! $("#tagfilter").val() === "") {
       $("#tagfilter").val(0);
       $("#tagfilter").material_select();
@@ -100,26 +100,31 @@ $( function() {
   });
 
   // trigger isotope filter on #authorfilter change
-
+  // this resets tag and text filters and unchecks CRAN, as the
   // number in the dropdown is for all packages by this author
   $('#authorfilter').change(function() {
     $("#tagfilter").val(0);
     $("#tagfilter").material_select();
     $("#textfilter").val("");
+    $("#crancheckbox").prop('checked', false);
     handleFilter();
   });
 
   // trigger isotope filter on #tagfilter change
-  /
+  // this resets author and text filters and unchecks CRAN, as the
   // number in the dropdown is for all packages by this author
   $('#tagfilter').change(function() {
     $("#authorfilter").val(0);
     $("#authorfilter").material_select();
     $("#textfilter").val("");
+    $("#crancheckbox").prop('checked', false);
     handleFilter();
   });
 
- 
+  // trigger isotope filter on #crancheckbox change
+  $("#crancheckbox").click(function() {
+    handleFilter();
+  });
 
   // look at all filter inputs and determine which ones to show
   function handleFilter() {
@@ -157,10 +162,12 @@ $( function() {
         authorBool = $(this).find('.widget-author > a').html() == authorVal;
       }
 
-  
-      
+      var cranBool = $(this).find('.widget-cran').html() === "true";
+      if($("#crancheckbox:checked").length === 0) {
+        cranBool = true;
+      }
 
-      var res = textBool && tagBool && authorBool;
+      var res = textBool && tagBool && authorBool && cranBool;
       if(res) {
         $(this).addClass('is-showing');
       } else {
@@ -206,6 +213,12 @@ $( function() {
     $('#gridsort').trigger('change');
   });
 
+  // enforce initial filter (CRAN only)
+  handleFilter();
+  // make sure "Showing x of n" is correct
+  var curlen = $(".widget-cran").filter(function() {return $(this).html() === "true"}).length;
+  $("#shown-widgets").html(curlen);
+});
 
 function debounce( fn, threshold ) {
   var timeout;
