@@ -51,6 +51,7 @@ $( function() {
 
   $grid.isotope({
     itemSelector : '.grid-item',
+    initLayout: false,
     layoutMode: 'masonry',
     getSortData: {
       // author: '[data-author]',
@@ -64,10 +65,6 @@ $( function() {
       },
       stars: function( itemElem ) {
         var stars = -parseInt($( itemElem ).find(".gh-count").html());
-        // if the package is not on github, return 0
-        if (isNaN(stars)) {
-          return 0;
-        }
         return stars;
       }
     },
@@ -152,7 +149,7 @@ $( function() {
         var tags = $(this).find('.widget-tags').html();
         tags = tags.split(',');
         for (var i = 0; i < tags.length; i++) {
-          tagBool = tagBool || (tags[i] == tagVal);
+          tagBool = tagBool || (tags[i].trim() == tagVal);
         }
       }
 
@@ -208,9 +205,11 @@ $( function() {
       $('#' + key).html(val.stargazers_count);
     });
   })
-  .success(function() {
+  .done(function() {
     // default sort is by github stars - trigger it on load
     $('#gridsort').trigger('change');
+    // now make things transparent
+    $('.grid-item').removeClass('invisible');
   });
 
   // enforce initial filter (CRAN only)
@@ -246,4 +245,5 @@ function debounce( fn, threshold ) {
 //   //   rowHeight: '.grid-item'
 //   // }
 // });
+
 

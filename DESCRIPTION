@@ -1,4 +1,4 @@
-Package: ggplot2-exts-gallery
+Package: htmlwidgetsgallery
 Version: 0.0.0
 Imports: 
     gh,

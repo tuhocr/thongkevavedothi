@@ -9,15 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link type="text/css" rel="stylesheet" href="css/style.css"/>
     <link type="text/css" rel="stylesheet" href="css/github-buttons.css"/>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
     <nav class="blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><span id="logo-container" class="sanspro"><span style="font-weight:bold;">ggplot2 extensions</span> - gallery</span>
+      <div class="nav-wrapper container"><span id="logo-container" class="sanspro"><span style="font-weight:bold;">htmlwidgets</span> for R - gallery</span>
         <ul class="right hide-on-med-and-down">
-          <li><a href="https://github.com/ggplot2-exts/gallery#adding-a-ggplot2-extension" target="_blank" class="sanspro">Add Your Extension!</a></li>
-          <li><a href="https://exts.ggplot2.tidyverse.org" class="sanspro">exts.ggplot2.tidyverse.org</a></li>
+          <li><a href="https://github.com/hafen/htmlwidgetsgallery#adding-a-widget" target="_blank" class="sanspro">Add Your Widget!</a></li>
+          <li><a href="http://www.htmlwidgets.org" class="sanspro">htmlwidgets.org</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -26,11 +26,11 @@
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
     </nav>
-      <div class="section no-pad-bot" id="index-banner">
+    <div class="section no-pad-bot" id="index-banner">
       <div class="container">
         <br>
-        <!-- <h1 class="header center page-title">htmlextensions gallery</h1> -->
-        <h4 class="center page-title">{{ site.widgets.size }} registered extensions available to explore</h4>
+        <!-- <h1 class="header center page-title">htmlwidgets gallery</h1> -->
+        <h4 class="center page-title">{{ site.widgets.size }} registered widgets available to explore</h4>
         <br>
 
       </div>
@@ -72,7 +72,7 @@
             <label>Tag Filter</label>
           </div>
           <div class="col s2">
-            <div class="switch-label tooltipped" data-position="top" data-delay="10" data-tooltip="Show/hide extensions not yet on CRAN"><label>CRAN Only</label></div>
+            <div class="switch-label tooltipped" data-position="top" data-delay="10" data-tooltip="Show/hide widgets not yet on CRAN"><label>CRAN Only</label></div>
             <div class="switch cran-switch">
               <label>
                 <!-- Off -->
@@ -95,27 +95,25 @@
       </div>
       <div class="row" id="grid">
         {% for widget in site.widgets %}
-        <div class="card grid-item" data-author="{{ widget.ghauthor }}">
+        <div class="card grid-item invisible" data-author="{{ widget.ghauthor }}">
           <div class="card-image waves-effect waves-block waves-light">
-            <div style="width:350px; height:300px;" class="valign-wrapper">
+            <div style="width:350px; height:300px; padding:3px;" class="valign-wrapper">
             <a href="{{ widget.url }}">
             <img class="valign" src="
             {% if widget.thumbnail %}
               {{ widget.thumbnail }}
             {% else %}
-              https://dummyimage.com/350x300/efefef/f8f8f8&text=no%20thumbnail
+              http://dummyimage.com/350x300/efefef/f8f8f8&text=no thumbnail
             {% endif %}
             "></a>
             </div>
           </div>
           <div class="card-content widget-content">
-            <a href="{{ widget.url }}"><span class="card-title grey-text text-darken-4">{{ widget.name }}</span></a>
-            {% if widget.ghuser != null %}
-            <span class="github-btn github-watchers" data-processed="1"><a class="gh-btn" href="https://github.com/{{ widget.ghuser }}/{{ widget.ghrepo }}/" target="_blank"><span class="gh-ico"></span><span class="gh-text">Star</span></a><a class="gh-count" id="{{ widget.name }}_stars" href="https://github.com/{{ widget.ghuser }}/{{ widget.ghrepo }}/stargazers" target="_blank" style="display: block;"></a></span>
-            {% endif %}
+            <a href="{{ widget.url }}"><span class="card-title grey-text text-darken-4">{{ widget.name }}</span></a><span class="github-btn github-watchers" data-processed="1"><a class="gh-btn" href="https://github.com/{{ widget.ghuser }}/{{ widget.ghrepo }}/" target="_blank"><span class="gh-ico"></span><span class="gh-text">Star</span></a><a class="gh-count" id="{{ widget.ghuser }}_{{ widget.ghrepo || replace: '.', '_' }}" href="https://github.com/{{ widget.ghuser }}/{{ widget.ghrepo }}/stargazers" target="_blank" style="display: block;"></a></span>
             <p class="widget-shortdesc">{{ widget.short | markdownify | remove: '<p>' | remove: '</p>' }}</p>
             <p class="widget-list-item"><i class="material-icons meta-bullet red-text">stop</i><span class="red-text">author:</span> <span class="widget-author widget-meta"><a href="https://github.com/{{ widget.ghauthor }}">{{ widget.ghauthor }}</a></span></p>
             <p class="widget-list-item"><i class="material-icons meta-bullet green-text">stop</i><span class="green-text">tags:</span> <span class="widget-tags widget-meta">{{ widget.tags }}</span></p>
+            <p class="widget-list-item"><i class="material-icons meta-bullet blue-text">stop</i><span class="blue-text">js libraries:</span> <span class="widget-jslibs widget-meta">{{ widget.jslibs | markdownify | remove: '<p>' | remove: '</p>' }}</span></p>
             <!-- <div class="more-icon activator"><i class="material-icons right">more_vert</i></div> -->
             <div class="hidden widget-cran">{{ widget.cran }}</div>
           </div>
@@ -131,7 +129,7 @@
     <footer class="page-footer light-blue">
       <div class="footer-copyright">
         <div class="container">
-        Maintained by <a class="white-text" href="http://emaasit.github.io/">Daniel Emaasit</a> (<a class="white-text" href="https://twitter.com/emaasit">@emaasit</a>). Design Inspired by <a class="white-text" href="https://twitter.com/hafenstats">@hafenstats</a>.
+        Built with <a class="white-text" href="http://materializecss.com">materialize-css</a>, <a class="white-text" href="http://isotope.metafizzy.co">isotope</a>, and <a class="white-text" href="http://jekyllrb.com">jekyll</a> by <a class="white-text" href="https://twitter.com/hafenstats">@hafenstats</a>.
         </div>
       </div>
     </footer>

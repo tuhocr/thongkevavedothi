@@ -39,8 +39,11 @@ meta <- lapply(widgets, function(wdgt) {
   res[c("cran", "stargazers_count", "open_issues_count", "forks_count", "watchers_count")]
 })
 
-nm <- vapply(widgets, function(x) x$name, FUN.VALUE = character(1))
-names(meta) <- paste0(nm, "_stars")
+names(meta) <- sapply(widgets, function(x)
+  paste(
+    gsub("\\.", "_", x$ghuser),
+    gsub("\\.", "_", x$ghrepo),
+    sep = "_"))
 
 all_good <- vapply(meta, function(x) is.numeric(x$stargazers_count), FUN.VALUE = logical(1))
 
