@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -28,23 +29,23 @@
       <div class="container">
         <br>
         <!-- <h1 class="header center page-title">htmlwidgets gallery</h1> -->
-        <h4 class="center page-title">2 code template thống kê và vẽ đồ thị</h4>
+        <h4 class="center page-title">{{ site.widgets.size }} code template thống kê và vẽ đồ thị</h4>
         <br>
 
       </div>
     </div>
 
-<div class="container center">
+    <div class="container center">
     <div class="row">
       <form class="col s12">
         <div class="row">
           
-          <div class="input-field col s3">
+          <div class="input-field col s4">
             <!-- <i class="material-icons prefix">search</i> -->
             <input type="text" id="textfilter" class="validate" placeholder="">
             <label>Tìm kiếm</label>
           </div>
-          <div class="input-field col s4">
+          <div class="input-field col s3">
             <!-- <i class="material-icons prefix">sort_by_alpha</i> -->
             <select id="authorfilter">
               <option value="" selected>&nbsp;</option>
@@ -61,7 +62,7 @@
             <label>Từ khóa</label>
           </div>
           <div class="col s2">
-            <div class="switch-label tooltipped" data-position="top" data-delay="10" data-tooltip="Chỉ hiển thị template viết bằng R"><label>R code</label></div>
+            <div class="switch-label tooltipped" data-position="top" data-delay="10" data-tooltip="Chỉ hiển thị code template viết bằng R"><label>R code</label></div>
             <div class="switch cran-switch">
               <label>
                 <!-- Off -->
@@ -79,63 +80,42 @@
     <div class="main-container">
       <div class="container">
         <div class="row">
-          Showing <span id="shown-widgets"></span> of 2
+          Showing <span id="shown-widgets"></span> of {{ site.widgets.size }}
         </div>
       </div>
       <div class="row" id="grid">
-        
-        <div class="card grid-item invisible" data-author="Vẽ đồ thị">
+        {% for widget in site.widgets %}
+        <div class="card grid-item invisible" data-author="{{ widget.ghauthor }}">
           <div class="card-image waves-effect waves-block waves-light">
             <div style="width:350px; height:300px; padding:3px;" class="valign-wrapper">
-            <a href="https://www.tuhocr.com/blog/huong-dan-ve-do-thi-cot-to-mau-theo-dieu-kien">
+            <a href="{{ widget.url }}">
             <img class="valign" src="
-            
-              images/p1.png
-            
+            {% if widget.thumbnail %}
+              {{ widget.thumbnail }}
+            {% else %}
+              http://dummyimage.com/350x300/efefef/f8f8f8&text=no thumbnail
+            {% endif %}
             "></a>
             </div>
           </div>
           <div class="card-content widget-content">
-            <a href="https://www.tuhocr.com/blog/huong-dan-ve-do-thi-cot-to-mau-theo-dieu-kien"><span class="card-title grey-text text-darken-4">Đồ thị cột, tô màu theo điều kiện</span></a>
-            <p class="widget-shortdesc">Hướng dẫn vẽ đồ thị cột, tô màu theo điều kiện.
-</p>
-            <p class="widget-list-item"><i class="material-icons meta-bullet red-text">stop</i><span class="red-text">Chủ đề:</span> <span class="widget-author widget-meta"><a href="https://github.com/Vẽ đồ thị">Vẽ đồ thị</a></span></p>
-            <p class="widget-list-item"><i class="material-icons meta-bullet green-text">stop</i><span class="green-text">Từ khóa:</span> <span class="widget-tags widget-meta">ggplot2, barchart</span></p>          
+            <a href="{{ widget.url }}"><span class="card-title grey-text text-darken-4">{{ widget.name }}</span>
+			
+            <p class="widget-shortdesc">{{ widget.short | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+			
+            <p class="widget-list-item"><i class="material-icons meta-bullet red-text">stop</i><span class="red-text">Chủ đề:</span> <span class="widget-author widget-meta"></span></p>
+			
+            <p class="widget-list-item"><i class="material-icons meta-bullet green-text">stop</i><span class="green-text">Từ khóa:</span> <span class="widget-tags widget-meta">{{ widget.tags }}</span></p>
+      
             <!-- <div class="more-icon activator"><i class="material-icons right">more_vert</i></div> -->
-            <div class="hidden widget-cran">true</div>
+            <div class="hidden widget-cran">{{ widget.cran }}</div>
           </div>
           <div class="card-reveal" style="display: none; -webkit-transform: translateY(0px);">
-            <span class="card-title grey-text text-darken-4">Đồ thị cột, tô màu theo điều kiện<i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4">{{ widget.name }}<i class="material-icons right">close</i></span>
             <p>(full meta data to go here)</p>
             </div>
         </div>
-        
-        <div class="card grid-item invisible" data-author="Hồi quy đơn biến">
-          <div class="card-image waves-effect waves-block waves-light">
-            <div style="width:350px; height:300px; padding:3px;" class="valign-wrapper">
-            <a href="">
-            <img class="valign" src="
-            
-              images/p1.png
-            
-            "></a>
-            </div>
-          </div>
-          <div class="card-content widget-content">
-            <a href=""><span class="card-title grey-text text-darken-4">recogito</span></a>
-            <p class="widget-shortdesc">Annotate text and images with your own labels
-</p>
-            <p class="widget-list-item"><i class="material-icons meta-bullet red-text">stop</i><span class="red-text">Chủ đề:</span> <span class="widget-author widget-meta"><a href="https://github.com/Hồi quy đơn biến">Hồi quy đơn biến</a></span></p>
-            <p class="widget-list-item"><i class="material-icons meta-bullet green-text">stop</i><span class="green-text">Từ khóa:</span> <span class="widget-tags widget-meta">Text annotation, Image annotation</span></p>          
-            <!-- <div class="more-icon activator"><i class="material-icons right">more_vert</i></div> -->
-            <div class="hidden widget-cran">true</div>
-          </div>
-          <div class="card-reveal" style="display: none; -webkit-transform: translateY(0px);">
-            <span class="card-title grey-text text-darken-4">recogito<i class="material-icons right">close</i></span>
-            <p>(full meta data to go here)</p>
-            </div>
-        </div>
-        
+        {% endfor %}
       </div>
     </div>
 

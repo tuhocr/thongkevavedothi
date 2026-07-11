@@ -11,7 +11,7 @@ widgets:
     name: Đồ thị cột, tô màu theo điều kiện
     url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-cot-to-mau-theo-dieu-kien
     thumbnail: images/p1.png    
-    ghauthor: Vẽ đồ thị
+    author: Bruceshark
     tags: ggplot2, barchart
     cran: true
     short: >
@@ -19,8 +19,9 @@ widgets:
   -
     name: recogito
     thumbnail: images/p1.png  
-    ghauthor: Hồi quy đơn biến
+    ghauthor: yonicd
     tags: Text annotation, Image annotation
     cran: true
     short: >
       Annotate text and images with your own labels
+  
