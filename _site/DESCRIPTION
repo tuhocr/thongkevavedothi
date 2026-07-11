@@ -1,0 +1,7 @@
+Package: htmlwidgetsgallery
+Version: 0.0.0
+Imports: 
+    gh,
+    jsonlite,
+    rlang,
+    yaml
