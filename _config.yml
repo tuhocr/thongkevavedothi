@@ -8,11 +8,20 @@ sass:
 
 widgets:
   -
+    name: Đồ thị dot plot chia theo nhóm
+    url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-dot-plot-bang-package-lattice
+    thumbnail: images/p2.png    
+    ghauthor: Vẽ đồ thị
+    tags: package lattice, dot plot
+    cran: true
+    short: >
+      Hướng dẫn vẽ đồ thị dot plot cho dữ liệu amino acid.
+  -
     name: Đồ thị cột, tô màu theo điều kiện
     url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-cot-to-mau-theo-dieu-kien
     thumbnail: images/p1.png    
     ghauthor: Vẽ đồ thị
-    tags: ggplot2, barchart
+    tags: package ggplot2, barchart
     cran: true
     short: >
       Hướng dẫn vẽ đồ thị cột, tô màu theo điều kiện.
@@ -21,16 +30,34 @@ widgets:
     url: https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot.html
     thumbnail: blog/huong-dan-ve-do-thi-dot-plot/dot-plot.png  
     ghauthor: Vẽ đồ thị
-    tags: ggplot2, dot plot
+    tags: package ggplot2, dot plot
     cran: true
     short: >
-      Hướng dẫn vẽ đồ thị dot plot 
+      Hướng dẫn vẽ đồ thị dot plot. 
   -
     name: Đồ thị group dot plot 
     url: https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.html
     thumbnail: blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.png  
     ghauthor: Vẽ đồ thị
-    tags: ggplot2, dot plot
+    tags: package ggplot2, dot plot
     cran: true
     short: >
-      Hướng dẫn vẽ đồ thị dot plot theo nhóm
+      Hướng dẫn vẽ đồ thị dot plot theo nhóm.
+  -
+    name: Hướng dẫn phân tích ANOVA 2 yếu tố
+    url: https://thongkesinhhoc.com/phan-tich-anova-2-yeu-to-trong-r
+    thumbnail: images/p3.png
+    ghauthor: ANOVA
+    tags: ANOVA
+    cran: true
+    short: >
+      Hướng dẫn phân tích ANOVA 2 yếu tố
+  -
+    name: Template phương pháp bề mặt đáp ứng
+    url: https://thongkesinhhoc.com/bo-tri-thi-nghiem-toi-uu-hoa-bang-r
+    thumbnail: images/p4.png
+    ghauthor: Response surface
+    tags: Response surface, đồ thị 3D
+    cran: true
+    short: >
+      Sử dụng package rsm để bố trí thí nghiệm tối ưu bằng phương pháp bề mặt đáp ứng
