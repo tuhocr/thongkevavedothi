@@ -1,16 +1,3 @@
 {
-  "ok1": {
-    "cran": true,
-    "stargazers_count": 555,
-    "open_issues_count": 14,
-    "forks_count": 55,
-    "watchers_count": 555
-  },
-  "ok2": {
-    "cran": true,
-    "stargazers_count": 22,
-    "open_issues_count": 6,
-    "forks_count": 4,
-    "watchers_count": 22
-  }
+
 }
