@@ -17,10 +17,20 @@ widgets:
     short: >
       Hướng dẫn vẽ đồ thị cột, tô màu theo điều kiện.
   -
-    name: recogito
-    thumbnail: images/p1.png  
-    ghauthor: Hồi quy đơn biến
-    tags: Text annotation, Image annotation
+    name: Đồ thị dot plot với khoảng tin cậy
+    url: https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot.html
+    thumbnail: blog/huong-dan-ve-do-thi-dot-plot/dot-plot.png  
+    ghauthor: Vẽ đồ thị
+    tags: ggplot2, dot plot
     cran: true
     short: >
-      Annotate text and images with your own labels
+      Hướng dẫn vẽ đồ thị dot plot 
+  -
+    name: Đồ thị group dot plot 
+    url: https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.html
+    thumbnail: blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.png  
+    ghauthor: Vẽ đồ thị
+    tags: ggplot2, dot plot
+    cran: true
+    short: >
+      Hướng dẫn vẽ đồ thị dot plot theo nhóm
