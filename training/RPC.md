@@ -10,10 +10,15 @@
   
   * Phân biệt giữa phương pháp lập trình dùng R Base và dùng package `dplyr`
 
-- **Session 2 (T7 ngày 1/8/2026)** đang cập nhật
+- **Session 2 (T7 ngày 1/8/2026)** [YouTube](https://youtu.be/FM92QZY9-6A?si=ZGRzTqOssKTaKtCF)
+
+  * Cách thiết lập thư mục Project bằng RStudio
+
+  * Cách nhập/import dataset đúng cách
+
+  * Quy trình sử dụng Quarto/R Markdown để render file ghi chú
 
 ---
-
 
 ## K1-RPC [19/6/2026 – 11/7/2026] [record](https://class.tuhocr.com/k1-rpc/)
 
