@@ -18,7 +18,7 @@ format:
     theme: [style.scss]
     page-layout: full
     # code-annotations: below # không thuận tiện cho 2 code chunk
-    embed-resources: true
+    embed-resources: false
     anchor-sections: true
     smooth-scroll: true
     link-external-newwindow: true
@@ -28,7 +28,7 @@ format:
     #   sidebar-width: 0px
     #   body-width: 2000px
     #   margin-width: 0px
-highlight-style: solarized
+highlight-style: atom-one
 include-in-header:
   - text: |
       <link rel = "shortcut icon" href = "favicon.png" />
@@ -49,6 +49,7 @@ editor_options:
 
 ```{r, echo=FALSE, results='hide'}
 knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
                       message = FALSE,     # suppress messages
                       warning = FALSE,     # suppress warnings
                       # results = 'hide',  # suppress code output
@@ -66,7 +67,7 @@ file.copy(from = file, to = newfile, overwrite = TRUE)
 zip(zipfile = "package-r-data-science", 
     files = c("package-r-data-science.qmd", 
               "style.scss", "reborn_1.bib", 
-              "run_quarto.R",
+              "run_quarto.R", "favicon.png",
               "package-r-data-science.Rproj", 
               "_extensions/")
     )
@@ -76,7 +77,7 @@ zip(zipfile = "package-r-data-science",
 
 <!-- https://icons.getbootstrap.com/?q=file -->
 
-{{< downloadthis package-r-data-science.zip dname="package-r-data-science" label="RStudio project" icon=file-zip type=primary >}} <a href="http://thongkevavedothi.com/blog/package-r-data-science/package-r-data-science.txt" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> text</a> <a href="http://thongkevavedothi.com/blog/package-r-data-science/package-r-data-science.html" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> web</a> ‍ ‍ ‍ 
+{{< downloadthis package-r-data-science.zip dname="package-r-data-science" label="RStudio project" icon=file-zip type=primary >}} <a href="https://class.tuhocr.com/khoa-hoc/" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
 
 <!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
 
@@ -86,47 +87,159 @@ R là ngôn ngữ lập trình để xử lý dữ liệu hàng đầu hiện na
 
 Bạn có thể tham khảo danh sách tổng hợp các package chuyên môn theo chủ đề được nhóm phát triển R Core Team tổng hợp ở đây [CRAN Task Views](https://cran.r-project.org/web/views/).
 
-Trong file HTML này mình tổng hợp các package và chức năng mà mình thường sử dụng khi phân tích dữ liệu nghiên cứu. Hy vọng sẽ hữu ích cho bạn để nhanh chóng áp dụng các package này vào công việc. Các bạn có thể đóng góp thêm cho danh sách được đầy đủ bằng cách chia sẻ trên [Group Cộng Đồng Tự Học R](https://www.facebook.com/groups/tuhocr) nhé. Cảm ơn các bạn rất nhiều.
+Trong file HTML này mình tổng hợp các package và cụm lệnh thường sử dụng khi phân tích dữ liệu. Hy vọng sẽ hữu ích cho bạn để nhanh chóng áp dụng các package này vào công việc. Các bạn có thể đóng góp thêm cho danh sách được đầy đủ bằng cách chia sẻ trên [Group Cộng Đồng Tự Học R](https://www.facebook.com/groups/tuhocr) nhé. Cảm ơn các bạn rất nhiều.
 
 Để hiểu rõ hơn cách cài đặt package trong R, bạn xem video này nhé. [Bài giảng](https://class.tuhocr.com/khoa-hoc/coding-in-r/bai-hoc/huong-dan-cach-cai-package/).
 
-Các câu lệnh nâng cao khi xử lý package trong R. [Link](#package-function)
+Các câu lệnh nâng cao khi xử lý package trong R. [Link](#package-function).
 
-# Package R Base
+<!-- Để thuận tiện trình bày thì mình sẽ không run đoạn code mà chỉ đưa ra cú pháp căn bản giúp các bạn hình dung cơ chế câu lệnh, bạn có thể copy đoạn code chạy trong RStudio để nắm vững cách khai báo tham số nhé. -->
+
+# R Base
 
 Khi mở phiên làm việc (session) trong RStudio, bạn dùng câu lệnh sau sẽ liệt kê các package mặc định của R Base.
 
 ```{r}
-search()
+cat(search() , sep = "\n")
 ```
 
+Các lệnh R cơ bản thường dùng được mình trình bày chi tiết trong khóa học R for Data Science. [Link](https://www.tuhocr.com/r-courses)
+
+**Summary dữ liệu**
+
+```{r}
+aggregate(weight ~ group,
+          x = PlantGrowth,
+          FUN = mean)
+```
+
+
+# Xử lý dữ liệu
+
+## Package `dplyr`
+
+Đây là package được thiết kế theo phương thức lập trình dùng dấu `%>%` hay `|>` để đẩy kết quả phân tích từ bên trái qua tham số thứ nhất của function bên phải, thuận tiện tạo luồng code (chain), tái sử dụng đoạn code khi chỉ cần thay đổi dataset đầu vào. 
+
+**Sắp xếp dữ liệu**
+
+```{r}
+library(dplyr)
+
+# from small to big theo Girth
+trees[1:6, ] |> dplyr:::arrange(Girth)
+
+# from big to small theo Girth
+trees[1:6, ] |> dplyr:::arrange(dplyr:::desc(Girth))
+```
+
+**Summary dữ liệu**
+
+```{r}
+library(dplyr)
+
+mtcars |> dplyr:::group_by(cyl) |> 
+  dplyr:::summarise(mean_wt = mean(wt),
+                    sd_wt = sd(wt),
+                    count = dplyr:::n()) |> as.data.frame()
+```
+
+# Phân tích thống kê
+
+## Package `car` và `effects`
+
+Package này được viết bởi [John Fox](https://www.john-fox.ca/), sử dụng khi phân tích hồi quy. Chi tiết câu lệnh được hướng dẫn trong tài liệu An R Companion to Applied Regression. [Link](https://class.tuhocr.com/khoa-hoc/statistics-in-r/bai-hoc/tai-lieu-tham-khao-r-books/)
+
+**Lệnh kiểm tra phân phối chuẩn bằng đồ thị QQ plot**
+
+```{r, fig.width=3, fig.height=3, eval=T, results='hide'}
+par(pty = "s")
+par(oma = c(0,0,0,0))
+par(mar = c(2,4,0,2))
+
+car:::qqPlot(mtcars$mpg)
+```
+
+**Vẽ đường mật độ xác suất ellipse**
+
+```{r, fig.width=3, fig.height=3, eval=T, results='hide'}
+par(pty = "s")
+par(oma = c(0,0,0,0))
+par(mar = c(2,4,0,2))
+
+plot(Volume ~ Height,
+       data =  trees,
+       col = "darkgreen",
+       pch = 19,
+      xlim = c(40,100),
+       ylim = c(-10,80))
+
+car:::dataEllipse.formula(Volume ~ Height,
+                  data =  trees,
+                 col = "lightblue",
+                 pch = NA,
+                 center.pch = FALSE,
+                 fill = TRUE,
+                 levels = c(0.5, 0.9),
+                 fill.alpha = 0.3,
+                 lty = 2,
+                 add = T)
+```
+
+**Vẽ đường effects plot** | [Vignettes](https://cran.r-project.org/web/packages/effects/index.html)
+
+```{r, fig.width=12, fig.height=4}
+library(effects)
+
+mtcars$cyl <- factor(mtcars$cyl)
+
+fit <- lm(mpg ~ wt * cyl,
+          data = mtcars)
+
+effects:::plot.efflist(effects:::predictorEffects(fit),
+                       lines = list(multiline = FALSE))
+```
+
+```{r, fig.width=8, fig.height=4}
+effects:::plot.efflist(effects:::predictorEffects(fit),
+                       lines = list(multiline = TRUE))
+```
+
+# Machine learning
+
+## Package `caret`
+
+```{r}
+
+```
 
 
 # Các lệnh làm việc với packge {#package-function}
 
-```{r}
-# packageVersion("car")
+Nhiều package có hiện tượng dùng trùng tên function, vì vậy ta nên khai báo triệt để đến namespace của function đó, bằng cách dùng dấu `:::`. Ví dụ muốn sử dụng function `arrange()` trong package `dplyr`, bạn nên dùng cú pháp sau `dplyr:::arrange()` để đảm bảo cho R dò tên function trong phạm vi package `dplyr` chứ không dùng nhầm qua package khác.
 
-# install.packages("car")
-# remove.packages("car")
+```{r, eval=FALSE}
+packageVersion("car")
 
-# install.packages("https://cran.r-project.org/src/contrib/Archive/FAOSTAT/FAOSTAT_2.2.4.tar.gz",
-#                  repos = NULL, 
-#                  type = "source")
+install.packages("car")
+remove.packages("car")
 
-# library(devtools)
-# install_version("ggplot2", version = "0.9.1", repos = "http://cran.us.r-project.org")
+install.packages("https://cran.r-project.org/src/contrib/Archive/FAOSTAT/FAOSTAT_2.2.4.tar.gz",
+                 repos = NULL,
+                 type = "source")
+
+library(devtools)
+install_version("ggplot2", version = "0.9.1", repos = "http://cran.us.r-project.org")
 
 # chỉ detach package và function thôi
-# unloadNamespace("plot.matrix")
-# 
-# detach("package:plot.matrix",
-#        unload = TRUE,
-#        force = TRUE)
+unloadNamespace("plot.matrix")
+
+detach("package:plot.matrix",
+       unload = TRUE,
+       force = TRUE)
 
 ### detach triệt để package và method đi kèm
-# pkgload:::unload("plot.matrix")
-# devtools::unload("plot.matrix")
+pkgload:::unload("plot.matrix")
+devtools::unload("plot.matrix")
 ```
 
 
