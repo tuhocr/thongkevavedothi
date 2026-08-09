@@ -1,4 +1,4 @@
-# [R Programming Course for Data Science | RPC](https://www.tuhocr.com/training)
+# [R Programming Course for Data Science | RPC](https://www.tuhocr.com/register)
 
 [**Nội dung chương trình theo dòng thời gian.**]{style="color:red"}
 
