@@ -17,7 +17,21 @@
   * Cách nhập/import dataset đúng cách
 
   * Quy trình sử dụng Quarto/R Markdown để render file ghi chú
+  
+- **Session 3 (T6 ngày 7/8/2026)**
 
+  * Các lệnh căn bản về vector, mindset khi trích xuất dữ liệu theo vị trí index trên vector
+  
+  * Các lệnh căn bản về matrix, data frame và list
+
+- **Session 4 (T7 ngày 8/8/2026)**
+
+  * Cách import dữ liệu đầu vào ở các định dạng `.xlsx`, `.csv`, `.tsv`, `.sav`
+  
+  * Phối hợp lệnh `which()` và `%in%` để thay thế dữ liệu trong vector
+  
+  * Những lưu ý về cách học, định hướng việc học và coding trong thời đại AI
+  
 ---
 
 ## K1-RPC [19/6/2026 – 11/7/2026] [record](https://class.tuhocr.com/k1-rpc/)
