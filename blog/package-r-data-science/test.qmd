@@ -1,0 +1,9 @@
+---
+title: "My Website"
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
+---
+
+aaa
+

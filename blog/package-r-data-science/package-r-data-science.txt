@@ -1,0 +1,166 @@
+---
+title: "Danh sách package R phân tích dữ liệu"
+author-title: <b>Biên soạn</b>
+author: Duc Nguyen | Founder of <a href="https://www.tuhocr.com/">**tuhocr.com**</a>
+site-url: https://www.tuhocr.com/
+published-title: <b>Cập nhật</b> 
+date: last-modified
+date-format: "YYYY MMMM DD"
+bibliography: reborn_1.bib
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 6
+    toc-location: left
+    number-sections: true
+    number-depth: 6
+    theme: [style.scss]
+    page-layout: full
+    # code-annotations: below # không thuận tiện cho 2 code chunk
+    embed-resources: true
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-tools:
+      source: http://thongkevavedothi.com/blog/package-r-data-science/package-r-data-science.txt
+    # grid:
+    #   sidebar-width: 0px
+    #   body-width: 2000px
+    #   margin-width: 0px
+highlight-style: solarized
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
+# execute: 
+#   keep-md: true
+engine: knitr
+knitr:
+  opts_chunk:
+    R.options:
+      width: 1000
+editor_options: 
+  chunk_output_type: console
+---
+
+```{=html}
+<link rel="icon" type="image/png" href="favicon.png">
+```
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "package-r-data-science", 
+    files = c("package-r-data-science.qmd", 
+              "style.scss", "reborn_1.bib", 
+              "run_quarto.R",
+              "package-r-data-science.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+{{< downloadthis package-r-data-science.zip dname="package-r-data-science" label="RStudio project" icon=file-zip type=primary >}} <a href="http://thongkevavedothi.com/blog/package-r-data-science/package-r-data-science.txt" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> text</a> <a href="http://thongkevavedothi.com/blog/package-r-data-science/package-r-data-science.html" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> web</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Mở đầu
+
+R là ngôn ngữ lập trình để xử lý dữ liệu hàng đầu hiện nay, được thiết kế chuyên để xử lý thống kê và vẽ đồ thị. Đặc điểm của R là các câu lệnh được tối ưu để tính toán theo kiểu vector, ta có thể sử dụng các function từ gói package R Base mặc định cũng như từ các package chuyên môn (bản chất là các câu lệnh R được đóng gói thành function) để tính toán nhanh gọn một tác vụ xử lý dữ liệu cụ thể.
+
+Bạn có thể tham khảo danh sách tổng hợp các package chuyên môn theo chủ đề được nhóm phát triển R Core Team tổng hợp ở đây [CRAN Task Views](https://cran.r-project.org/web/views/).
+
+Trong file HTML này mình tổng hợp các package và chức năng mà mình thường sử dụng khi phân tích dữ liệu nghiên cứu. Hy vọng sẽ hữu ích cho bạn để nhanh chóng áp dụng các package này vào công việc. Các bạn có thể đóng góp thêm cho danh sách được đầy đủ bằng cách chia sẻ trên [Group Cộng Đồng Tự Học R](https://www.facebook.com/groups/tuhocr) nhé. Cảm ơn các bạn rất nhiều.
+
+Để hiểu rõ hơn cách cài đặt package trong R, bạn xem video này nhé. [Bài giảng](https://class.tuhocr.com/khoa-hoc/coding-in-r/bai-hoc/huong-dan-cach-cai-package/).
+
+Các câu lệnh nâng cao khi xử lý package trong R. [Link](#package-function)
+
+# Package R Base
+
+Khi mở phiên làm việc (session) trong RStudio, bạn dùng câu lệnh sau sẽ liệt kê các package mặc định của R Base.
+
+```{r}
+search()
+```
+
+
+
+# Các lệnh làm việc với packge {#package-function}
+
+```{r}
+# packageVersion("car")
+
+# install.packages("car")
+# remove.packages("car")
+
+# install.packages("https://cran.r-project.org/src/contrib/Archive/FAOSTAT/FAOSTAT_2.2.4.tar.gz",
+#                  repos = NULL, 
+#                  type = "source")
+
+# library(devtools)
+# install_version("ggplot2", version = "0.9.1", repos = "http://cran.us.r-project.org")
+
+# chỉ detach package và function thôi
+# unloadNamespace("plot.matrix")
+# 
+# detach("package:plot.matrix",
+#        unload = TRUE,
+#        force = TRUE)
+
+### detach triệt để package và method đi kèm
+# pkgload:::unload("plot.matrix")
+# devtools::unload("plot.matrix")
+```
+
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+
