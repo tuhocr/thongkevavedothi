@@ -1,19 +1,38 @@
-# [R Programming Course for Data Science | RPC](https://www.tuhocr.com/training)
+# [R Programming Course for Data Science | RPC](https://www.tuhocr.com/register)
 
 [**Nội dung chương trình theo dòng thời gian.**]{style="color:red"}
 
 ## K2-RPC [31/7/2026 – 22/8/2026] [record](https://class.tuhocr.com/k2-rpc/)
 
-- **Session 1 (T6 ngày 31/7/2026)**
+- **Session 1 (T6 ngày 31/7/2026)** [FB](https://www.facebook.com/groups/tuhocr/posts/1706778977061473/?__cft__[0]=AZYQZyQ8d20TZIWEdbq65cE33nN0de-XqQ_4b6JRFAyHNIvEvJEck3-8Fp1RLI1Q1SVAOlHIlT_jfnGb4YsPFVcV5c4nhN9rlMja77CUt7JnxEE-uau68JqX80bd6m8qSPMsfqTrlcILyELf3FCNIyclrYFc1GklnpoJX_mSVlb3B-FnPIqLBtaOYRLNLU3wBAZIN9Eaqv2ZJTI9fJEa5Rka&__tn__=%2CO%2CP-R)
 
   * Tương tự K1-RPC, bổ sung một số thảo luận về dùng AI viết code
   
   * Phân biệt giữa phương pháp lập trình dùng R Base và dùng package `dplyr`
 
-- **Session 2 (T7 ngày 1/8/2026)** đang cập nhật
+- **Session 2 (T7 ngày 1/8/2026)** [YouTube](https://youtu.be/FM92QZY9-6A?si=ZGRzTqOssKTaKtCF) |  [FB](https://www.facebook.com/groups/tuhocr/posts/1707985156940855/?__cft__[0]=AZYhDEiFFclisCLhoUzxVh0A_VDWg1Yn-EFkdLNR9UlcjdSSfgpbVY6Rx0tNEjI6S4bKG2fDXT-2EJ7uNRv0n2qN_P06pMaOYTQI39Adn7HapbOChnLYNLaENyhEyO2FGOVMFLmQBJ3IlYmUAMomhU4jFfox-y1ubT2CEOwNDS6yQKSfBWu2_DtDeQJycqXFAhw_lzPKdvEVg-ic5KPs2RgM&__tn__=%2CO%2CP-R)
 
+  * Cách thiết lập thư mục Project bằng RStudio
+
+  * Cách nhập/import dataset đúng cách
+
+  * Quy trình sử dụng Quarto/R Markdown để render file ghi chú
+  
+- **Session 3 (T6 ngày 7/8/2026)**
+
+  * Các lệnh căn bản về vector, mindset khi trích xuất dữ liệu theo vị trí index trên vector
+  
+  * Các lệnh căn bản về matrix, data frame và list
+
+- **Session 4 (T7 ngày 8/8/2026)**
+
+  * Cách import dữ liệu đầu vào ở các định dạng `.xlsx`, `.csv`, `.tsv`, `.sav`
+  
+  * Phối hợp lệnh `which()` và `%in%` để thay thế dữ liệu trong vector
+  
+  * Những lưu ý về cách học, định hướng việc học và coding trong thời đại AI
+  
 ---
-
 
 ## K1-RPC [19/6/2026 – 11/7/2026] [record](https://class.tuhocr.com/k1-rpc/)
 
@@ -34,7 +53,7 @@ xử lý trên vector và data frame.
 
   * Kỹ thuật lập trình R để thống kê mô tả, tóm tắt dữ liệu thành dạng bảng thuận tiện đưa vào Word, Excel
   
-- **Session 5 (T6 ngày 3/7/2026)** [YouTube](https://youtu.be/yqf9mM4nMcw?si=bDeD5zVT12P3_gqX)
+- **Session 5 (T6 ngày 3/7/2026)** [YouTube](https://youtu.be/yqf9mM4nMcw?si=bDeD5zVT12P3_gqX) | [FB](https://www.facebook.com/groups/tuhocr/posts/1685831452489559/?__cft__[0]=AZbJrbw4B7dhoDcTTnt8ywT-EbdO1zhvcH8I50CHJDqWZ8vOES5Rn_qZWoNqo9TCqd_FRqBRHS89GPG7mAcgQ9gkheuF5QjwLbp7NFlpMqnqOs1KxMFSBQlGhmsrBv_TgHLR1MNoguX_k1XH_2cATrTMVWz8fgv2lXwYq8-UJ_hn6O6BkERMDrNaqCoDwCOvTAolKeG3F-HpytIHNf7614LI&__tn__=%2CO%2CP-R)
 
   * Phương pháp lập trình tường minh sử dụng for-loop, if-else giúp tự động xử lý dữ liệu
 

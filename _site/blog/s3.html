@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favico.ico">
+  <title>Jakarta</title>
+  <style>
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+	body {
+        min-height: 100vh;
+        background: url("https://od.lk/d/OTZfMTExMDI1MTAyX2pkQTZC/cafe.png") no-repeat center center fixed;   
+    }
+  
+    .controls {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 3;
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+    }
+    .controls button {
+      background: rgba(0,0,0,0);
+      color: white;
+      border: 0;
+      padding: .45rem .6rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body style="background-color:black;">
+
+<audio id="bgAudio" autoplay>
+  <source src="https://od.lk/d/OTZfMTEwNTA4MTAzXw/jakarta.flac">
+</audio>  
+
+<div class="controls">
+
+  <button id="toggleBtn">Play</button>
+  <button id="nextBtn" onclick="window.location.href='https://kyniemboquen.com/life/';">Next</button>
+  
+</div>
+
+  
+<script>
+    const audio = document.getElementById("bgAudio");
+    const btn = document.getElementById("toggleBtn");
+	const nextBtn = document.getElementById("nextBtn");
+
+    btn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            btn.textContent = "Pause";
+        } else {
+            audio.pause();
+            btn.textContent = "Play";
+        }
+    });
+
+    audio.addEventListener("ended", () => {
+        nextBtn.click(); 
+    });
+</script>   
+   
+</body>
+</html>
