@@ -15,7 +15,7 @@ widgets:
     tags: package lattice, dot plot
     cran: true
     short: >
-      Hướng dẫn vẽ đồ thị dot plot cho dữ liệu amino acid.
+      Hướng dẫn vẽ đồ thị dot plot cho dữ liệu amino acid
   -
     name: Đồ thị cột, tô màu theo điều kiện
     url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-cot-to-mau-theo-dieu-kien
@@ -24,7 +24,7 @@ widgets:
     tags: package ggplot2, barchart
     cran: true
     short: >
-      Hướng dẫn vẽ đồ thị cột, tô màu theo điều kiện.
+      Hướng dẫn vẽ đồ thị cột, tô màu theo điều kiện
   -
     name: Đồ thị dot plot với khoảng tin cậy
     url: https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot.html
@@ -33,7 +33,7 @@ widgets:
     tags: package ggplot2, dot plot
     cran: true
     short: >
-      Hướng dẫn vẽ đồ thị dot plot. 
+      Hướng dẫn vẽ đồ thị dot plot
   -
     name: Đồ thị group dot plot 
     url: https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.html
@@ -42,7 +42,7 @@ widgets:
     tags: package ggplot2, dot plot
     cran: true
     short: >
-      Hướng dẫn vẽ đồ thị dot plot theo nhóm.
+      Hướng dẫn vẽ đồ thị dot plot theo nhóm
   -
     name: Hướng dẫn phân tích ANOVA 2 yếu tố
     url: https://thongkesinhhoc.com/phan-tich-anova-2-yeu-to-trong-r
