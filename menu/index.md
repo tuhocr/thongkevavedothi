@@ -2,7 +2,7 @@
 
 ### [Khóa học phân tích thống kê sử dụng R | Statistics using R](https://thongkevavedothi.com/training/STAT)
 
-### [Danh mục bài viết | Blog](https://thongkevavedothi.com/training/blog/)
+### [Danh mục bài viết | Blog](https://thongkevavedothi.com/blog/)
 
 
 
