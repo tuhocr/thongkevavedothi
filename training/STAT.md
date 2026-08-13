@@ -1,4 +1,4 @@
-# [Statistics using R | STAT](https://www.tuhocr.com/register)
+# [Statistics and Data Analysis with R | STAT](https://www.tuhocr.com/register)
 
 [**Nội dung chương trình theo dòng thời gian.**]{style="color:red"}
 
