@@ -17,6 +17,9 @@ format:
     embed-resources: true
     anchor-sections: true
     smooth-scroll: true
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
 engine: knitr
 knitr:
   opts_chunk:
@@ -25,6 +28,7 @@ knitr:
 editor_options: 
   chunk_output_type: console
 ---
+
 
 ```{r, echo=FALSE, results='hide'}
 knitr::opts_chunk$set(message = FALSE,  
