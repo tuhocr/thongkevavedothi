@@ -1,0 +1,402 @@
+---
+title: "Hướng dẫn phân tích one-way repeated measures ANOVA"
+author-title: <b>Biên soạn</b>
+author: Duc Nguyen | Founder of <a href="https://www.tuhocr.com/">**tuhocr.com**</a>
+site-url: https://www.tuhocr.com/
+published-title: <b>Cập nhật</b> 
+date: last-modified
+date-format: "YYYY MMMM DD"
+bibliography: reborn_1.bib
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 6
+    toc-location: left
+    number-sections: true
+    number-depth: 6
+    theme: [style.scss]
+    page-layout: full
+    # code-annotations: below # không thuận tiện cho 2 code chunk
+    embed-resources: false
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-tools:
+      source: http://thongkevavedothi.com/blog/huong-dan-phan-tich-anova-repeated/huong-dan-phan-tich-anova-repeated.txt
+    # grid:
+    #   sidebar-width: 0px
+    #   body-width: 2000px
+    #   margin-width: 0px
+highlight-style: atom-one
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
+# execute: 
+#   keep-md: true
+engine: knitr
+knitr:
+  opts_chunk:
+    R.options:
+      width: 1000
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "huong-dan-phan-tich-anova-repeated", 
+    files = c("huong-dan-phan-tich-anova-repeated.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "huong-dan-phan-tich-anova-repeated.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+{{< downloadthis huong-dan-phan-tich-anova-repeated.zip dname="huong-dan-phan-tich-anova-repeated" label="RStudio project" icon=file-zip type=primary >}} <a href="https://class.tuhocr.com/khoa-hoc/" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Mở đầu
+
+In one-way repeated measures design effect of one independent factor on some
+criterion variable is investigated by repeatedly testing all subjects in each treatment. 
+
+These levels of factor are referred as treatments. 
+
+Consider an experiment in which it is required to investigate the effect of different caffeine concentration on blood lactate. 
+
+One may take three levels of caffeine concentration in the experiment. 
+
+Here, caffeine is an independent factor and its different concentrations are treatments. 
+
+Since in this design subjects are tested under each treatment to avoid individual variation, each subject needs to be tested for their blood lactate level after consuming caffeine with different concentration.
+
+Sometimes, the researcher may also like to see the impact of training on the performance over a period of time. 
+
+For instance, one might be interested to know the effect of endurance training program on lungs capacity in different durations.
+
+The researcher may test the subjects before starting the experiment and after 2 weeks, 4 weeks, and 6 weeks of endurance training. 
+
+The purpose of such experiment is to investigate the behavioral trend of subjects in relation to the criterion variable over a period of time. 
+
+Sometimes, this design is also known as time series design and is similar to the repeated measures design. 
+
+Since each subject is repeatedly tested under different treatment conditions, this design is also known as within-group design or within-subjects design.
+
+Ưu và nhược của thiết kế này [link](https://filedn.com/lesyJpQOCafj7katNqunAxu/THANKS/anova/Verma%20-%20Repeated%20Measures%20Design%20for%20Empirical%20Researchers.pdf#page=98)
+
+# Dataset
+
+Dữ liệu được sử dụng theo ví dụ minh họa trang 78 [Verma, J. P. Repeated Measures Design for Empirical Researchers, 2016](https://docs.google.com/document/d/1diUnJqDCVdew_BN5KpP38P2lrCeuA8k4qIyvRMloOPo/edit?tab=t.skyag46mt85i).
+
+Bố trí thí nghiệm theo dõi tác động của việc "ngồi thiền/meditation" qua 6 tuần (biến yếu tố thời gian) đến "khả năng suy luận/reasoning ability" (biến outcome) của 10 người tham gia (biến ngẫu nhiên).
+
+```{r}
+library(readxl)
+df <- read_excel("data_oneway_anova_repeated.xlsx")
+
+df <- as.data.frame(df)
+
+df
+```
+
+**Lấy factor cột `subject`**
+
+```{r}
+df$subject <- factor(df$subject,
+                     levels = c("S1", "S2", "S3", "S4", "S5",
+                                "S6", "S7", "S8", "S9", "S10"))
+```
+
+
+**Chuyển về dạng long**
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+df %>% tidyr:::pivot_longer(
+  
+  cols = 2:5,
+  names_to = "week",
+  values_to = "score"
+  
+) -> df_long
+
+df_long <- as.data.frame(df_long)
+
+df_long |> dplyr:::arrange(subject, week) -> df_long
+
+df_long
+```
+
+
+# Mô tả dữ liệu
+
+```{r}
+df_long |> dplyr:::group_by(week) |> 
+  dplyr:::summarise(mean_score = mean(score),
+                    sd_score = sd(score)) |> as.data.frame() -> df_sum
+
+df_sum$note <- "subject_mean"
+
+df_sum
+```
+
+```{r, fig.width=8, fig.height=4}
+library(ggplot2)
+
+ggplot() +
+  
+  geom_line(data = df_long,
+       mapping = aes(x = week,
+                     y = score,
+                     group = subject,
+                     color = subject),
+       alpha = 0.2,
+       lwd = 2) +
+  
+ 
+  
+  geom_point(data = df_sum,
+            mapping = aes(x = week,
+                          y = mean_score),
+            size = 3,
+            color = "blue") +
+  
+  geom_line(data = df_sum,
+            mapping = aes(x = week,
+                          y = mean_score,
+                          group = note),
+            color = "blue",
+            alpha = 0.5,
+            lwd = 2) +
+  
+  geom_errorbar(data = df_sum,
+            mapping = aes(x = week,
+                          ymin = mean_score - sd_score,
+                          ymax = mean_score + sd_score,
+                          group = note),
+            color = "blue",
+            alpha = 0.9,
+            lwd = 1,
+            width = 0.2) +
+  
+  guides(color = guide_legend(override.aes = list(alpha = 1,
+                                                  lwd = 1))) +
+  
+  theme_bw(base_size = 16) +
+  
+  theme(axis.text = element_text(face = "bold", color = "black"),
+        axis.title = element_text(face = "bold", color = "black"),
+       
+        legend.text = element_text(face = "bold", color = "black"),
+        legend.title = element_text(face = "bold", color = "black")) +
+  
+  theme(legend.key.width = unit(1.5, "cm")) +
+  
+  labs(title = "Chỉ tiêu theo dõi thay đổi theo thời gian") +
+  
+   geom_point(data = df_long,
+       mapping = aes(x = week,
+                     y = score,
+                     group = subject),
+       position = position_jitter(height = 0,
+                                  width = 0.05),
+       color = "red",
+       alpha = 0.7) 
+  
+  
+```
+
+# Kiểm tra giả định
+
+## Giả định về phân bố chuẩn
+
+Mỗi tuần ta đều khảo sát trên 10 người, ta muốn đánh giá xem trung bình chỉ số "suy luận" có thay đổi theo từng tuần này không. Như vậy "week" là biến yếu tố. Ta xem xét dữ liệu ở từng tuần có tuân theo phân bố chuẩn hay không.
+
+**Dùng kiểm định Shapiro-Wilk Normality Test**
+
+```{r}
+library(rstatix)
+
+df_long %>% dplyr:::group_by(week) %>% rstatix:::shapiro_test(score) |> as.data.frame()
+```
+
+p-value > 0.05 là dữ liệu có phân bố chuẩn.
+
+**Dùng đồ thị QQ plot**
+
+```{r}
+library(ggplot2)
+library(qqplotr)
+ggplot(data = df_long,
+       mapping = aes(sample = score, 
+                     color = week, 
+                     fill = week)) +
+  
+    qqplotr:::stat_qq_band(alpha = 0.2) +
+  
+    qqplotr:::stat_qq_line() +
+  
+    qqplotr:::stat_qq_point() +
+
+    facet_wrap(~ week,
+               scale = "free",
+               nrow = 2,
+               ncol = 2) +
+  
+  theme_bw()
+```
+
+Hầu như các điểm dữ liệu đều nằm trong vùng 95% CI của đường reference line nên dữ liệu phân bố chuẩn.
+
+**Kiểm tra outlier**
+
+```{r}
+library(rstatix)
+
+df_long %>% dplyr:::group_by(week) %>% rstatix:::identify_outliers(score) |> as.data.frame()
+```
+
+Có 1 giá trị được xem như outlier. Ta có thể giữ lại giá trị này hoặc loại bỏ, tùy vào quyết định chuyên môn. Ở đây ta vẫn giữ lại giá trị này.
+
+## Giả định về sphericity
+
+Sphericity is an important assumption of a repeated-measures ANOVA. 
+
+It is the condition of equal variances among the differences between all possible pairs of within-subject conditions (i.e., levels of the independent variable).
+
+If sphericity is violated (i.e., if the variances of the differences between all combinations of the conditions are not equal), then the variance calculations may be distorted, which would result in an inflated F-ratio.
+
+H0: phương sai giữa các thời điểm đo bằng nhau.
+
+H1: phương sai giữa các thời điểm đo KHÔNG bằng nhau.
+
+Để thực hiện việc kiểm tra giả định này, ta dùng lệnh sau. Kết quả thu được W = 0.6223, p-value < 0.001 nghĩa là giả định về sphericity bị vi phạm. Phương sai giữa các thời điểm đo KHÔNG bằng nhau.
+
+Kết quả này cũng được *tính toán chung* với lệnh `rstatix:::anova_test()` khi thực hiện kiểm định one-way repeated measures ANOVA ở bước tiếp theo.
+
+```{r}
+df_m <- as.matrix(df[, -1])
+
+# names(dimnames(df_m)) <- c("subject", "week")
+# row.names(df_m) <- df$subject
+
+fit <- lm(df_m ~ 1)
+
+stats::mauchly.test(
+  fit,
+  X = ~1)
+```
+
+
+# Thực hiện kiểm định one-way repeated measures ANOVA
+
+## Cách 1: Dùng package `rstatix`
+
+```{r}
+# để xuất ra nhiều số thập phân hơn, bạn thay đổi giá trị của hàm anova_summary()
+
+# results <- results %>% map(~dplyr::mutate_if(., is.numeric, 
+#     round_value, 3)) # thay số 3 thành số 8
+
+# bằng lệnh này
+# trace("anova_summary", edit = T)
+```
+
+```{r}
+res.aov <- rstatix:::anova_test(data = df_long, 
+                                dv = score, 
+                                wid = subject, 
+                                within = week)
+res.aov        
+```
+
+Lưu ý là kết quả là p-value của ANOVA chưa hiệu chỉnh với sphericity. Vì giả định sphericity bị vi phạm, nên ta sẽ dùng p-value của dòng `Sphericity Corrections`
+
+```{r}
+res.aov$ANOVA
+```
+
+**Dùng kết quả này để báo cáo p-value cho one-way repeated measures ANOVA**
+
+```{r}
+res.aov$`Sphericity Corrections`
+```
+
+Cột `ges` (generalized eta-squared) trong bảng ANOVA chính là effect size
+
+```{r}
+get_anova_table(res.aov)     
+```
+
+
+
+# Tài liệu tham khảo
+
+1. <https://www.graphpad.com/guides/prism/latest/statistics/stat_checklist_1wayanova_rm.htm>
+
+2. <https://spssfocus.com/one-way-repeated-measures-anova-in-spss/>
+
+3. <https://www.datanovia.com/learn/biostatistics/anova/repeated-measures-anova-in-r>
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+

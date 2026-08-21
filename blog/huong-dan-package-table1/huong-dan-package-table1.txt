@@ -1,0 +1,177 @@
+---
+title: |
+   | Hướng dẫn sử dụng package `table1`
+author-title: <b>Biên soạn</b>
+author: Duc Nguyen | Founder of <a href="https://www.tuhocr.com/">**tuhocr.com**</a>
+site-url: https://www.tuhocr.com/
+published-title: <b>Cập nhật</b> 
+date: last-modified
+date-format: "YYYY MMMM DD"
+bibliography: reborn_1.bib
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 6
+    toc-location: left
+    number-sections: true
+    number-depth: 6
+    theme: [style.scss]
+    page-layout: full
+    # code-annotations: below # không thuận tiện cho 2 code chunk
+    embed-resources: false
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-tools:
+      source: http://thongkevavedothi.com/blog/huong-dan-package-table1/huong-dan-package-table1.txt
+    # grid:
+    #   sidebar-width: 0px
+    #   body-width: 2000px
+    #   margin-width: 0px
+highlight-style: atom-one
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
+# execute: 
+#   keep-md: true
+engine: knitr
+knitr:
+  opts_chunk:
+    R.options:
+      width: 1000
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "huong-dan-package-table1", 
+    files = c("huong-dan-package-table1.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "huong-dan-package-table1.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+{{< downloadthis huong-dan-package-table1.zip dname="huong-dan-package-table1" label="RStudio project" icon=file-zip type=primary >}} <a href="https://tuhocr.github.io/homework/" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> homework</a> <a href="https://thongkevavedothi.com/" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> website</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# **Thay dấu `.` decimal point thành dấu `,`**
+
+```{r}
+library(table1)
+library(flextable)
+library(magrittr)
+library(openxlsx)
+
+### render các biến category (gsub dấu . thành dấu ,)
+my.render.cat <- function(x) { 
+  
+  gsub(pattern = '.', 
+       replacement = ',', 
+       x = c("", 
+             sapply(table1:::stats.default(x), 
+                    FUN = function(y) { with(y, 
+                                             sprintf("%0.0f (%0.2f %%)", 
+                                                     FREQ, 
+                                                     PCT))}
+                        )),
+       fixed = TRUE) 
+  
+  
+}
+
+### render các biến numeric
+
+render.continuous.all <- function(x) {
+  
+    with(stats.default(x),
+         c("",
+           "Mean (SD)" = sprintf("%s (± %s)",
+                                 signif_pad(MEAN, digits = 3, decimal.mark = ","),
+                                 signif_pad(SD, digits = 3, decimal.mark = ",")),
+           
+           "Median [Min, Max]" = sprintf("%s [%s ; %s]",
+                                         signif_pad(MEDIAN, digits = 3, decimal.mark = ","),
+                                         signif_pad(MIN, digits = 3, decimal.mark = ","),
+                                         signif_pad(MAX, digits = 3, decimal.mark = ",")))
+         )
+  
+}
+
+###
+
+table_freq <- table1:::table1.formula( ~ . | vs,
+                       data = mtcars,
+                       topclass="Rtable1-grid",
+                       render.categorical = my.render.cat,
+                       render.continuous = render.continuous.all
+                       )
+
+table_freq
+```
+
+
+
+
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+
