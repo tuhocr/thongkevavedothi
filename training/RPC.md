@@ -32,6 +32,36 @@
   
   * Những lưu ý về cách học, định hướng việc học và coding trong thời đại AI
   
+- **Session 5 (T6 ngày 14/8/2026)**
+
+  * Kỹ thuật thống kê mô tả bằng package `table1`
+  
+  * Các kỹ thuật làm sạch missing value
+  
+  * Cơ chế lệnh if-else, for-loop
+ 
+- **Session 6 (T7 ngày 15/8/2026)**
+
+  * Kỹ thuật thống kê mô tả bằng package `table1` (tiếp theo)
+  
+  * Cách chỉnh sửa source và edit function
+  
+  * Các lệnh về factor và datetime vector
+  
+- **Session 7 (T6 ngày 21/8/2026)**
+
+  * Các lưu ý khi reshape dữ liệu
+  
+  * Kỹ thuật merge dữ liệu
+  
+  * Lệnh plot bằng Base R khi vẽ đồ thị
+
+- **Session 8 (T7 ngày 22/8/2026)**
+
+  * Lệnh plot bằng Base R khi vẽ đồ thị (tiếp theo)
+  
+  * Lệnh vẽ đồ thị bằng package `ggplot2`
+  
 ---
 
 ## K1-RPC [19/6/2026 – 11/7/2026] [record](https://class.tuhocr.com/k1-rpc/)
