@@ -1,6 +1,6 @@
-```{=html}
-<link rel="icon" type="image/png" href="favicon.png">
-```
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
 
 ```{r, echo=FALSE, results='hide'}
 knitr::opts_chunk$set(error = TRUE,        # suppress errors

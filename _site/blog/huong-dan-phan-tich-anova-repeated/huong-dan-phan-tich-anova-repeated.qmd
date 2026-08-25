@@ -1,0 +1,695 @@
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "huong-dan-phan-tich-anova-repeated", 
+    files = c("huong-dan-phan-tich-anova-repeated.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "huong-dan-phan-tich-anova-repeated.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+ <a href="https://class.tuhocr.com/khoa-hoc/" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Mở đầu
+
+Repeated measures one-way ANOVA dùng khi cùng một nhóm đối tượng được đo ở ≥3 điều kiện/thời điểm (khác với ANOVA thường — between-subjects — nơi mỗi điều kiện là nhóm người khác nhau). Lợi ích chính: mỗi đối tượng tự làm nhóm đối chứng cho chính mình, loại bỏ được phần biến thiên giữa các cá nhân và chỉ kiểm định đúng sự thay đổi trong nội bộ từng người. Trường hợp đặc biệt đáng nhớ: với đúng 2 thời điểm, repeated measures ANOVA và paired t-test cho kết quả giống hệt nhau — tức đây chính là mở rộng của paired t-test khi có ≥3 điều kiện
+
+In one-way repeated measures design effect of one independent factor on some criterion variable is investigated by repeatedly testing all subjects in each treatment. 
+
+These levels of factor are referred as treatments. 
+
+Consider an experiment in which it is required to investigate the effect of different caffeine concentration on blood lactate. 
+
+One may take three levels of caffeine concentration in the experiment. 
+
+Here, caffeine is an independent factor and its different concentrations are treatments. 
+
+Since in this design subjects are tested under each treatment to avoid individual variation, each subject needs to be tested for their blood lactate level after consuming caffeine with different concentration.
+
+Sometimes, the researcher may also like to see the impact of training on the performance over a period of time. 
+
+For instance, one might be interested to know the effect of endurance training program on lungs capacity in different durations.
+
+The researcher may test the subjects before starting the experiment and after 2 weeks, 4 weeks, and 6 weeks of endurance training. 
+
+The purpose of such experiment is to investigate the behavioral trend of subjects in relation to the criterion variable over a period of time. 
+
+Sometimes, this design is also known as time series design and is similar to the repeated measures design. 
+
+Since each subject is repeatedly tested under different treatment conditions, this design is also known as within-group design or within-subjects design.
+
+Ưu và nhược của thiết kế này [link](https://filedn.com/lesyJpQOCafj7katNqunAxu/THANKS/anova/Verma%20-%20Repeated%20Measures%20Design%20for%20Empirical%20Researchers.pdf#page=98)
+
+# Dataset
+
+Dữ liệu được sử dụng theo ví dụ minh họa trang 78 [Verma, J. P. Repeated Measures Design for Empirical Researchers, 2016](https://docs.google.com/document/d/1diUnJqDCVdew_BN5KpP38P2lrCeuA8k4qIyvRMloOPo/edit?tab=t.skyag46mt85i).
+
+Bố trí thí nghiệm theo dõi tác động của việc "ngồi thiền/meditation" qua 6 tuần (biến yếu tố thời gian) đến "khả năng suy luận/reasoning ability" (biến outcome) của 10 người tham gia (biến ngẫu nhiên).
+
+Dữ liệu có:
+
+10 đối tượng: S1–S10
+4 lần đo: week_0, week_2, week_4, week_6
+Cùng một đối tượng được đo lặp lại ở cả 4 thời điểm.
+
+```{r}
+library(readxl)
+df <- read_excel("data_oneway_anova_repeated.xlsx")
+
+df <- as.data.frame(df)
+
+df
+```
+
+**Lấy factor cột `subject`**
+
+```{r}
+df$subject <- factor(df$subject,
+                     levels = c("S1", "S2", "S3", "S4", "S5",
+                                "S6", "S7", "S8", "S9", "S10"))
+```
+
+
+**Chuyển về dạng long**
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+df %>% tidyr:::pivot_longer(
+  
+  cols = 2:5,
+  names_to = "week",
+  values_to = "score"
+  
+) -> df_long
+
+df_long <- as.data.frame(df_long)
+
+df_long |> dplyr:::arrange(subject, week) -> df_long
+
+df_long
+```
+
+
+# Mô tả dữ liệu
+
+```{r}
+df_long |> dplyr:::group_by(week) |> 
+  dplyr:::summarise(mean_score = mean(score),
+                    sd_score = sd(score),
+                    count = n()) |> as.data.frame() -> df_sum
+
+df_sum$se_score <- df_sum$sd_score / sqrt(df_sum$count) 
+
+df_sum$note <- "subject_mean"
+
+df_sum
+```
+
+```{r, fig.width=8, fig.height=4}
+library(ggplot2)
+
+ggplot() +
+  
+  geom_line(data = df_long,
+       mapping = aes(x = week,
+                     y = score,
+                     group = subject,
+                     color = subject),
+       alpha = 0.2,
+       lwd = 2) +
+  
+ 
+  
+  geom_point(data = df_sum,
+            mapping = aes(x = week,
+                          y = mean_score),
+            size = 3,
+            color = "blue") +
+  
+  geom_line(data = df_sum,
+            mapping = aes(x = week,
+                          y = mean_score,
+                          group = note),
+            color = "blue",
+            alpha = 0.5,
+            lwd = 2) +
+  
+  geom_errorbar(data = df_sum,
+            mapping = aes(x = week,
+                          ymin = mean_score - se_score,
+                          ymax = mean_score + se_score,
+                          group = note),
+            color = "blue",
+            alpha = 0.9,
+            lwd = 1,
+            width = 0.2) +
+  
+  guides(color = guide_legend(override.aes = list(alpha = 1,
+                                                  lwd = 1))) +
+  
+  theme_bw(base_size = 16) +
+  
+  theme(axis.text = element_text(face = "bold", color = "black"),
+        axis.title = element_text(face = "bold", color = "black"),
+       
+        legend.text = element_text(face = "bold", color = "black"),
+        legend.title = element_text(face = "bold", color = "black")) +
+  
+  theme(legend.key.width = unit(1.5, "cm")) +
+  
+  labs(title = "Chỉ tiêu theo dõi thay đổi theo thời gian",
+       subtitle = "Mean ± SE") +
+  
+   geom_point(data = df_long,
+       mapping = aes(x = week,
+                     y = score,
+                     group = subject),
+       position = position_jitter(height = 0,
+                                  width = 0.05),
+       color = "red",
+       alpha = 0.7) 
+  
+  
+```
+
+# Kiểm tra giả định
+
+## Giả định về phân bố chuẩn
+
+Mỗi tuần ta đều khảo sát trên 10 người, ta muốn đánh giá xem trung bình chỉ số "suy luận" có thay đổi theo từng tuần này không. Như vậy "week" là biến yếu tố. Ta xem xét dữ liệu ở từng tuần có tuân theo phân bố chuẩn hay không.
+
+**Dùng kiểm định Shapiro-Wilk Normality Test**
+
+```{r}
+library(rstatix)
+
+df_long %>% dplyr:::group_by(week) %>% rstatix:::shapiro_test(score) |> as.data.frame()
+```
+
+p-value > 0.05 là dữ liệu có phân bố chuẩn.
+
+**Dùng đồ thị QQ plot**
+
+```{r}
+library(ggplot2)
+library(qqplotr)
+ggplot(data = df_long,
+       mapping = aes(sample = score, 
+                     color = week, 
+                     fill = week)) +
+  
+    qqplotr:::stat_qq_band(alpha = 0.2) +
+  
+    qqplotr:::stat_qq_line() +
+  
+    qqplotr:::stat_qq_point() +
+
+    facet_wrap(~ week,
+               scale = "free",
+               nrow = 2,
+               ncol = 2) +
+  
+  theme_bw()
+```
+
+Hầu như các điểm dữ liệu đều nằm trong vùng 95% CI của đường reference line nên dữ liệu phân bố chuẩn.
+
+**Kiểm tra outlier**
+
+```{r}
+library(rstatix)
+
+df_long %>% dplyr:::group_by(week) %>% rstatix:::identify_outliers(score) |> as.data.frame()
+```
+
+Có 1 giá trị được xem như outlier. Ta có thể giữ lại giá trị này hoặc loại bỏ, tùy vào quyết định chuyên môn. Ở đây ta vẫn giữ lại giá trị này.
+
+## Giả định về sphericity
+
+Sphericity is an important assumption of a repeated-measures ANOVA. 
+
+It is the condition of equal variances among the differences between all possible pairs of within-subject conditions (i.e., levels of the independent variable).
+
+If sphericity is violated (i.e., if the variances of the differences between all combinations of the conditions are not equal), then the variance calculations may be distorted, which would result in an inflated F-ratio.
+
+phương sai của hiệu số giữa mọi cặp điều kiện phải bằng nhau. Nếu vi phạm, phải hiệu chỉnh bậc tự do bằng Greenhouse-Geisser (GG) hoặc Huynh-Feldt (HF).
+
+H0: phương sai giữa các thời điểm đo bằng nhau.
+
+H1: phương sai giữa các thời điểm đo KHÔNG bằng nhau.
+
+Để thực hiện việc kiểm tra giả định này, ta dùng lệnh sau. Kết quả thu được W = 0.6223, p-value < 0.001 nghĩa là giả định về sphericity bị vi phạm. Phương sai giữa các thời điểm đo KHÔNG bằng nhau.
+
+Kết quả này cũng được *tính toán chung* với lệnh `rstatix:::anova_test()` khi thực hiện kiểm định one-way repeated measures ANOVA ở bước tiếp theo.
+
+```{r}
+df_m <- as.matrix(df[, -1])
+
+# names(dimnames(df_m)) <- c("subject", "week")
+# row.names(df_m) <- df$subject
+
+fit <- lm(df_m ~ 1)
+
+stats::mauchly.test(
+  fit,
+  X = ~1)
+```
+
+
+# Thực hiện kiểm định one-way repeated measures ANOVA
+
+## Cách 1: Dùng package `rstatix`
+
+```{r}
+# để xuất ra nhiều số thập phân hơn, bạn thay đổi giá trị của hàm anova_summary()
+
+# results <- results %>% map(~dplyr::mutate_if(., is.numeric, 
+#     round_value, 3)) # thay số 3 thành số 8
+
+# bằng lệnh này
+# trace("anova_summary", edit = T)
+```
+
+```{r}
+res.aov <- rstatix:::anova_test(data = df_long, 
+                                dv = score, 
+                                wid = subject, 
+                                within = week)
+res.aov        
+```
+
+Lưu ý là kết quả là p-value của ANOVA chưa hiệu chỉnh với sphericity. Vì giả định sphericity bị vi phạm, nên ta sẽ dùng p-value của dòng `Sphericity Corrections`
+
+```{r}
+res.aov$ANOVA
+```
+
+**Dùng kết quả này để báo cáo p-value cho one-way repeated measures ANOVA**
+
+[GG] là viết tắt của việc hiệu chỉnh p-value theo Greenhouse-Geisser
+```{r}
+res.aov$`Sphericity Corrections`
+```
+
+
+Cột `ges` (generalized eta-squared $\eta^2$) trong bảng ANOVA chính là effect size là 0.393, cho thấy hiệu ứng khá lớn, kết quả này thuyết phục.
+
+η²p = 0.277 → hiệu ứng lớn (theo Cohen: 0.01 = nhỏ, 0.06 = trung bình, 0.14 = lớn).
+
+Điều này có nghĩa là 27.7% phương sai của điểm số được giải thích bởi yếu tố thời gian.
+
+```{r}
+get_anova_table(res.aov,
+                correction = "none")     
+
+# when sphericity is violated, get_anova_table() applies the Greenhouse-Geisser correction automatically
+
+get_anova_table(res.aov,
+                correction = "GG")   
+
+get_anova_table(res.aov,
+                correction = "HF")   
+```
+
+→ Vẫn có sự khác biệt có ý nghĩa thống kê giữa các thời điểm.
+
+Thời điểm có ảnh hưởng có ý nghĩa thống kê đến outcome.
+
+## Cách 2: Dùng package `car`
+
+```{r}
+library(car)
+Y <- cbind(
+  week_0 = df$week_0,
+  week_2 = df$week_2,
+  week_4 = df$week_4,
+  week_6 = df$week_6
+)
+
+fit <- lm(Y ~ 1)
+
+idata <- data.frame(
+  week = factor(
+    c("week_0", "week_2", "week_4", "week_6")
+  )
+)
+
+fit_rm <- car:::Anova(
+  fit,
+  idata = idata,
+  idesign = ~ week
+)
+
+summary(fit_rm, 
+        multivariate = F,
+        univariate = T)
+```
+
+## Cách 3: Dùng package `afex`
+
+```{r}
+fit <- afex::aov_ez(
+  id = "subject",
+  dv = "score",
+  within = "week",
+  data = df_long
+)
+
+# yêu cầu báo cáo partial eta squared.
+
+nice(
+  fit,
+  correction = "none",
+  es = "pes"
+)
+
+nice(
+  fit,
+  correction = "GG",
+  es = "pes"
+)
+
+nice(
+  fit,
+  correction = "HF",
+  es = "pes"
+)
+```
+
+
+
+### Cách 4: dùng package ez
+
+https://rpubs.com/mwymelody830/RM-ANOVA
+
+### Cách 5: Dùng base R
+
+
+
+
+
+
+# Post hoc multiple comparison
+
+## Cách 1
+
+```{r}
+library(ggpubr)
+
+pwc <- df_long %>%
+  pairwise_t_test(score ~ week, 
+                  paired = TRUE, 
+                  p.adjust.method = "bonferroni") 
+
+pwc <- pwc %>% add_xy_position(x = "week") 
+
+pwc -> pwc_ori
+
+pwc_ori <- as.data.frame(pwc_ori)
+
+pwc_ori
+```
+
+Nói cách khác, week 6 cao hơn đáng kể so với week 0 và week 2, nhưng sự tăng từ week 4 → week 6 chưa đạt ý nghĩa thống kê sau điều chỉnh Holm.
+
+## Cách 2
+
+```{r}
+library(emmeans)
+
+fit <- afex::aov_ez(
+  id = "subject",
+  dv = "score",
+  within = "week",
+  data = df_long
+)
+
+emmeans(
+  fit,
+  pairwise ~ week,
+  adjust = "holm"
+)
+
+emm <- emmeans(fit, ~ week)
+
+pairs(
+  emm,
+  adjust = "holm"
+)
+```
+
+# Đồ thị
+
+## Cách 1
+
+```{r}
+ggboxplot(df_long, 
+          x = "week", 
+          y = "score",
+          add = "point",
+          color = "black",
+          fill = "week") +
+  
+  stat_pvalue_manual(pwc, tip.length = 0) +
+  
+  labs(subtitle = get_test_label(res.aov,
+                                 detailed = TRUE),
+       caption  = get_pwc_label(pwc)) 
+```
+
+## Cách 2
+
+áp code ggsignif
+
+```{r, fig.width=8, fig.height=4}
+library(ggplot2)
+
+ggplot() +
+  
+  geom_line(data = df_long,
+       mapping = aes(x = week,
+                     y = score,
+                     group = subject,
+                     color = subject),
+       alpha = 0.2,
+       lwd = 2) +
+  
+ 
+  
+  geom_point(data = df_sum,
+            mapping = aes(x = week,
+                          y = mean_score),
+            size = 3,
+            color = "blue") +
+  
+  geom_line(data = df_sum,
+            mapping = aes(x = week,
+                          y = mean_score,
+                          group = note),
+            color = "blue",
+            alpha = 0.5,
+            lwd = 2) +
+  
+  geom_errorbar(data = df_sum,
+            mapping = aes(x = week,
+                          ymin = mean_score - sd_score,
+                          ymax = mean_score + sd_score,
+                          group = note),
+            color = "blue",
+            alpha = 0.9,
+            lwd = 1,
+            width = 0.2) +
+  
+  guides(color = guide_legend(override.aes = list(alpha = 1,
+                                                  lwd = 1))) +
+  
+  theme_bw(base_size = 16) +
+  
+  theme(axis.text = element_text(face = "bold", color = "black"),
+        axis.title = element_text(face = "bold", color = "black"),
+       
+        legend.text = element_text(face = "bold", color = "black"),
+        legend.title = element_text(face = "bold", color = "black")) +
+  
+  theme(legend.key.width = unit(1.5, "cm")) +
+  
+  labs(title = "Chỉ tiêu theo dõi thay đổi theo thời gian") +
+  
+   geom_point(data = df_long,
+       mapping = aes(x = week,
+                     y = score,
+                     group = subject),
+       position = position_jitter(height = 0,
+                                  width = 0.05),
+       color = "red",
+       alpha = 0.7) 
+```
+
+8. Kết luận thống kê
+
+Giá trị trung bình của biến phụ thuộc có xu hướng tăng theo thời gian.
+
+One-way repeated measures ANOVA cho thấy sự khác biệt giữa 4 thời điểm là có ý nghĩa thống kê (F(3,27) = 6.59, p = 0.0018).
+
+Kiểm định post-hoc chỉ ra rằng:
+
+Tuần 0 khác biệt có nghĩa so với tuần 6 (p = 0.004).
+
+Tuần 2 khác biệt có nghĩa so với tuần 6 (p = 0.024).
+
+Các cặp còn lại không khác biệt đáng kể.
+
+Kết quả này gợi ý rằng hiệu quả can thiệp (nếu có) chỉ thực sự rõ rệt ở thời điểm cuối (tuần 6) so với giai đoạn đầu.
+
+Kết quả chính nên báo cáo là:
+
+A one-way repeated-measures ANOVA was conducted to examine changes in the outcome across four time points (week 0, week 2, week 4, and week 6). Mauchly's test indicated that the assumption of sphericity was violated, χ
+2
+(3)=20.82,p<.001. Therefore, Greenhouse–Geisser correction was applied. There was a significant effect of time on the outcome, F(1.64,14.73)=7.28,p=.009,η
+p
+2
+	​
+
+=.447. Holm-adjusted pairwise comparisons showed that scores at week 6 were significantly higher than those at week 0 (p<.001) and week 2 (p<.001). Other pairwise differences were not statistically significant.
+
+Nếu viết theo kiểu báo cáo tiếng Việt:
+
+Phân tích ANOVA một yếu tố với phép đo lặp lại cho thấy có sự khác biệt có ý nghĩa thống kê về điểm số giữa bốn thời điểm. Kiểm định Mauchly cho thấy giả định tính cầu phương bị vi phạm, χ
+2
+(3)=20.82,p<0.001. Do đó, hiệu chỉnh Greenhouse–Geisser được áp dụng. Kết quả cho thấy có ảnh hưởng có ý nghĩa của thời điểm, F(1.64,14.73)=7.28,p=0.009,η
+p
+2
+	​
+
+=0.447. Phân tích hậu nghiệm với hiệu chỉnh Holm cho thấy điểm số ở tuần 6 cao hơn có ý nghĩa so với tuần 0 và tuần 2 (đều p<0.001). Các cặp thời điểm còn lại không có sự khác biệt có ý nghĩa thống kê.
+
+
+
+
+
+
+
+# Chạy Friedman test
+
+Một kiểm tra bổ sung rất đáng làm
+
+Dữ liệu chỉ có n = 10, khá nhỏ. Vì vậy tao chạy thêm Friedman test như một phân tích phi tham số kiểm tra độ bền của kết luận.
+
+Kết quả:
+
+χ
+2
+(3)=17.289,p<0.001
+
+→ Friedman test cũng cho kết luận có sự khác biệt giữa các thời điểm.
+
+Điều này củng cố kết luận của repeated-measures ANOVA.
+
+```{r}
+friedman_result <- df_long %>%
+  friedman_test(
+    score ~ week | subject
+  )
+
+friedman_result
+```
+
+```{r}
+stats::friedman.test(
+  score ~ week | subject,
+  data = df_long
+)
+```
+
+Tính effect size cho Friedman test
+Nếu:
+
+p < 0.05
+
+thì chỉ biết rằng ít nhất một thời điểm khác các thời điểm còn lại.
+
+Phải chạy pairwise comparison.
+
+```{r}
+friedman_effect <- df_long %>%
+  friedman_effsize(
+    score ~ week | subject
+  )
+
+friedman_effect
+```
+
+
+
+
+
+# Tài liệu tham khảo
+
+1. <https://www.graphpad.com/guides/prism/latest/statistics/stat_checklist_1wayanova_rm.htm>
+
+2. <https://spssfocus.com/one-way-repeated-measures-anova-in-spss/>
+
+3. <https://www.datanovia.com/learn/biostatistics/anova/repeated-measures-anova-in-r>
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+

@@ -1,0 +1,91 @@
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "t-test-effect-size-sample-size-power-type-i-ii-error-p-value", 
+    files = c("t-test-effect-size-sample-size-power-type-i-ii-error-p-value.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "t-test-effect-size-sample-size-power-type-i-ii-error-p-value.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+ <a href="https://class.tuhocr.com/khoa-hoc/" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Effect size
+
+Efect size is equivalent to minimum detectable diference in a hypothesis testing experiment. 
+
+It is a method of quantifying the diference between the two groups’ means. 
+
+Since diferent variables have diferent units, hence, in order to standardize, the efect size is obtained by the following formula:
+
+$$\text{effect size} = \frac{\text{trung bình của nhóm dùng thuốc} - \text{trung bình của nhóm đối chứng}}{\text{độ lệch chuẩn}}$$
+
+Effect size can be defned as the strength of relationship between the intervention and the variable on which its effect is investigated. 
+
+It determines the practical signifcance of the effect in the experiments.
+
+
+# Tài liệu tham khảo
+
+1. Effect size, trang 25 [Verma, J. P., and Priyam Verma. Determining Sample Size and Power in Research Studies: A Manual for Researchers. Springer Singapore, 2020. ](https://docs.google.com/document/d/1diUnJqDCVdew_BN5KpP38P2lrCeuA8k4qIyvRMloOPo/edit?tab=t.skyag46mt85i).
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+

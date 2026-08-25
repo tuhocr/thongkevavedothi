@@ -1,0 +1,133 @@
+/*-- scss:defaults --*/
+
+/* syntax cho quarto */
+// Base document colors
+/* $body-bg: #181818; */
+/* $body-color: white; */
+$link-color: blue; /* đổi màu hyperlink */
+
+/* syntax cho html (style từ css) */
+.title {
+    margin-bottom: 0;
+    text-align: center;
+    color: #FF007F;
+    font-weight: bold;
+}
+
+/* https://www.w3schools.com/cssref/sel_id.php */
+
+.toc-active {
+  color: black;
+  font-weight: bold;
+}
+
+#toc-title {
+  color: black;
+  font-weight: bold;
+}
+
+/*
+quarto-title-meta {
+    margin-bottom: 0;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+*/
+
+.quarto-title-meta-heading {
+    margin-bottom: 0;
+    text-align: center;
+    color: #00008B;
+    font-weight: bold;
+}
+
+.quarto-title-meta-contents {
+    margin-bottom: 0;
+    text-align: center;
+    color: #00008B;
+    font-weight: bold;
+}
+
+/* syntax cho multiple columns */
+.multiple .column {
+  width: auto;
+  margin: 5px;
+}
+
+.multiple .columns {
+  display: flex;
+}
+
+@media (max-width: 1000px) {
+  .multiple .column {
+    width: auto;
+  }
+
+.multiple .columns {
+   display: flex;
+   flex-direction: column;
+  }
+}
+
+/* syntax cho table bootstrap */
+
+table.table-bordered{
+    border:1px solid black;
+    margin-top:20px;
+  }
+table.table-bordered > thead > tr > th{
+    border:1px solid black;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
+
+/* https://stackoverflow.com/questions/41646011/how-to-change-the-border-color-of-bootstrap-table-using-inline-css */
+
+
+/* top */
+
+#scrollBtnTop {
+  /*display: none;  Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 80px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: 2px solid #FF007F; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #00000000; /* Set a background color */
+  color: #FF007F; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Increase font size */
+}
+
+#scrollBtnTop:hover {
+  background-color: #FF007F; /* Add a dark-grey background on hover */
+  color: white;
+}
+
+/* https://codereview.stackexchange.com/questions/266156/scroll-top-bottom-button */
+
+#scrollBtn {
+  /*display: none;  Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: 2px solid #FF007F; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #00000000; /* Set a background color */
+  color: #FF007F; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Increase font size */
+}
+
+#scrollBtn:hover {
+  background-color: #FF007F; /* Add a dark-grey background on hover */
+  color: white;
+}

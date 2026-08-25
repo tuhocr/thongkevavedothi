@@ -32,7 +32,7 @@
   
   * Những lưu ý về cách học, định hướng việc học và coding trong thời đại AI
   
-- **Session 5 (T6 ngày 14/8/2026)**
+- **Session 5 (T6 ngày 14/8/2026)** [FB](https://www.facebook.com/groups/tuhocr/posts/1715446609528043)
 
   * Kỹ thuật thống kê mô tả bằng package `table1`
   
@@ -56,7 +56,7 @@
   
   * Lệnh plot bằng Base R khi vẽ đồ thị
 
-- **Session 8 (T7 ngày 22/8/2026)**
+- **Session 8 (T7 ngày 22/8/2026)** [FB](https://www.facebook.com/groups/tuhocr/posts/1724797118592992)
 
   * Lệnh plot bằng Base R khi vẽ đồ thị (tiếp theo)
   
