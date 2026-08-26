@@ -1,0 +1,157 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="oexL0nYpBycFURwm00-V">
+    <mxGraphModel dx="1946" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="1 biến X&lt;div&gt;&lt;div&gt;Univariate analysis&lt;/div&gt;&lt;div&gt;Phân tích đơn biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-8" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Biến liên tục (continuous)&lt;div&gt;(chiều cao,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;cân nặng,&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;độ tuổi, ...)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="-40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-12" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Biến phân loại (categorical)&lt;div&gt;(giới tính, màu sắc,&amp;nbsp;&lt;/div&gt;&lt;div&gt;thang đo Likert, ...)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-5" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-2" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="CNUaKIz-W7LVmkYr1Uqd-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="310" as="sourcePoint" />
+            <mxPoint x="450" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-6" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-2" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="CNUaKIz-W7LVmkYr1Uqd-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-10" y="210" as="sourcePoint" />
+            <mxPoint x="40" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-10" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-7" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Mean, Variance, SD&lt;div&gt;Median,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Quantitle&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Min,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Max&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Mode&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="-40" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-14" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-9" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Boxplot&lt;div&gt;Histogram&lt;/div&gt;&lt;div&gt;Q-Q plot&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Distribution&lt;/div&gt;&lt;div&gt;Skewness&lt;/div&gt;&lt;div&gt;Kurtosis&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="160" x="-40" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-2" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-11" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Frequency (count)&lt;div&gt;Proportion (percent)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-20" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-13" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Remove outlier" vertex="1">
+          <mxGeometry height="30" width="160" x="-40" y="616.3" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-22" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-21" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-19" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="&lt;div&gt;Kiểm tra phân bố chuẩn của vector X&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Shapiro-Wilk Normality Test&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;shapiro.test(x)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;p &amp;gt; 0.05 là phân bố chuẩn&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kolmogorov-Smirnov Tests&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;ks.test(x, &quot;pnorm&quot;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;p &amp;gt; 0.05 là phân bố chuẩn&lt;/div&gt;" vertex="1">
+          <mxGeometry height="155" width="240" x="-80" y="688.7" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-23" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-22" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-21" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Transform biến X từ dạng chưa chuẩn thành chuẩn&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;log-transform&lt;/div&gt;&lt;div&gt;Box-Cox transformation&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="160" x="-160" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-1" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Barchart&lt;div&gt;Piechart&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="2 biến X và Y&lt;div&gt;&lt;div&gt;Bivariate analysis&lt;/div&gt;&lt;div&gt;Phân tích hai biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="920" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-21" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="2 biến liên tục&lt;div&gt;X numeric (chiều cao)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y numeric (cân nặng)&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="599.0600000000001" y="239.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="&lt;div&gt;1 biến liên tục, 1 biến phân loại&lt;/div&gt;X&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;categorical&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y numeric&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="1241" y="239.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Dữ liệu trước khi đưa vào phân tích thống kê đã được làm sạch missing value và chuẩn hóa.&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="240" x="-360" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="&lt;div&gt;2 biến phân loại&lt;/div&gt;X categorical,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y categorical&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="920" y="239.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-17" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="919.6099999999996" y="199.99999999999977" as="sourcePoint" />
+            <mxPoint x="869.61" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-30" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-29" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Kiểm tra riêng biệt đặc trưng dữ liệu của từng biến&amp;nbsp;&lt;div&gt;(Univariate analysis)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="599.0600000000001" y="359.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-22" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="&lt;div&gt;Dữ liệu phân bố chuẩn&lt;/div&gt;&lt;div&gt;paramatric&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;one sample t-test&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="-160" y="1059" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-24" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Không thực hiện biến đổi dữ liệu" vertex="1">
+          <mxGeometry height="60" width="160" x="80" y="899" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-25" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-24" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="960" as="sourcePoint" />
+            <mxPoint x="60" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-27" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="&lt;div&gt;Dữ liệu không phân bố chuẩn&lt;/div&gt;&lt;div&gt;nonparametric&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;one sample Wilcoxon test&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="70" y="1059" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-28" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-27" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="980" as="sourcePoint" />
+            <mxPoint x="230" y="1039" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-32" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Tìm hệ số tương quan correlation&lt;br&gt;&lt;div&gt;cor(X,Y)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;method Pearson: parametric&lt;/div&gt;&lt;div&gt;method Spearman, Kendall: nonparametric&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Các chỉ số khác:&lt;div&gt;cov(X, Y) hiệp phương sai giữa hai biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130.39" width="280" x="559.06" y="449.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-34" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-33" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Đồ thị scatterplot:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;plot(x, y)&lt;br&gt;Đưa thêm đường ellipse&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;mật độ xác suất của 2 biến x và y&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="280" x="559.06" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Hồi quy đơn biến&amp;nbsp;&lt;div&gt;Ordinary least squares (OLS) regression&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Courier New&quot;&gt;fit &amp;lt;- lm(y ~ x)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90.39" width="280" x="559.06" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-35" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-3" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="nUqFJHozvEOeFcWw0bwK-15" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1240.6099999999997" y="420" as="sourcePoint" />
+            <mxPoint x="1020" y="460.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-36" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-3" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1180" y="390" as="sourcePoint" />
+            <mxPoint x="1180" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;spacingLeft=11.811;spacingRight=11.811;spacingTop=11.811;spacingBottom=11.811;" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0);&quot;&gt;R được xây dựng trên các lệnh tính toán thống kê theo trường phái Frequentist (tần suất) là trường phái chủ đạo trong xác suất thống kê&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0);&quot;&gt;(tìm hiểu Sir Ronald Fisher tranh luận về trường phái Bayesian).&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Các kiểm định giả thuyết này có một phiên bản tương đương theo cách tiếp cận Bayesian. Bạn có thể học song song, hoặc nắm chắc cách tiếp cận Frequentist để hiểu căn bản về lập luận thống kê truyền thống rồi từ đó đối chiếu với trường phái Bayesian.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240.39" width="240" x="-360" y="319.61" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
