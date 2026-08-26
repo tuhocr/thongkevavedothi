@@ -1,0 +1,136 @@
+---
+title: "Hướng dẫn cách vẽ đường ellipse trong R"
+author-title: <b>Biên soạn</b>
+author: Duc Nguyen | Founder of <a href="https://www.tuhocr.com/">**tuhocr.com**</a>
+site-url: https://www.tuhocr.com/
+published-title: <b>Cập nhật</b> 
+date: last-modified
+date-format: "YYYY MMMM DD"
+bibliography: reborn_1.bib
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 6
+    toc-location: left
+    number-sections: true
+    number-depth: 6
+    theme: [style.scss]
+    page-layout: full
+    # code-annotations: below # không thuận tiện cho 2 code chunk
+    embed-resources: false
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-tools:
+      source: http://thongkevavedothi.com/blog/huong-dan-phan-tich-anova-repeated/huong-dan-phan-tich-anova-repeated.txt
+    # grid:
+    #   sidebar-width: 0px
+    #   body-width: 2000px
+    #   margin-width: 0px
+highlight-style: atom-one
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
+# execute: 
+#   keep-md: true
+engine: knitr
+knitr:
+  opts_chunk:
+    R.options:
+      width: 1000
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r", 
+    files = c("huong-dan-cach-ve-duong-ellipse-trong-r.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "huong-dan-cach-ve-duong-ellipse-trong-r.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+{{< downloadthis huong-dan-cach-ve-duong-ellipse-trong-r.zip dname="huong-dan-cach-ve-duong-ellipse-trong-r" label="RStudio project" icon=file-zip type=primary >}} <a href="https://class.tuhocr.com/khoa-hoc/" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Định nghĩa
+
+Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
+
+```{r}
+library(car)
+
+car:::dataEllipse(x = trees$Height, 
+                  y = trees$Volume,
+                  xlim = c(60, 95),
+                  ylim = c(-10, 80),
+                  levels = c(0.5, 0.9, 0.95), 
+                  ellipse.label = c(0.5, 0.9, 0.95), 
+                  lty = 2, 
+                  fill = TRUE, 
+                  fill.alpha = 0.1)
+```
+
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+
