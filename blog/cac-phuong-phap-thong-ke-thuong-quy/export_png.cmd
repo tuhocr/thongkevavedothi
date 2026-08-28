@@ -1,1 +1,1 @@
-draw.io --export --format png --scale 2 --output "E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/ok.png" "E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/roadmap.drawio"        
+draw.io --export --format png --scale 2 --output "E:/GITHUB/thongkevavedothi/roadmap.png" "E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/roadmap.drawio"        
