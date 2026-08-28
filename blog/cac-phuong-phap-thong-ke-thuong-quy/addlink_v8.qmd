@@ -289,7 +289,7 @@ gsub(pattern = xlink_rm,
 
 ```{r}
 writeLines(svg_raw, 
-           "E:/GITHUB/thongkevavedothi/stat.svg",
+           "E:/GITHUB/thongkevavedothi/roadmap.svg",
            # "Y:/Public Folder/SHARE/chuan_ok.svg",
            useBytes = F)
 
