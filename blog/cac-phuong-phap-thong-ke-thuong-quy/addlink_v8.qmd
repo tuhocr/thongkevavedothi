@@ -30,6 +30,7 @@ shape có reference đến shape thì ta chèn vị trí ID (với đường d�
 
 ```{r}
 system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export.cmd')
+system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export_png.cmd')
 ```
 
 # PARSE XUỐNG DÒNG ĐỂ TÌM RA LIST ID
