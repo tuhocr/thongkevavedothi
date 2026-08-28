@@ -1,0 +1,305 @@
+---
+title: "addlink"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+draw.io v31.3.2
+
+# CORE
+
+```{r}
+library(foreach)
+library(doParallel)
+
+# How many cores does your CPU have
+n_cores <- detectCores()
+n_cores
+cluster <- makeCluster(n_cores - 1)
+registerDoParallel(cluster)
+```
+
+ý tưởng là drawio xuất ra file svg ở dạng xml bị dính vào nhau, nên ta cần chạy trước 1 package xml để rã file xml nhằm lấy số ID.
+
+khi các shape bình thường thì ta chèn vị trí ID là xong
+
+shape có reference đến shape thì ta chèn vị trí ID (với đường dẫn xlink) để cho đúng.
+
+# RENDER
+
+```{r}
+system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export.cmd')
+```
+
+# PARSE XUỐNG DÒNG ĐỂ TÌM RA LIST ID
+
+```{r}
+library(xml2)
+
+doc <- read_xml("chuan.svg")
+
+xml_children(doc) -> yes
+
+write_xml(doc, "yes.xml", options = "format")
+
+svg_source <- readLines("yes.xml", encoding = "UTF-8")
+
+cat(svg_source, sep = "\n")
+
+svg_source
+
+grep(pattern = "data-cell-id=",
+     svg_source,
+     value = T) -> id_check
+
+cat(id_check, sep = "\n")
+nchar(id_check)
+```
+
+
+```{r}
+id_check[nchar(id_check) >= 49] -> id_check
+
+gsub(pattern = "        <g ",
+     replacement = "",
+     id_check) -> id_check
+
+cat(id_check, sep = "\n")
+```
+
+### ***rà thêm xlink**
+
+```{r}
+grep(pattern = "xlink:href=\"file:///",
+     svg_source,
+     value = F) -> id_xlink
+
+id_xlink
+svg_source[id_xlink]
+svg_source[id_xlink-1] -> check_xlink
+
+check_xlink
+
+check_xlink <- gsub(pattern = "        <g data-cell-",
+               replacement = "",
+               check_xlink)
+
+check_xlink <- gsub(pattern = ">",
+               replacement = "",
+               check_xlink)
+
+cat(check_xlink, sep = "\n")
+```
+
+### linkout
+
+```{r}
+grep(pattern = "xlink:href=\"https://",
+     svg_source,
+     value = F) -> linkout
+
+linkout <- linkout[ -length(linkout)]
+
+svg_source[linkout]
+
+svg_source[linkout-1]
+```
+
+```{r}
+gsub(pattern = "          ",
+     replacement = "",
+     svg_source[linkout]) -> linkout_yes
+
+cat(linkout_yes, sep = "\n")
+
+
+gsub(pattern = "        ",
+     replacement = "",
+     svg_source[linkout-1]) -> linkout_ok
+
+cat(linkout_ok, sep = "\n")
+
+chuoi_linkout <- paste0(linkout_ok,
+                      linkout_yes,
+                      "<g")
+
+cat(chuoi_linkout, sep = "\n")
+
+### trich ID linkout
+
+id_linkout <- gsub(pattern = "<g data-cell-",
+               replacement = "",
+               linkout_ok)
+
+id_linkout <- gsub(pattern = ">",
+               replacement = "",
+               id_linkout)
+
+cat(id_linkout, sep = "\n")
+
+chuoi_linkout_replace <- paste0(chuoi_linkout, " ", id_linkout)
+
+cat(chuoi_linkout_replace, sep = "\n")
+```
+
+
+# CHUỖI HOÀN CHỈNH
+
+**toan bo ma ID cac shape**
+
+```{r}
+id_num <- gsub(pattern = "data-cell-",
+               replacement = "",
+               id_check)
+
+id_num <- gsub(pattern = ">",
+               replacement = "",
+               id_num)
+
+cat(id_num, sep = "\n")
+```
+
+**vi tri can thay doi**
+
+```{r}
+id_ori <- paste0(id_check, "<g")
+cat(id_ori, sep = "\n")
+```
+
+**replacement**
+
+```{r}
+id_replace <- paste0(id_ori, " ", id_num)
+cat(id_replace, sep = "\n")
+```
+
+**filter nhung id thuc su can thay doi**
+
+```{r}
+num_rm <- vector()
+
+for(j in 1:length(check_xlink)){
+grep(pattern = check_xlink[j],
+     id_ori,
+     value = F) -> num_rm_ok
+  
+  num_rm <- append(num_rm, num_rm_ok)
+  
+}
+
+check_xlink
+id_ori[-num_rm] -> id_ori
+
+id_replace[-num_rm] -> id_replace
+```
+
+# TAO CHUOI ID XLINK REF
+
+```{r}
+xlink_rm <- 'file:///C:/Program%20Files/draw.io/resources/app.asar/drawio/src/main/webapp/export3.html'
+```
+
+```{r}
+cat(svg_source[id_xlink], sep = "\n")
+
+gsub(pattern = "          ",
+     replacement = "",
+     svg_source[id_xlink]) -> xlink_yes
+
+cat(xlink_yes, sep = "\n")
+
+
+
+gsub(pattern = "        ",
+     replacement = "",
+     svg_source[id_xlink-1]) -> xlink_ok
+
+cat(xlink_ok, sep = "\n")
+
+
+
+svg_source[id_xlink-1]
+
+chuoi_xlink <- paste0(xlink_ok,
+                      xlink_yes,
+                      "<g")
+
+
+
+cat(chuoi_xlink, sep = "\n")
+
+cat(check_xlink, sep ="\n")
+
+
+chuoi_xlink_replace <- paste0(chuoi_xlink, " ", check_xlink)
+
+cat(chuoi_xlink_replace, sep = "\n")
+```
+
+
+
+# GOM TOAN BO LAI
+
+```{r}
+id_ori_ALL <- c(id_ori, chuoi_xlink, chuoi_linkout)
+cat(id_ori_ALL, sep = "\n")
+
+id_replace_ALL <- c(id_replace, chuoi_xlink_replace, chuoi_linkout_replace)
+cat(id_replace_ALL, sep = "\n")
+```
+
+# EDIT ID
+
+```{r}
+svg_raw <- readLines("chuan.svg", encoding = "UTF-8")
+options("max.print"=1e9)
+cat(svg_raw)
+```
+
+```{r}
+# gsub(pattern = 'data-cell-id="CdWCQpmYWlaTl-lZ_4Rg-2"><g',
+#      replacement = 'data-cell-id="CdWCQpmYWlaTl-lZ_4Rg-2"><g id="CdWCQpmYWlaTl-lZ_4Rg-2"',
+#      x = svg_raw) -> ok
+# cat(ok)
+# 
+# gsub(pattern = 'file:///C:/Program%20Files/draw.io/resources/app.asar/drawio/src/main/webapp/export3.html',
+#      replacement = '',
+#      x = ok) -> ok
+```
+
+```{r}
+cat(id_ori_ALL, sep = "\n")
+cat(id_replace_ALL, sep = "\n")
+
+for(i in 1:length(id_ori_ALL)){
+
+gsub(pattern = id_ori_ALL[i],
+     replacement = id_replace_ALL[i],
+     x = svg_raw) -> svg_raw
+
+}
+```
+
+```{r}
+gsub(pattern = xlink_rm,
+     replacement = '',
+     x = svg_raw) -> svg_raw
+```
+
+```{r}
+writeLines(svg_raw, 
+           "E:/GITHUB/thongkevavedothi/stat.svg",
+           # "Y:/Public Folder/SHARE/chuan_ok.svg",
+           useBytes = F)
+
+#https://filedn.com/lesyJpQOCafj7katNqunAxu/SHARE/chuan_ok.svg#_JXD59-3wXSA1tau3vjn-2
+cat(id_ori_ALL, sep = "\n")
+cat(id_replace_ALL, sep = "\n")
+```
+
+```{r}
+
+stopCluster(cl = cluster)
+```
+
