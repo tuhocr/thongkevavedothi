@@ -1,9 +1,12 @@
 library(quarto) 
-quarto:::quarto_render("index.qmd")
-quarto:::quarto_render("about.qmd")
+# quarto:::quarto_render("index.qmd")
+# quarto:::quarto_render("about.qmd")
 # render lại lần lượt các file để đảm bảo mọi thứ working good.
 
-list.files("posts/",
+system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export.cmd')
+system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export_png.cmd')
+
+list.files("./",
            recursive = T,
            pattern = "\\.qmd",
            full.names = T) -> render_qmd
@@ -14,6 +17,12 @@ for(i in 1:length(render_qmd)){
   
 }
 
+list.files("./",
+           recursive = T,
+           pattern = "\\.knit",
+           full.names = T) -> render_rm
+
+file.remove(render_rm)
 
 # list.files("posts/",
 #            recursive = T,

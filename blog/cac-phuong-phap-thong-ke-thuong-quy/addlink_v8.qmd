@@ -10,14 +10,14 @@ draw.io v31.3.2
 # CORE
 
 ```{r}
-library(foreach)
-library(doParallel)
-
-# How many cores does your CPU have
-n_cores <- detectCores()
-n_cores
-cluster <- makeCluster(n_cores - 1)
-registerDoParallel(cluster)
+# library(foreach)
+# library(doParallel)
+# 
+# # How many cores does your CPU have
+# n_cores <- detectCores()
+# n_cores
+# cluster <- makeCluster(n_cores - 1)
+# registerDoParallel(cluster)
 ```
 
 ý tưởng là drawio xuất ra file svg ở dạng xml bị dính vào nhau, nên ta cần chạy trước 1 package xml để rã file xml nhằm lấy số ID.
@@ -29,8 +29,8 @@ shape có reference đến shape thì ta chèn vị trí ID (với đường d�
 # RENDER
 
 ```{r}
-system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export.cmd')
-system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export_png.cmd')
+# system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export.cmd')
+# system('E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/export_png.cmd')
 ```
 
 # PARSE XUỐNG DÒNG ĐỂ TÌM RA LIST ID
@@ -46,9 +46,9 @@ write_xml(doc, "yes.xml", options = "format")
 
 svg_source <- readLines("yes.xml", encoding = "UTF-8")
 
-cat(svg_source, sep = "\n")
+# cat(svg_source, sep = "\n")
 
-svg_source
+# svg_source
 
 grep(pattern = "data-cell-id=",
      svg_source,
@@ -301,6 +301,6 @@ cat(id_replace_ALL, sep = "\n")
 
 ```{r}
 
-stopCluster(cl = cluster)
+# stopCluster(cl = cluster)
 ```
 

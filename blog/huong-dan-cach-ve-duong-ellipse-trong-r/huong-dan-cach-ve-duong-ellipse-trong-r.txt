@@ -81,11 +81,11 @@ zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r",
 
 <!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
 
-# Định nghĩa
+# Minh họa
 
 Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=7, fig.height=7}
 library(car)
 
 car:::dataEllipse(x = trees$Height, 
