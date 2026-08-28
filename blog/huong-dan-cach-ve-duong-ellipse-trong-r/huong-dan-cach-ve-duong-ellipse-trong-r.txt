@@ -85,7 +85,7 @@ zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r",
 
 Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
 
-```{r}
+```{r, fig.width=8, fig.height=8}
 library(car)
 
 car:::dataEllipse(x = trees$Height, 
