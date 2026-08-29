@@ -1,10 +1,10 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="oexL0nYpBycFURwm00-V">
-    <mxGraphModel dx="2234" dy="599" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2867" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="1 biến X&lt;div&gt;&lt;div&gt;Univariate analysis&lt;/div&gt;&lt;div&gt;Phân tích đơn biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="1 biến X&lt;div&gt;&lt;div&gt;Univariate analysis&lt;/div&gt;&lt;div&gt;Phân tích đơn biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="160" x="120" y="120" as="geometry" />
         </mxCell>
         <mxCell id="CNUaKIz-W7LVmkYr1Uqd-8" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-7" value="">
@@ -72,7 +72,7 @@
         <mxCell id="nUqFJHozvEOeFcWw0bwK-1" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Barchart&lt;div&gt;Piechart&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="120" x="300" y="460" as="geometry" />
         </mxCell>
-        <mxCell id="nUqFJHozvEOeFcWw0bwK-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="2 biến X và Y&lt;div&gt;&lt;div&gt;Bivariate analysis&lt;/div&gt;&lt;div&gt;Phân tích hai biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="2 biến X và Y&lt;div&gt;&lt;div&gt;Bivariate analysis&lt;/div&gt;&lt;div&gt;Phân tích hai biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="200" x="920" y="120" as="geometry" />
         </mxCell>
         <mxCell id="nUqFJHozvEOeFcWw0bwK-21" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-20" value="">
@@ -198,7 +198,7 @@
             <mxGeometry height="40" width="80" x="-361.33" y="140" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="Homework" link="https://class.tuhocr.com/books" id="rCSKf9rMT3vSiaWQK2rG-28">
+        <UserObject label="Homework" link="https://tuhocr.github.io/homework/" id="rCSKf9rMT3vSiaWQK2rG-28">
           <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#a20025;strokeColor=#6F0000;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
             <mxGeometry height="40" width="80" x="-281.33" y="140" as="geometry" />
           </mxCell>
