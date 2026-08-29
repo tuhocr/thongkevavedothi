@@ -32,13 +32,18 @@ zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r",
 
 <!-- https://icons.getbootstrap.com/?q=file -->
 
- <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://thongkevavedothi.com/roadmap.svg#nUqFJHozvEOeFcWw0bwK-31" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> roadmap</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg#nUqFJHozvEOeFcWw0bwK-31" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a>  ‍ ‍ ‍ 
 
 <!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
 
 # Minh họa
 
 Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
+
+```{r}
+print(trees[ , 2:3], row.names = F)
+```
+
 
 ```{r, fig.width=7, fig.height=7}
 library(car)
