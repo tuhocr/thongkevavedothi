@@ -77,7 +77,7 @@ zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r",
 
 <!-- https://icons.getbootstrap.com/?q=file -->
 
-{{< downloadthis huong-dan-cach-ve-duong-ellipse-trong-r.zip dname="huong-dan-cach-ve-duong-ellipse-trong-r" label="RStudio project" icon=file-zip type=primary >}} <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://thongkevavedothi.com/roadmap.svg#nUqFJHozvEOeFcWw0bwK-31" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg#nUqFJHozvEOeFcWw0bwK-31" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> {{< downloadthis huong-dan-cach-ve-duong-ellipse-trong-r.zip dname="huong-dan-cach-ve-duong-ellipse-trong-r" label="RStudio project" icon=file-zip type=info >}} ‍ ‍ ‍ 
 
 <!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
 
