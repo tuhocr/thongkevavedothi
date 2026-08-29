@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="oexL0nYpBycFURwm00-V">
-    <mxGraphModel dx="1279" dy="930" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2527" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -87,7 +87,7 @@
           </mxCell>
         </UserObject>
         <mxCell id="nUqFJHozvEOeFcWw0bwK-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Dữ liệu trước khi đưa vào phân tích thống kê đã được làm sạch missing value và chuẩn hóa.&lt;/span&gt;" vertex="1">
-          <mxGeometry height="80" width="240" x="-360" y="160" as="geometry" />
+          <mxGeometry height="50" width="320" x="-441.33" y="449.22" as="geometry" />
         </mxCell>
         <mxCell id="nUqFJHozvEOeFcWw0bwK-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="&lt;div&gt;2 biến phân loại&lt;/div&gt;X categorical,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y categorical&lt;/span&gt;" vertex="1">
           <mxGeometry height="80" width="200" x="920" y="239.61" as="geometry" />
@@ -157,8 +157,39 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="nUqFJHozvEOeFcWw0bwK-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;spacingLeft=11.811;spacingRight=11.811;spacingTop=11.811;spacingBottom=11.811;" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0);&quot;&gt;R được xây dựng trên các lệnh tính toán thống kê theo trường phái Frequentist (tần suất) là trường phái chủ đạo trong xác suất thống kê&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0);&quot;&gt;(tìm hiểu Sir Ronald Fisher tranh luận về trường phái Bayesian).&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Các kiểm định giả thuyết này có một phiên bản tương đương theo cách tiếp cận Bayesian. Bạn có thể học song song, hoặc nắm chắc cách tiếp cận Frequentist để hiểu căn bản về lập luận thống kê truyền thống rồi từ đó đối chiếu với trường phái Bayesian.&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="240.39" width="240" x="-360" y="319.61" as="geometry" />
+          <mxGeometry height="170" width="320" x="-441.33" y="518.3100000000001" as="geometry" />
         </mxCell>
+        <UserObject label="Home" link="https://thongkevavedothi.com/" id="rCSKf9rMT3vSiaWQK2rG-4">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#d80073;strokeColor=#A50040;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-441.33" y="79.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Class" link="https://class.tuhocr.com/" id="rCSKf9rMT3vSiaWQK2rG-5">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#e3c800;strokeColor=#B09500;whiteSpace=wrap;fontColor=#000000;" vertex="1">
+            <mxGeometry height="40" width="80" x="-361.33" y="79.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Download" link="https://thongkevavedothi.com/roadmap.png" id="rCSKf9rMT3vSiaWQK2rG-6">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#008a00;strokeColor=#005700;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-281.33" y="79.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="rCSKf9rMT3vSiaWQK2rG-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="&lt;font&gt;Tổng quan về các phương pháp thống kê thường quy trong nghiên cứu khoa học&lt;/font&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font&gt;Biên soạn: Duc Nguyen | tuhocr.com&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;[&lt;/font&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;2026-08-29]&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Mục tiêu của sơ đồ này là tổng quan toàn bộ các kỹ thuật phân tích dữ liệu thống kê, kèm theo đường link đến các hướng dẫn chạy bằng R, phục vụ việc áp dụng R hiệu quả vào công việc.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="320" x="-441.33" y="139.61" as="geometry" />
+        </mxCell>
+        <UserObject label="Group FB" link="https://www.facebook.com/groups/tuhocr" id="rCSKf9rMT3vSiaWQK2rG-9">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#0050ef;strokeColor=#001DBC;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-201.32999999999998" y="79.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="rCSKf9rMT3vSiaWQK2rG-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#0000FF;" value="&lt;font&gt;Để đọc hiểu code R, bạn cần có kiến thức nền tảng về ngôn ngữ lập trình R được mình trình bày qua các chuyên đề R for Data Science. Bạn có thể đăng ký học qua record hoặc lớp live zoom mình mở định kỳ.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="320" x="-441.33" y="299.61" as="geometry" />
+        </mxCell>
+        <UserObject label="R for Data Science | RPC" link="https://www.tuhocr.com/register" id="rCSKf9rMT3vSiaWQK2rG-11">
+          <mxCell parent="1" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#33A64C;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;textShadow=1;" vertex="1">
+            <mxGeometry height="40" width="240" x="-401.33" y="389.61" as="geometry" />
+          </mxCell>
+        </UserObject>
       </root>
     </mxGraphModel>
   </diagram>
