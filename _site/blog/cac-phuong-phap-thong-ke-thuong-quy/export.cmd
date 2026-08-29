@@ -1,0 +1,1 @@
+draw.io --export --format svg --output "E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/chuan.svg" "E:/GITHUB/thongkevavedothi/blog/cac-phuong-phap-thong-ke-thuong-quy/roadmap.drawio"        

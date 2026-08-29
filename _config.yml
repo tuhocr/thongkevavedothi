@@ -8,6 +8,15 @@ sass:
 
 widgets:
   -
+    name: Lộ trình học thống kê căn bản
+    url: https://thongkevavedothi.com/roadmap.svg
+    thumbnail: roadmap.png    
+    ghauthor: Phương pháp thống kê
+    tags: roadmap, statistics
+    cran: true
+    short: >
+      Tổng quan các phương pháp thống kê và phân tích dữ liệu áp dụng R
+  -
     name: Đồ thị dot plot chia theo nhóm
     url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-dot-plot-bang-package-lattice
     thumbnail: images/p2.png    

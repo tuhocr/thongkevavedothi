@@ -37,6 +37,8 @@ knitr::opts_chunk$set(message = FALSE,
 
 # Import
 
+Bạn download dataset để thực hành nhé [[`data_group.xlsx`]](https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/data_group.xlsx)
+
 ```{r}
 library(readxl)
 df <- read_excel("data_group.xlsx")

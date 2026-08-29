@@ -1,0 +1,91 @@
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r", 
+    files = c("huong-dan-cach-ve-duong-ellipse-trong-r.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "huong-dan-cach-ve-duong-ellipse-trong-r.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+ <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://thongkevavedothi.com/roadmap.svg#nUqFJHozvEOeFcWw0bwK-31" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> roadmap</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Minh họa
+
+Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
+
+```{r, fig.width=7, fig.height=7}
+library(car)
+
+car:::dataEllipse(x = trees$Height, 
+                  y = trees$Volume,
+                  xlim = c(60, 95),
+                  ylim = c(-10, 80),
+                  levels = c(0.5, 0.9, 0.95), 
+                  ellipse.label = c(0.5, 0.9, 0.95), 
+                  lty = 2, 
+                  fill = TRUE, 
+                  fill.alpha = 0.1)
+```
+
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+
