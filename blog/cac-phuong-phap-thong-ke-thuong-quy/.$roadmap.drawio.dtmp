@@ -1,0 +1,227 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="oexL0nYpBycFURwm00-V">
+    <mxGraphModel dx="1798" dy="414" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="1 biến X&lt;div&gt;&lt;div&gt;Univariate analysis&lt;/div&gt;&lt;div&gt;Phân tích đơn biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-8" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Biến liên tục (continuous)&lt;div&gt;(chiều cao,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;cân nặng,&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;độ tuổi, ...)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="-40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-12" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Biến phân loại (categorical)&lt;div&gt;(giới tính, màu sắc,&amp;nbsp;&lt;/div&gt;&lt;div&gt;thang đo Likert, ...)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-5" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-2" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="CNUaKIz-W7LVmkYr1Uqd-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="310" as="sourcePoint" />
+            <mxPoint x="450" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-6" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-2" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="CNUaKIz-W7LVmkYr1Uqd-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-10" y="210" as="sourcePoint" />
+            <mxPoint x="40" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-10" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-7" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Mean, Variance, SD&lt;div&gt;Median,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Quantitle&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Min,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Max&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Mode&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="-40" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-14" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-9" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Boxplot&lt;div&gt;Histogram&lt;/div&gt;&lt;div&gt;Q-Q plot&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Distribution&lt;/div&gt;&lt;div&gt;Skewness&lt;/div&gt;&lt;div&gt;Kurtosis&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="160" x="-40" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-2" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-11" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Frequency (count)&lt;div&gt;Proportion (percent)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-20" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-13" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Remove outlier" vertex="1">
+          <mxGeometry height="30" width="160" x="-40" y="616.3" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-22" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-21" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-19" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="&lt;div&gt;Kiểm tra phân bố chuẩn của vector X&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Shapiro-Wilk Normality Test&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;shapiro.test(x)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;p &amp;gt; 0.05 là phân bố chuẩn&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kolmogorov-Smirnov Tests&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;ks.test(x, &quot;pnorm&quot;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;p &amp;gt; 0.05 là phân bố chuẩn&lt;/div&gt;" vertex="1">
+          <mxGeometry height="155" width="240" x="-80" y="688.7" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-23" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-22" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Transform biến X từ dạng chưa chuẩn thành chuẩn&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;log-transform&lt;/div&gt;&lt;div&gt;Box-Cox transformation&lt;/div&gt;" link="#nUqFJHozvEOeFcWw0bwK-7" id="CNUaKIz-W7LVmkYr1Uqd-21">
+          <mxCell parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" vertex="1">
+            <mxGeometry height="100" width="160" x="-160" y="900" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-1" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Barchart&lt;div&gt;Piechart&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="2 biến X và Y&lt;div&gt;&lt;div&gt;Bivariate analysis&lt;/div&gt;&lt;div&gt;Phân tích hai biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="920" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-21" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="2 biến liên tục&lt;div&gt;X numeric (chiều cao)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y numeric (cân nặng)&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="599.0600000000001" y="239.61" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;1 biến liên tục, 1 biến phân loại&lt;/div&gt;X&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;categorical&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y numeric&lt;/span&gt;&lt;/div&gt;" link="#CNUaKIz-W7LVmkYr1Uqd-21" id="nUqFJHozvEOeFcWw0bwK-7">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="1241" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Dữ liệu trước khi đưa vào phân tích thống kê &lt;u&gt;đã được&lt;/u&gt; &lt;u&gt;làm sạch missing value và chuẩn hóa.&lt;/u&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="320" x="-441.33" y="600.39" as="geometry" />
+        </mxCell>
+        <mxCell id="qev_JHKcMx6pciIhkdef-3" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qev_JHKcMx6pciIhkdef-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="&lt;div&gt;2 biến phân loại&lt;/div&gt;X categorical,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y categorical&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="920" y="239.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-17" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="919.6099999999996" y="199.99999999999977" as="sourcePoint" />
+            <mxPoint x="869.61" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-30" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-29" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Kiểm tra riêng biệt đặc trưng dữ liệu của từng biến&amp;nbsp;&lt;div&gt;(Univariate analysis)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="599.0600000000001" y="359.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-22" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="&lt;div&gt;Dữ liệu phân bố chuẩn&lt;/div&gt;&lt;div&gt;paramatric&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;one sample t-test&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="-160" y="1059" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-24" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Không thực hiện biến đổi dữ liệu" vertex="1">
+          <mxGeometry height="60" width="160" x="80" y="899" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-25" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-24" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="960" as="sourcePoint" />
+            <mxPoint x="60" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-27" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="&lt;div&gt;Dữ liệu không phân bố chuẩn&lt;/div&gt;&lt;div&gt;nonparametric&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;one sample Wilcoxon test&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="70" y="1059" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-28" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-27" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="980" as="sourcePoint" />
+            <mxPoint x="230" y="1039" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-32" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="Tìm hệ số tương quan correlation&lt;br&gt;&lt;div&gt;cor(X,Y)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;method Pearson: parametric&lt;/div&gt;&lt;div&gt;method Spearman, Kendall: nonparametric&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Các chỉ số khác:&lt;div&gt;cov(X, Y) hiệp phương sai giữa hai biến&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130.39" width="280" x="559.06" y="449.61" as="geometry" />
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-34" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nUqFJHozvEOeFcWw0bwK-33" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Đồ thị scatterplot:&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;plot(x, y)&lt;br&gt;Đưa thêm đường ellipse&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;mật độ xác suất của 2 biến x và y&lt;/span&gt;&lt;/div&gt;" link="https://thongkevavedothi.com/blog/huong-dan-cach-ve-duong-ellipse-trong-r/huong-dan-cach-ve-duong-ellipse-trong-r.html" id="nUqFJHozvEOeFcWw0bwK-31">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1">
+            <mxGeometry height="60" width="280" x="559.06" y="620" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Hồi quy đơn biến&amp;nbsp;&lt;div&gt;Ordinary least squares (OLS) regression&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Courier New&quot;&gt;fit &amp;lt;- lm(y ~ x)&lt;/font&gt;&lt;/div&gt;" tags="" id="nUqFJHozvEOeFcWw0bwK-33">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="90.39" width="280" x="559.06" y="710" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-35" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-3" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="nUqFJHozvEOeFcWw0bwK-15" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1240.6099999999997" y="420" as="sourcePoint" />
+            <mxPoint x="1020" y="460.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-36" edge="1" parent="1" source="nUqFJHozvEOeFcWw0bwK-3" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nUqFJHozvEOeFcWw0bwK-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1180" y="390" as="sourcePoint" />
+            <mxPoint x="1180" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nUqFJHozvEOeFcWw0bwK-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;spacingLeft=7.874;spacingRight=7.874;spacingTop=7.874;spacingBottom=7.874;fontColor=#000000;" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;R được xây dựng trên các lệnh tính toán thống kê theo trường phái Frequentist (tần suất) là trường phái chủ đạo trong xác suất thống kê&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;(tìm hiểu Sir Ronald Fisher tranh luận về trường phái Bayesian).&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;&quot;&gt;Các kiểm định giả thuyết này có một phiên bản tương đương theo cách tiếp cận Bayesian. Bạn có thể học song song, hoặc nắm chắc cách tiếp cận Frequentist để hiểu căn bản về lập luận thống kê truyền thống rồi từ đó đối chiếu với trường phái Bayesian. Hai cách tiếp cận này nhìn vấn đề xác suất ở 2 lăng kính khác nhau trên cùng 1 bộ dữ liệu.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="320" x="-441.33" y="660.39" as="geometry" />
+        </mxCell>
+        <UserObject label="Home" link="https://thongkevavedothi.com/" id="rCSKf9rMT3vSiaWQK2rG-4">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#d80073;strokeColor=#A50040;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-441.33" y="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Class" link="https://class.tuhocr.com/" id="rCSKf9rMT3vSiaWQK2rG-5">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#e3c800;strokeColor=#B09500;whiteSpace=wrap;fontColor=#000000;" vertex="1">
+            <mxGeometry height="40" width="80" x="-361.33" y="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Download" link="https://thongkevavedothi.com/roadmap.png" id="rCSKf9rMT3vSiaWQK2rG-6">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#008a00;strokeColor=#005700;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-281.33" y="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="rCSKf9rMT3vSiaWQK2rG-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="&lt;font&gt;Tổng quan về các phương pháp thống kê thường quy trong nghiên cứu khoa học&lt;/font&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font&gt;Biên soạn: Duc Nguyen | tuhocr.com&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;[&lt;/font&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;2026-08-29]&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Mục tiêu của sơ đồ này là tổng quan toàn bộ các kỹ thuật phân tích dữ liệu thống kê, kèm theo đường link đến các hướng dẫn chạy bằng R, phục vụ việc áp dụng R hiệu quả vào công việc.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="320" x="-441.33" y="280" as="geometry" />
+        </mxCell>
+        <UserObject label="Group FB" link="https://www.facebook.com/groups/tuhocr" id="rCSKf9rMT3vSiaWQK2rG-9">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#0050ef;strokeColor=#001DBC;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-201.33" y="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="rCSKf9rMT3vSiaWQK2rG-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#0000FF;" value="&lt;font&gt;Để đọc hiểu code R, bạn cần có kiến thức nền tảng về ngôn ngữ lập trình R được mình trình bày qua các chuyên đề R for Data Science. Bạn có thể đăng ký học qua record hoặc lớp live zoom mình mở định kỳ.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="320" x="-441.33" y="440" as="geometry" />
+        </mxCell>
+        <UserObject label="R for Data Science | RPC" link="https://www.tuhocr.com/register" id="rCSKf9rMT3vSiaWQK2rG-11">
+          <mxCell parent="1" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#33A64C;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;textShadow=1;" vertex="1">
+            <mxGeometry height="40" width="240" x="-401.33" y="530" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="rCSKf9rMT3vSiaWQK2rG-24" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.document" value="" vertex="1">
+          <mxGeometry height="23.82" width="19.06" x="820" y="656.18" as="geometry" />
+        </mxCell>
+        <UserObject label="Books" link="https://class.tuhocr.com/books" id="rCSKf9rMT3vSiaWQK2rG-25">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#6a00ff;strokeColor=#3700CC;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-361.33" y="140" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Homework" link="https://tuhocr.github.io/homework/" id="rCSKf9rMT3vSiaWQK2rG-28">
+          <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#a20025;strokeColor=#6F0000;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
+            <mxGeometry height="40" width="80" x="-281.33" y="140" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qqLq51yqtbbp3V9KAY_f-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeColor=none;fillColor=none;" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;color: light-dark(rgb(0, 153, 0), rgb(50, 181, 50)); background-color: transparent;&quot;&gt;&lt;font&gt;File SVG bạn đang xem được mình chèn link, có thể clickable đến cụ thể từng shape, xem tốt nhất trên trình duyệt Chrome, Brave, Opera trên máy tính.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="320" x="-441.33" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="qqLq51yqtbbp3V9KAY_f-6" parent="1" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.chrome;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="23.622" width="23.44" x="-193.92" y="233.31" as="geometry" />
+        </mxCell>
+        <mxCell id="MBY7tYGWgGjUv2mJagNC-1" parent="1" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIiB3aWR0aD0iNDQ4IiBoZWlnaHQ9IjUxMiI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOy5zaGFwZXtmaWxsOiNGRjIzMDA7fSYjeGE7PC9zdHlsZT4mI3hhOzxwYXRoIGNsYXNzPSJzaGFwZSIgZD0iTTE0NS42IDBsMTU3IDAgNDQuNyA1MC44czM5LjMtMTAuOSA1Ny44IDcuNiAzMy44IDM0LjkgMzMuOCAzNC45bC0xMiAyOS41IDE1LjMgNDMuN3MtNDQuOSAxNzAuMi01MC4xIDE5MWMtMTAuNCA0MC45LTE3LjQgNTYuOC00Ni45IDc3LjVzLTgyLjkgNTYuOC05MS42IDYyLjJjLTEuOSAxLjItMy45IDIuNS01LjkgMy45LTcuNSA1LjEtMTUuOCAxMC44LTIzLjUgMTAuOHMtMTYuMS01LjctMjMuNS0xMC44Yy0yLTEuNC00LTIuOC01LjktMy45LTguNy01LjUtNjIuMS00MS41LTkxLjYtNjIuMnMtMzYuNS0zNi42LTQ2LjktNzcuNWMtNS4zLTIwLjgtNTAuMS0xOTEtNTAuMS0xOTFMMjEuNSAxMjIuOCA5LjMgOTMuM3MxNS4zLTE2LjQgMzMuOC0zNC45IDU3LjgtNy42IDU3LjgtNy42TDE0NS42IDB6bTc4LjUgNDA3LjZjMy43IDAgOC45LTQuNyAxMy04LjQgLjYtLjUgMS4yLTEuMSAxLjctMS41IDQuMi0zLjcgNDcuOC0zNy41IDUxLTM5LjhzNS40LTYuNSAxLjktOC43Yy0yLjgtMS43LTEwLTUuNS0yMC4zLTEwLjgtMy0xLjYtNi4zLTMuMi05LjctNS0xNS40LTgtMzQuNS0xNC43LTM3LjUtMTQuN3MtMjIuMSA2LjgtMzcuNSAxNC43Yy0zLjUgMS44LTYuNyAzLjUtOS43IDUtMTAuMyA1LjMtMTcuNiA5LjEtMjAuMyAxMC44LTMuNiAyLjItMS40IDYuNCAxLjkgOC43czQ2LjggMzYuMSA1MSAzOS44Yy41IC41IDEuMSAxIDEuNyAxLjUgNC4xIDMuNyA5LjMgOC40IDEzIDguNGwtLjIgMHptMC0xNjUuN2M0LjcgMCAxNy42LTMgMjYuNC01bDItLjVjNy44LTEuOCA3LjMtNi4zIDYuNC0xMy0uMS0uOC0uMi0xLjYtLjMtMi40LS42LTYuMS01LjgtMzMuMS05LjEtNTAuMy0xLjEtNS44LTItMTAuNS0yLjQtMTIuOS0xLjUtOC4xLS42LTkuNCAuNy0xMS4zIC4yLS4zIC41LS43IC43LTEuMSAxLjQtMi4zIDE2LTYuMiAyNy45LTkuNSAyLjUtLjcgNC44LTEuMyA2LjktMS45IDEwLjYtMyAzMi40LS42IDQ0LjIgLjYgMS44IC4yIDMuNCAuNCA0LjcgLjUgOS42IC45IDEwLjQgMi4zIDcuMiAzLjgtMi4zIDEuMS0xNi4yIDYuMy0yOC43IDEwLjktNC43IDEuOC05LjIgMy41LTEyLjggNC44LTEuNSAuNS0zIDEuMS00LjUgMS43LTEyLjUgNC42LTI3LjIgMTAtMjguOSAxOS40LTEuNSA4LjMgNS4yIDE5LjkgMTEuMyAzMC4zIDEuNiAyLjggMy4yIDUuNSA0LjYgOC4xIDYuMyAxMS45IDYuNSAxMy4zIDYuMSAxOC4xLS40IDMuOS0xNC41IDEyLjctMjIuNCAxNy42LTEuOCAxLjEtMy4zIDIuMS00LjIgMi43LS44IC41LTIuMSAxLjQtMy44IDIuNC04LjYgNS4yLTI2LjMgMTYtMjYuMyAyMi41IDAgNy44IDI0LjYgMjguMSAzMi40IDMzLjJzMjguOSAxNi4xIDM3LjkgMTcuOCAyMy04LjUgMzEuMi0yMy44YzcuNy0xNC40IDEuNy0yOC41LTMuMi00MGwtLjktMi4yYy00LjUtMTAuNiAxLjktMTcgNi4yLTIxLjMgLjUtLjUgMS0xIDEuNC0xLjRsNDMtNDUuN2MxLjMtMS4zIDIuNS0yLjYgMy43LTMuOCA1LjgtNS43IDEwLjgtMTAuNSAxMC44LTIyLjggMC0xNC45LTU3LjUtODQuNS01Ny41LTg0LjVzLTQ4LjUgOS4zLTU1LjEgOS4zYy01LjIgMC0xNS4zLTMuNS0yNS44LTcuMS0yLjctLjktNS40LTEuOS04LTIuNy0xMy00LjMtMjEuOC00LjQtMjEuOC00LjRzLTguNyAwLTIxLjggNC40Yy0yLjcgLjktNS40IDEuOC04IDIuNy0xMC41IDMuNi0yMC42IDcuMS0yNS44IDcuMS02LjUgMC01NS4xLTkuMy01NS4xLTkuM3MtNTcuNSA2OS42LTU3LjUgODQuNWMwIDEyLjMgNC45IDE3LjEgMTAuOCAyMi44IDEuMiAxLjIgMi41IDIuNCAzLjcgMy44bDQzLjEgNDUuOGMuNCAuNSAuOSAuOSAxLjQgMS40IDQuMyA0LjMgMTAuNiAxMC43IDYuMiAyMS4zbC0uOSAyLjJjLTQuOSAxMS41LTExIDI1LjYtMy4yIDQwIDguMiAxNS4zIDIyLjIgMjUuNSAzMS4yIDIzLjhzMzAuMS0xMi43IDM3LjktMTcuOCAzMi40LTI1LjQgMzIuNC0zMy4yYzAtNi41LTE3LjctMTcuMy0yNi4zLTIyLjUtMS43LTEtMy4xLTEuOS0zLjgtMi40LS45LS42LTIuNC0xLjUtNC4yLTIuNy03LjktNC45LTIyLTEzLjctMjIuNC0xNy42LS40LTQuOC0uMy02LjIgNi4xLTE4LjEgMS4zLTIuNSAyLjktNS4zIDQuNi04LjEgNi0xMC40IDEyLjgtMjIgMTEuMy0zMC4zLTEuNy05LjQtMTYuNC0xNC44LTI4LjktMTkuNC0xLjYtLjYtMy4xLTEuMS00LjUtMS43LTMuNi0xLjQtOC4xLTMuMS0xMi44LTQuOGwtLjEgMGMtMTIuNS00LjctMjYuNC05LjktMjguNy0xMC45LTMuMi0xLjUtMi4zLTIuOCA3LjItMy44IDEuMy0uMSAyLjktLjMgNC43LS41IDExLjgtMS4zIDMzLjYtMy42IDQ0LjItLjYgMi4xIC42IDQuNCAxLjIgNi45IDEuOSAxMS45IDMuMiAyNi41IDcuMiAyNy45IDkuNSAuMiAuNCAuNSAuNyAuNyAxLjEgMS4zIDEuOSAyLjIgMy4yIC43IDExLjMtLjQgMi40LTEuMyA3LjEtMi40IDEyLjktMy4zIDE3LjItOC41IDQ0LjItOS4xIDUwLjMtLjEgLjgtLjIgMS43LS4zIDIuNC0uOCA2LjctMS40IDExLjIgNi40IDEzbDIgLjVjOC44IDIgMjEuOCA1IDI2LjQgNWwwLS4xeiIvPjwvc3ZnPg==;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="23.622" width="20.67" x="-167.82" y="233.31" as="geometry" />
+        </mxCell>
+        <mxCell id="qev_JHKcMx6pciIhkdef-1" parent="1" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNzUuNTkxIDc1LjU5Mjk3MTc2MTI0NTI4IiB3aWR0aD0iNzUuNTkxIiBoZWlnaHQ9Ijc1LjU5Mjk3MTc2MTI0NTI4Ij4mI3hhOzxsaW5lYXJHcmFkaWVudCBpZD0iYSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgwIC01NC45NDQgLTU0Ljk0NCAwIDIzLjYyIDc5LjQ3NCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4Mj0iMSI+JiN4YTs8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjFiMmQiLz4mI3hhOzxzdG9wIG9mZnNldD0iLjMiIHN0b3AtY29sb3I9IiNmZjFiMmQiLz4mI3hhOzxzdG9wIG9mZnNldD0iLjYxNCIgc3RvcC1jb2xvcj0iI2ZmMWIyZCIvPiYjeGE7PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYTcwMDE0Ii8+JiN4YTs8L2xpbmVhckdyYWRpZW50PiYjeGE7PGxpbmVhckdyYWRpZW50IGlkPSJiIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDAgLTQ4LjU5NSAtNDguNTk1IDAgMzcuODU0IDc2LjIzNSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4Mj0iMSI+JiN4YTs8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM5YzAwMDAiLz4mI3hhOzxzdG9wIG9mZnNldD0iLjciIHN0b3AtY29sb3I9IiNmZjRiNGIiLz4mI3hhOzxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmNGI0YiIvPiYjeGE7PC9saW5lYXJHcmFkaWVudD4mI3hhOzxnIHRyYW5zZm9ybT0ibWF0cml4KDEuMzMzMyAwIDAgLTEuMzMzMyAwIDEwNy4yKSI+JiN4YTs8cGF0aCBkPSJtMjguMzQ2IDgwLjM5OGMtMTUuNjU1IDAtMjguMzQ2LTEyLjY5MS0yOC4zNDYtMjguMzQ2IDAtMTUuMjAyIDExLjk2OC0yNy42MDkgMjYuOTk2LTI4LjMxMy40NDg0OC0uMDIxMTUuODk3NjYtLjAzMzE0IDEuMzUwNC0uMDMzMTQgNy4yNTc0IDAgMTMuODc2IDIuNzI4OSAxOC44OTEgNy4yMTM3LTMuMzIyNy0yLjIwMzYtNy4yMDc0LTMuNDcxNS0xMS4zNTktMy40NzE1LTYuNzUwNCAwLTEyLjc5NiAzLjM0ODgtMTYuODYyIDguNjI5Ny0zLjEzNDQgMy42OTk5LTUuMTY0NSA5LjE2OTEtNS4zMDI4IDE1LjMwN3YxLjMzNDljLjEzODIxIDYuMTM3NyAyLjE2ODMgMTEuNjA4IDUuMzAyIDE1LjMwNyA0LjA2NjYgNS4yODA5IDEwLjExMiA4LjYyOTcgMTYuODYyIDguNjI5NyA0LjE1MjYgMCA4LjAzOC0xLjI2NzkgMTEuMzYxLTMuNDcyOS00Ljk5MDQgNC40NjQzLTExLjU2OSA3LjE4NzYtMTguNzg2IDcuMjE0NC0uMDM1OTYgMC0uMDcxMjIuMDAxNC0uMTA3MTguMDAxNHoiIGZpbGw9InVybCgjYSkiLz4mI3hhOzxwYXRoIGQ9Im0xOS4wMTYgNjguMDI1YzIuNjAxMyAzLjA3MDkgNS45NjA3IDQuOTIyNyA5LjYzMSA0LjkyMjcgOC4yNTI0IDAgMTQuOTQxLTkuMzU2IDE0Ljk0MS0yMC44OTdzLTYuNjg5MS0yMC44OTctMTQuOTQxLTIwLjg5N2MtMy42NzAzIDAtNy4wMjk3IDEuODUxLTkuNjMwMyA0LjkyMiA0LjA2NTktNS4yODA5IDEwLjExMS04LjYyOTcgMTYuODYyLTguNjI5NyA0LjE1MTkgMCA4LjAzNjYgMS4yNjc5IDExLjM1OSAzLjQ3MTUgNS44MDIgNS4xOTA2IDkuNDU1NCAxMi43MzUgOS40NTU0IDIxLjEzMyAwIDguMzk3LTMuNjUyNyAxNS45NDEtOS40NTMzIDIxLjEzMS0zLjMyMzQgMi4yMDUtNy4yMDg4IDMuNDcyOS0xMS4zNjEgMy40NzI5LTYuNzUwNCAwLTEyLjc5Ni0zLjM0ODgtMTYuODYyLTguNjI5NyIgZmlsbD0idXJsKCNiKSIvPiYjeGE7PC9nPiYjeGE7PC9zdmc+;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="23.622" width="23.62" x="-143.76999999999998" y="233.31" as="geometry" />
+        </mxCell>
+        <mxCell id="qev_JHKcMx6pciIhkdef-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" value="&lt;div&gt;2 biến phân loại&lt;/div&gt;X categorical,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Y categorical&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="920" y="359" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
