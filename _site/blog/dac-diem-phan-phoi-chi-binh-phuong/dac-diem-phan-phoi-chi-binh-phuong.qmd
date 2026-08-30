@@ -1,0 +1,86 @@
+<!-- ```{=html} -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+<!-- ``` -->
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      eval = TRUE,        # suppress code run
+                      message = FALSE,     # suppress messages
+                      warning = FALSE,     # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE,         # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      cache = TRUE         # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+file <- list.files(pattern="*.qmd")
+newfile <- gsub("\\.qmd", ".txt", file)
+file.copy(from = file, to = newfile, overwrite = TRUE)
+
+zip(zipfile = "dac-diem-phan-phoi-chi-binh-phuong", 
+    files = c("dac-diem-phan-phoi-chi-binh-phuong.qmd", 
+              "style.scss", "reborn_1.bib", 
+               "favicon.png",
+              "dac-diem-phan-phoi-chi-binh-phuong.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg#qev_JHKcMx6pciIhkdef-8" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a>  ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+# Định nghĩa
+
+Phân phối Chi-squared $\chi^2$ distribution hay tiếng Việt gọi là phân phối Chi (Khi) bình phương là dạng phân phối thường gặp trong các kiểm định tỷ lệ, tần số dành cho dữ liệu count data.
+
+Bản chất phân phối Chi-squared
+
+$$f(x) = \frac{1}{2^{\frac{n}{2}} \Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$$
+
+```{r}
+
+```
+
+
+
+<!-- top -->
+
+<button id="scrollBtnTop">
+      <span><i class="bi bi-arrow-up"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtnTop.addEventListener("click", () => scrollTo(scrollToPos, 0));
+ 
+})();  
+</script>
+
+<!-- bottom -->
+
+<button id="scrollBtn">
+      <span><i class="bi bi-arrow-down"></i></span>
+</button>
+
+<script>  
+;(()=>{
+   var lastPos = 0, scrollToPos = document.body.scrollHeight;
+
+   scrollBtn.addEventListener("click", () => scrollTo(0, scrollToPos));
+
+})();  
+</script>
+
+
+
+
+

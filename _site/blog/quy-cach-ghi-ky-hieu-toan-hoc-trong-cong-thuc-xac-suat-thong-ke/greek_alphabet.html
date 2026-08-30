@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greek Alphabet</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 30px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px 14px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background: #eee;
+    }
+
+    .greek {
+        font-family: "Times New Roman", serif;
+        font-size: 30px;
+    }
+
+    .name {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .sound {
+        color: #666;
+    }
+
+    .speaker {
+        width: 46px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+        font-size: 22px; cursor: pointer; border: 1px solid #cfcfcf; border-radius: 9px;
+        background: linear-gradient(#fff, #eee); box-shadow: 0 2px 3px rgba(0,0,0,.18);
+        transition: all .12s ease; user-select: none;
+    }
+    .speaker:hover { background: linear-gradient(#f8f8f8, #e2e2e2); border-color: #aaa; box-shadow: 0 3px 6px rgba(0,0,0,.20); transform: translateY(-1px); }
+    .speaker:active, .speaker.playing { background: linear-gradient(#d8d8d8, #eee); box-shadow: inset 0 2px 4px rgba(0,0,0,.25); transform: translateY(2px) scale(.96); }
+    .speaker.playing { animation: speakerPulse .8s ease-in-out infinite; }
+    @keyframes speakerPulse { 0%,100% {box-shadow: inset 0 2px 4px rgba(0,0,0,.25)} 50% {box-shadow: 0 0 0 5px rgba(100,100,100,.10), inset 0 2px 4px rgba(0,0,0,.25)} }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Greek Alphabet</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Uppercase</th>
+                <th>Lowercase</th>
+                <th>Name</th>
+                <th>Pronunciation</th>
+                <th>Audio</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td class="greek">Α</td>
+                <td class="greek">α</td>
+                <td class="name">Alpha</td>
+                <td class="sound">AL-fuh</td>
+                <td><button id="speaker-1" class="speaker" onclick="playAudio('audio/alpha_1.mp3', this)" title="Play alpha"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-1" class="speaker" onclick="playAudio('audio/alpha_2.mp3', this)" title="Play alpha"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td class="greek">Β</td>
+                <td class="greek">β</td>
+                <td class="name">Beta</td>
+                <td class="sound">BAY-tuh</td>
+                <td><button id="speaker-2" class="speaker" onclick="playAudio('audio/beta_1.mp3', this)" title="Play beta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-2" class="speaker" onclick="playAudio('audio/beta_2.mp3', this)" title="Play beta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td class="greek">Γ</td>
+                <td class="greek">γ</td>
+                <td class="name">Gamma</td>
+                <td class="sound">GAM-uh</td>
+                <td><button id="speaker-3" class="speaker" onclick="playAudio('audio/gamma_1.mp3', this)" title="Play gamma"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-3" class="speaker" onclick="playAudio('audio/gamma_2.mp3', this)" title="Play gamma"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td class="greek">Δ</td>
+                <td class="greek">δ</td>
+                <td class="name">Delta</td>
+                <td class="sound">DEL-tuh</td>
+                <td><button id="speaker-4" class="speaker" onclick="playAudio('audio/delta_1.mp3', this)" title="Play delta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-4" class="speaker" onclick="playAudio('audio/delta_1.mp3', this)" title="Play delta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td class="greek">Ε</td>
+                <td class="greek">ε</td>
+                <td class="name">Epsilon</td>
+                <td class="sound">EP-sih-lon</td>
+                <td><button id="speaker-5" class="speaker" onclick="playAudio('audio/epsilon_1.mp3', this)" title="Play epsilon"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-5" class="speaker" onclick="playAudio('audio/epsilon_2.mp3', this)" title="Play epsilon"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td class="greek">Ζ</td>
+                <td class="greek">ζ</td>
+                <td class="name">Zeta</td>
+                <td class="sound">ZAY-tuh</td>
+                <td><button id="speaker-6" class="speaker" onclick="playAudio('audio/zeta_1.mp3', this)" title="Play zeta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-6" class="speaker" onclick="playAudio('audio/zeta_2.mp3', this)" title="Play zeta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td class="greek">Η</td>
+                <td class="greek">η</td>
+                <td class="name">Eta</td>
+                <td class="sound">AY-tuh</td>
+                <td><button id="speaker-7" class="speaker" onclick="playAudio('audio/eta_1.mp3', this)" title="Play eta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-7" class="speaker" onclick="playAudio('audio/eta_2.mp3', this)" title="Play eta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td class="greek">Θ</td>
+                <td class="greek">θ</td>
+                <td class="name">Theta</td>
+                <td class="sound">THAY-tuh</td>
+                <td><button id="speaker-8" class="speaker" onclick="playAudio('audio/theta_1.mp3', this)" title="Play theta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-8" class="speaker" onclick="playAudio('audio/theta_2.mp3', this)" title="Play theta"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td class="greek">Ι</td>
+                <td class="greek">ι</td>
+                <td class="name">Iota</td>
+                <td class="sound">eye-OH-tuh</td>
+                <td><button id="speaker-9" class="speaker" onclick="playAudio('audio/iota_1.mp3', this)" title="Play iota"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-9" class="speaker" onclick="playAudio('audio/iota_2.mp3', this)" title="Play iota"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td class="greek">Κ</td>
+                <td class="greek">κ</td>
+                <td class="name">Kappa</td>
+                <td class="sound">KAP-uh</td>
+                <td><button id="speaker-10" class="speaker" onclick="playAudio('audio/kappa_1.mp3', this)" title="Play kappa"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-10" class="speaker" onclick="playAudio('audio/kappa_2.mp3', this)" title="Play kappa"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>11</td>
+                <td class="greek">Λ</td>
+                <td class="greek">λ</td>
+                <td class="name">Lambda</td>
+                <td class="sound">LAM-duh</td>
+                <td><button id="speaker-11" class="speaker" onclick="playAudio('audio/lambda_1.mp3', this)" title="Play lambda"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-11" class="speaker" onclick="playAudio('audio/lambda_2.mp3', this)" title="Play lambda"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>12</td>
+                <td class="greek">Μ</td>
+                <td class="greek">μ</td>
+                <td class="name">Mu</td>
+                <td class="sound">MYOO</td>
+                <td><button id="speaker-12" class="speaker" onclick="playAudio('audio/mu_1.mp3', this)" title="Play mu"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-12" class="speaker" onclick="playAudio('audio/mu_2.mp3', this)" title="Play mu"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>13</td>
+                <td class="greek">Ν</td>
+                <td class="greek">ν</td>
+                <td class="name">Nu</td>
+                <td class="sound">NOO</td>
+                <td><button id="speaker-13" class="speaker" onclick="playAudio('audio/nu_1.mp3', this)" title="Play nu"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-13" class="speaker" onclick="playAudio('audio/nu_2.mp3', this)" title="Play nu"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>14</td>
+                <td class="greek">Ξ</td>
+                <td class="greek">ξ</td>
+                <td class="name">Xi</td>
+                <td class="sound">XI / ZYE</td>
+                <td><button id="speaker-14" class="speaker" onclick="playAudio('audio/xi_1.mp3', this)" title="Play xi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-14" class="speaker" onclick="playAudio('audio/xi_2.mp3', this)" title="Play xi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>15</td>
+                <td class="greek">Ο</td>
+                <td class="greek">ο</td>
+                <td class="name">Omicron</td>
+                <td class="sound">OH-mih-kron</td>
+                <td><button id="speaker-15" class="speaker" onclick="playAudio('audio/omicron_1.mp3', this)" title="Play omicron"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-15" class="speaker" onclick="playAudio('audio/omicron_2.mp3', this)" title="Play omicron"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>16</td>
+                <td class="greek">Π</td>
+                <td class="greek">π</td>
+                <td class="name">Pi</td>
+                <td class="sound">PI / PIE</td>
+                <td><button id="speaker-16" class="speaker" onclick="playAudio('audio/pi_1.mp3', this)" title="Play pi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-16" class="speaker" onclick="playAudio('audio/pi_2.mp3', this)" title="Play pi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>17</td>
+                <td class="greek">Ρ</td>
+                <td class="greek">ρ</td>
+                <td class="name">Rho</td>
+                <td class="sound">ROH</td>
+                <td><button id="speaker-17" class="speaker" onclick="playAudio('audio/rho_1.mp3', this)" title="Play rho"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-17" class="speaker" onclick="playAudio('audio/rho_2.mp3', this)" title="Play rho"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td class="greek">Σ</td>
+                <td class="greek">σ</td>
+                <td class="name">Sigma</td>
+                <td class="sound">SIG-muh</td>
+                <td><button id="speaker-18" class="speaker" onclick="playAudio('audio/sigma_1.mp3', this)" title="Play sigma"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-18" class="speaker" onclick="playAudio('audio/sigma_2.mp3', this)" title="Play sigma"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				</td>
+            </tr>
+
+            <tr>
+                <td>19</td>
+                <td class="greek">Τ</td>
+                <td class="greek">τ</td>
+                <td class="name">Tau</td>
+                <td class="sound">TOW / TAF</td>
+                <td><button id="speaker-19" class="speaker" onclick="playAudio('audio/tau_1.mp3', this)" title="Play tau"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-19" class="speaker" onclick="playAudio('audio/tau_2.mp3', this)" title="Play tau"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>20</td>
+                <td class="greek">Υ</td>
+                <td class="greek">υ</td>
+                <td class="name">Upsilon</td>
+                <td class="sound">OOP-sih-lon</td>
+                <td><button id="speaker-20" class="speaker" onclick="playAudio('audio/upsilon_1.mp3', this)" title="Play upsilon"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-20" class="speaker" onclick="playAudio('audio/upsilon_2.mp3', this)" title="Play upsilon"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>21</td>
+                <td class="greek">Φ</td>
+                <td class="greek">φ</td>
+                <td class="name">Phi</td>
+                <td class="sound">FI: / FYE</td>
+                <td><button id="speaker-21" class="speaker" onclick="playAudio('audio/phi_1.mp3', this)" title="Play phi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-21" class="speaker" onclick="playAudio('audio/phi_2.mp3', this)" title="Play phi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>22</td>
+                <td class="greek">Χ</td>
+                <td class="greek">χ</td>
+                <td class="name">Chi</td>
+                <td class="sound">CHI / KYE</td>
+                <td><button id="speaker-22" class="speaker" onclick="playAudio('audio/chi_1.mp3', this)" title="Play chi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-22" class="speaker" onclick="playAudio('audio/chi_2.mp3', this)" title="Play chi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>23</td>
+                <td class="greek">Ψ</td>
+                <td class="greek">ψ</td>
+                <td class="name">Psi</td>
+                <td class="sound">SI / SYE</td>
+                <td><button id="speaker-23" class="speaker" onclick="playAudio('audio/psi_1.mp3', this)" title="Play psi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-23" class="speaker" onclick="playAudio('audio/psi_2.mp3', this)" title="Play psi"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+            <tr>
+                <td>24</td>
+                <td class="greek">Ω</td>
+                <td class="greek">ω</td>
+                <td class="name">Omega</td>
+                <td class="sound">oh-MEG-uh</td>
+                <td><button id="speaker-24" class="speaker" onclick="playAudio('audio/omega_1.mp3', this)" title="Play omega"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button>
+				<button id="speaker-24" class="speaker" onclick="playAudio('audio/omega_2.mp3', this)" title="Play omega"><input type="image" src="speaker.svg" style="height:32px; width:32px"></button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+let currentAudio = null;
+let currentButton = null;
+function playAudio(file, button) {
+    if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+    if (currentButton) currentButton.classList.remove("playing");
+    currentAudio = new Audio(file); currentButton = button; button.classList.add("playing");
+    currentAudio.addEventListener("ended", function () { button.classList.remove("playing"); currentAudio=null; currentButton=null; });
+    currentAudio.play().catch(function () { button.classList.remove("playing"); });
+}
+</script>
+
+</body>
+</html>

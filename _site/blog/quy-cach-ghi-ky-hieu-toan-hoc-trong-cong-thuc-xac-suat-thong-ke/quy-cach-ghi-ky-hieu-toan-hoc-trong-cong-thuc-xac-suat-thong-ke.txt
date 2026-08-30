@@ -1,0 +1,116 @@
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(error = TRUE,        # suppress errors
+                      message = FALSE,      # suppress messages
+                      warning = FALSE,      # suppress warnings
+                      # results = 'hide',  # suppress code output
+                      echo = TRUE          # suppress code
+                      # fig.show = 'hide', # suppress plots
+                      # cache = TRUE       # enable caching
+                      )        
+# library(ggfortify)
+# autoplot(lm(cars$dist ~ cars$speed))
+
+files <- list.files(pattern="*.qmd")
+newfiles <- gsub("\\.qmd", ".txt", files)
+file.copy(from = files, to = newfiles, overwrite = TRUE)
+
+zip(zipfile = "quarto-statistical-notation", 
+    files = c("quarto-statistical-notation.qmd", 
+              "style.scss", "volume-up.svg", "reborn_1.bib",
+              "quarto-statistical-notation.Rproj", 
+              "_extensions/")
+    )
+```
+
+<!-- https://github.com/shafayetShafee/downloadthis -->
+
+<!-- https://icons.getbootstrap.com/?q=file -->
+
+ <a href="https://applyr.netlify.app/codebase/quarto-statistical-notation/quarto-statistical-notation.txt" target="_blank" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> text</a> <a href="https://applyr.netlify.app/codebase/quarto-statistical-notation/quarto-statistical-notation.html" target="_blank" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> web</a> ‍ ‍ ‍ 
+
+<!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
+
+<!-- https://quarto.org/docs/authoring/tables.html -->
+
+```{=html}
+<script>function chi_squared(){
+  var music = new Audio('https://static.sfdict.com/audio/C04/C0417200.mp3');
+  music.play();
+  }</script>
+
+<script>function t_test(){
+  var music = new Audio('https://static.sfdict.com/audio/NEW2016/ttest_010.mp3');
+  music.play();
+  }</script>  
+```
+
+<table class="table table-striped table-bordered table-hover table-sm">
+  <!-- <caption>List of users</caption> -->
+  <!-- multiple class thì cách nhau bằng space -->
+  <thead>
+    <tr class="bg-primary text-center align-middle"> 
+      <th style="width: 5%">STT</th>
+      <th style="width: 20%">Ký hiệu</th>
+      <th style="width: 20%">Phát âm</th>
+      <th style="width: 55%">Chú thích</th>
+    </tr>
+  </thead>
+  <tbody class="text-center align-middle">
+    <tr>
+      <th>1</th>
+      <td><div style="font-size: 200%;">$\color{red}{\chi ^2}$</div></td>
+      <td>**/ ˈkaɪˌskwɛər /** <input type="image" src="volume-up.svg" style="height:16px; width:16px" onclick="chi_squared()" /> 
+      <br>**Chi bình phương**</td>
+      <td class="text-start">Có nhiều cách ký hiệu (khác nhau chỗ ed ở square)[^1]: 
+      <br>• Pearson's **chi-squared** test for count data[^2]
+      <br>• Một số tài liệu ghi là **chi square** (không có ed và không có gạch nối) [@mann2010, p. 498]
+      <br>• Hoặc là **chi-square** (không có ed và có gạch nối) [@le2016, p. 470]
+      <br> Để thống nhất, mình chọn cách viết chi-squared có ed và gạch nối.</td>
+    </tr>
+      <tr>
+      <th>2</th>
+      <td><div style="font-size: 200%; color: red;">t-test</div></td>
+      <td>**/ ˈtiˌtɛst /** <input type="image" src="volume-up.svg" onclick="t_test()" /> 
+      <br>**Kiểm định t**</td>
+      <td class="text-start">Có nhiều cách ký hiệu (khác nhau chỗ t in nghiêng hay viết thường, có gạch nối hay không): 
+      <br> • Student's **t-test**[^3]
+      <br> • Student's ***t*-test** (chữ t in nghiêng)[^4]^,&nbsp;^[^5]^,&nbsp;^[^7]
+      <br> • Student's ***t* test** (chữ t in nghiêng, không có gạch nối)[^6] [@crawley2015, p. 94]
+      <br> Về mặt thuật ngữ, *t* test là kiểm định *t*, với *t* là một chỉ số thống kê. Ta có *t* distribution hay ghi đầy đủ là Student's *t* distribution. Rất ít tài liệu viết hoa chữ T. 
+      <br> Để đơn giản, mình chọn cách viết chữ t trong chữ t-test là viết bình thường, có gạch nối.</td>
+    </tr>
+  </tbody>
+</table>
+
+[^1]: <https://math.stackexchange.com/questions/1098138/chi-square-or-chi-squared>
+
+[^2]: Tham khảo R Help của function `chisq.test()`
+
+[^3]: Tham khảo R Help của function `t.test()`
+
+[^4]: <https://en.wikipedia.org/wiki/Student%27s_t-test>
+
+[^5]: <https://www.geo.fu-berlin.de/en/v/soga-r/Basics-of-statistics/Continous-Random-Variables/Students-t-Distribution/index.html>
+
+[^6]: <https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/7-t-tests>
+
+[^7]: Owen, D. B. (1965). The Power of Student’s t-Test. Journal of the American Statistical Association, 60(309), 320–333. <https://tailieur.netlify.app/paper/the_power_of_student_t_test.pdf>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
