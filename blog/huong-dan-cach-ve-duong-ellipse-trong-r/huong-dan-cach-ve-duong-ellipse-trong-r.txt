@@ -23,7 +23,7 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     code-tools:
-      source: http://thongkevavedothi.com/blog/huong-dan-phan-tich-anova-repeated/huong-dan-phan-tich-anova-repeated.txt
+      source: http://thongkevavedothi.com/blog/huong-dan-cach-ve-duong-ellipse-trong-r/huong-dan-cach-ve-duong-ellipse-trong-r.txt
     # grid:
     #   sidebar-width: 0px
     #   body-width: 2000px

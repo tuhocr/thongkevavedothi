@@ -1,5 +1,5 @@
 ---
-title: "Hướng dẫn cách vẽ đường ellipse trong R"
+title: "Đặc điểm phân phối Chi bình phương"
 author-title: <b>Biên soạn</b>
 author: Duc Nguyen | Founder of <a href="https://www.tuhocr.com/">**tuhocr.com**</a>
 site-url: https://www.tuhocr.com/
@@ -23,7 +23,7 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     code-tools:
-      source: http://thongkevavedothi.com/blog/huong-dan-cach-ve-duong-ellipse-trong-r/huong-dan-cach-ve-duong-ellipse-trong-r.txt
+      source: http://thongkevavedothi.com/blog/dac-diem-phan-phoi-chi-binh-phuong/dac-diem-phan-phoi-chi-binh-phuong.txt
     # grid:
     #   sidebar-width: 0px
     #   body-width: 2000px
@@ -64,11 +64,11 @@ file <- list.files(pattern="*.qmd")
 newfile <- gsub("\\.qmd", ".txt", file)
 file.copy(from = file, to = newfile, overwrite = TRUE)
 
-zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r", 
-    files = c("huong-dan-cach-ve-duong-ellipse-trong-r.qmd", 
+zip(zipfile = "dac-diem-phan-phoi-chi-binh-phuong", 
+    files = c("dac-diem-phan-phoi-chi-binh-phuong.qmd", 
               "style.scss", "reborn_1.bib", 
                "favicon.png",
-              "huong-dan-cach-ve-duong-ellipse-trong-r.Rproj", 
+              "dac-diem-phan-phoi-chi-binh-phuong.Rproj", 
               "_extensions/")
     )
 ```
@@ -77,32 +77,15 @@ zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r",
 
 <!-- https://icons.getbootstrap.com/?q=file -->
 
-<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg#nUqFJHozvEOeFcWw0bwK-31" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> {{< downloadthis huong-dan-cach-ve-duong-ellipse-trong-r.zip dname="huong-dan-cach-ve-duong-ellipse-trong-r" label="RStudio project" icon=file-zip type=info >}} ‍ ‍ ‍ 
+<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg#qev_JHKcMx6pciIhkdef-8" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> {{< downloadthis dac-diem-phan-phoi-chi-binh-phuong.zip dname="dac-diem-phan-phoi-chi-binh-phuong" label="RStudio project" icon=file-zip type=info >}} ‍ ‍ ‍ 
 
 <!-- [**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"} -->
 
-# Minh họa
+# Định nghĩa
 
-Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
+Phân phối Chi-squared $\chi^2$ distribution hay tiếng Việt gọi là phân phối Chi (Khi) bình phương là dạng phân phối thường gặp trong các kiểm định tỷ lệ, tần số dành cho dữ liệu count data.
 
-```{r}
-print(trees[ , 2:3], row.names = F)
-```
-
-
-```{r, fig.width=7, fig.height=7}
-library(car)
-
-car:::dataEllipse(x = trees$Height, 
-                  y = trees$Volume,
-                  xlim = c(60, 95),
-                  ylim = c(-10, 80),
-                  levels = c(0.5, 0.9, 0.95), 
-                  ellipse.label = c(0.5, 0.9, 0.95), 
-                  lty = 2, 
-                  fill = TRUE, 
-                  fill.alpha = 0.1)
-```
+Bản chất phân phối Chi-squared
 
 
 <!-- top -->
