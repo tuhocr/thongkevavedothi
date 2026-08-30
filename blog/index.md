@@ -6,7 +6,7 @@
 
 ### Ký hiệu toán học
 
-1. [Chữ cái Hy Lạp](https://web.mit.edu/jmorzins/www/greek-alphabet.html)
+1. [Chữ cái Hy Lạp](https://web.mit.edu/jmorzins/www/greek-alphabet.html) | [Wikipedia](https://en.wikipedia.org/wiki/Greek_alphabet)
 
 2. [Học ngôn ngữ Hy Lạp](https://www.ibiblio.org/koine/)
 

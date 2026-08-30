@@ -87,6 +87,13 @@ Phân phối Chi-squared $\chi^2$ distribution hay tiếng Việt gọi là phâ
 
 Bản chất phân phối Chi-squared
 
+$$f(x) = \frac{1}{2^{\frac{n}{2}} \Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$$
+
+```{r}
+
+```
+
+
 
 <!-- top -->
 
