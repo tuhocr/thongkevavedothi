@@ -407,6 +407,32 @@ ScatterHist(
 )
 ```
 
+https://docs.originlab.com/tutorials/marginal-distribution-curve/
+
+![](Marginal_distribution_curve_16c.webp)
+
+```{r}
+library(scatr)
+
+scat(
+  mtcars,
+  x = "mpg",
+  y = "wt",
+  marg = "dens",
+  group = "vs"
+  
+)
+```
+
+
+```{r}
+ggExtra::ggMarginal()
+```
+
+
+# Tài liệu tham khảo
+
+1. Hay! <https://www.psyctc.org/Rblog/posts/2022-01-15-data-ellipses-and-confidence-ellipses/>
 
 <!-- top -->
 
