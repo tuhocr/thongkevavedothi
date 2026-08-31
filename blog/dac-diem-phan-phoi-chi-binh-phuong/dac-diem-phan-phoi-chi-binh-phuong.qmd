@@ -90,8 +90,73 @@ Bản chất phân phối Chi-squared
 $$f(x) = \frac{1}{2^{\frac{n}{2}} \Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$$
 
 ```{r}
+v1 <- rchisq(n = 1000000, df = 1, ncp = 0)
+
+hist(v1, 
+     probability = T,
+     ylim = c(0,2),
+     xaxs = "i",
+     yaxs = "i")
+lines(density(v1))
+
+mean(v1)
+```
+
+```{r}
+v1 <- rchisq(n = 1000000, df = 3, ncp = 0)
+
+hist(v1, 
+     probability = T,
+     ylim = c(0,0.5),
+     xlim = c(0,8),
+     xaxs = "i",
+     yaxs = "i",
+     breaks = 100)
+lines(density(v1))
+
+mean(v1)
+
+
+median(v1)
+
+3*(1-2/(9*3))^3
+
+var(v1)
+
+2*3
+```
+
+A central chi-squared distribution with 
+n
+n degrees of freedom is the same as a Gamma distribution with shape 
+α
+=
+n
+/
+2
+α=n/2 and scale 
+σ
+=
+2
+σ=2. Hence, see dgamma for the Gamma distribution.
+
+```{r}
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

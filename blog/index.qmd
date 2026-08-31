@@ -1,0 +1,67 @@
+---
+title: "Blog"
+author: Duc Nguyen | 2026-08-31
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 8
+    toc-depth: 6
+    toc-location: left
+    code-fold: false
+    code-summary: "Show the code"
+    number-sections: false
+    number-depth: 8
+    page-layout: full
+    embed-resources: true
+    anchor-sections: true
+    smooth-scroll: true
+engine: knitr
+include-in-header:
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.png" />
+knitr:
+  opts_chunk:
+    R.options:
+      width: 120
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(message = FALSE,  
+                      warning = FALSE)   
+```
+
+<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> <a href="https://tuhocr.github.io/homework/" class="btn btn-info" role="button"> <i class="bi bi-calculator"></i> homework</a>
+
+## 1. Chủ đề nền tảng
+
+### 1.1 Ký hiệu toán học
+
+1. [Chữ cái Hy Lạp kèm phát âm](https://thongkevavedothi.com/greek_alphabet.html)
+
+2. [Chữ cái Hy Lạp](https://web.mit.edu/jmorzins/www/greek-alphabet.html) | [Wikipedia](https://en.wikipedia.org/wiki/Greek_alphabet)
+
+2. [Học ngôn ngữ Hy Lạp](https://www.ibiblio.org/koine/)
+
+## 2. Chủ đề thống kê
+
+### 2.1 Các dạng phân phối thường gặp
+
+1. [Tổng quan các loại phân phối dữ liệu](https://probabilityplayground.com/)
+
+## 3. Chủ đề trực quan hóa dữ liệu
+
+### 3.1 Đồ thị dot plot
+
+1. [Hướng dẫn vẽ đồ thị dot plot](https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot.html)
+
+2. [Hướng dẫn vẽ đồ thị dot plot theo nhóm](https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.html)
+
+
+
+
+
+
+
