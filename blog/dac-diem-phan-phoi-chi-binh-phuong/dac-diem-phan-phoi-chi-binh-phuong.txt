@@ -49,7 +49,7 @@ editor_options:
 
 ```{r, echo=FALSE, results='hide'}
 knitr::opts_chunk$set(error = TRUE,        # suppress errors
-                      eval = TRUE,        # suppress code run
+                      eval = TRUE,         # suppress code run
                       message = FALSE,     # suppress messages
                       warning = FALSE,     # suppress warnings
                       # results = 'hide',  # suppress code output
@@ -89,17 +89,92 @@ Bản chất phân phối Chi-squared
 
 $$f(x) = \frac{1}{2^{\frac{n}{2}} \Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$$
 
+
 ```{r}
-v1 <- rchisq(n = 1000000, df = 1, ncp = 0)
+my_rchisq <- function(n, df) {
+  
+  # Kiểm tra tham số
+  if (length(n) != 1 || n < 0 || n != as.integer(n)) {
+    stop("n phải là một số nguyên không âm")
+  }
+  
+  if (length(df) != 1 || df <= 0) {
+    stop("df phải là một số dương")
+  }
+  
+  # Sinh n giá trị Chi-squared
+  result <- numeric(n)
+  
+  for (i in seq_len(n)) {
+    z <- rnorm(df)
+    result[i] <- sum(z^2)
+  }
+  
+  return(result)
+}
+
+set.seed(1)
+my_rchisq(n = 10, df = 3)
+set.seed(1)
+rchisq(n = 10, df = 1, ncp = 0)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+my_rchisq <- function(n, df) {
+  
+  if (length(n) != 1 || n < 0 || n != as.integer(n)) {
+    stop("n phải là số nguyên không âm")
+  }
+  
+  if (length(df) != 1 || df <= 0) {
+    stop("df phải > 0")
+  }
+  
+  rgamma(n, shape = df / 2, scale = 2)
+}
+set.seed(1)
+v1 <- my_rchisq(n = 100000, df = 1)
+```
+
+```{r}
+v2 <- rchisq(n = 100000, df = 1, ncp = 0)
+set.seed(1)
+v2
+
+par(mfrow = c(1,2))
+hist(v2, 
+     probability = T,
+     ylim = c(0,1),
+     xaxs = "i",
+     yaxs = "i")
+lines(density(v2))
 
 hist(v1, 
      probability = T,
-     ylim = c(0,2),
+     ylim = c(0,1),
      xaxs = "i",
      yaxs = "i")
 lines(density(v1))
 
-mean(v1)
+mean(v2)
 ```
 
 ```{r}

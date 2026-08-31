@@ -85,8 +85,16 @@ zip(zipfile = "huong-dan-cach-ve-duong-ellipse-trong-r",
 
 Đường ellipse, hay còn gọi là normal ellipse, biểu diễn mật độ xác suất của 2 biến X và Y.
 
+Bivariate normal distribution.
+
 ```{r}
 print(trees[ , 2:3], row.names = F)
+```
+
+```{r}
+trees[ , 2:3] -> df
+
+write.csv(df, "df.csv", row.names = F)
 ```
 
 
@@ -102,6 +110,301 @@ car:::dataEllipse(x = trees$Height,
                   lty = 2, 
                   fill = TRUE, 
                   fill.alpha = 0.1)
+```
+
+
+```{r}
+# Parameters
+mu_x <- mean(trees$Height)
+mu_y <- mean(trees$Volume)
+
+sigma_x <- sd(trees$Height)
+sigma_y <- sd(trees$Volume)
+
+rho <- cor(trees$Height,
+           trees$Volume)
+
+# Create grid
+x <- seq(from = min(trees$Height), 
+         to = max(trees$Height), 
+         length.out = 100)
+
+y <- seq(from = min(trees$Volume), 
+         to = max(trees$Volume), 
+         length.out = 100)
+
+# Bivariate normal PDF
+f <- function(x, y) {
+  z <- ((x - mu_x)^2 / sigma_x^2) -
+       (2 * rho * (x - mu_x) * (y - mu_y) /
+        (sigma_x * sigma_y)) +
+       ((y - mu_y)^2 / sigma_y^2)
+
+  1 / (2 * pi * sigma_x * sigma_y * sqrt(1 - rho^2)) *
+    exp(-z / (2 * (1 - rho^2)))
+}
+
+# Calculate density
+z <- outer(x, y, f)
+
+# 3D surface
+persp(
+  x,
+  y, 
+  z,
+  xlim = c(0,100),
+  ylim = c(0,100),
+  zlim = c(0,0.000005),
+  # theta = 40,
+  # phi = 30,
+  # expand = 0.6,
+  xlab = "X",
+  ylab = "Y",
+  zlab = "Density",
+  main = "Bivariate Normal Distribution"
+)
+```
+
+
+```{r}
+# Cài package nếu chưa có
+# install.packages(c("mvtnorm", "plot3D"))
+
+library(mvtnorm)
+library(plot3D)
+
+# Đọc dữ liệu
+df <- read.csv("df.csv")
+
+# Chỉ lấy Height và Volume
+dat <- df[, c("Height", "Volume")]
+
+# Mean vector và covariance matrix
+mu <- colMeans(dat)
+Sigma <- cov(dat)
+
+# Tạo grid cho X và Y
+x <- seq(
+  min(dat$Height) - 5,
+  max(dat$Height) + 5,
+  length.out = 100
+)
+
+y <- seq(
+  min(dat$Volume) - 5,
+  max(dat$Volume) + 5,
+  length.out = 100
+)
+
+# Tạo lưới tọa độ
+grid <- expand.grid(
+  Height = x,
+  Volume = y
+)
+
+# Tính mật độ Bivariate Normal
+z <- dmvnorm(
+  x = grid,
+  mean = mu,
+  sigma = Sigma
+)
+
+# Chuyển thành matrix để vẽ 3D
+z_matrix <- matrix(
+  z,
+  nrow = length(x),
+  ncol = length(y)
+)
+
+# Vẽ 3D surface
+persp3D(
+  x = x,
+  y = y,
+  z = z_matrix,
+  
+  col = "lightblue",
+  border = NA,
+  
+  xlab = "Height",
+  ylab = "Volume",
+  zlab = "Density",
+  
+  main = "3D Bivariate Normal Distribution",
+  
+  theta = 40,
+  phi = 25,
+  
+  colkey = TRUE,
+  ticktype = "detailed"
+)
+
+# Thêm contour đồng mức trên mặt đáy
+contour3D(
+  x = x,
+  y = y,
+  z = z_matrix,
+  
+  add = TRUE,
+  colvar = z_matrix,
+  
+  zlim = range(z_matrix),
+  levels = 10
+)
+```
+
+```{r}
+library(mvtnorm)
+library(plot3D)
+
+# =========================
+# 1. Đọc dữ liệu
+# =========================
+
+df <- read.csv("df.csv")
+
+dat <- df[, c("Height", "Volume")]
+
+
+# =========================
+# 2. Ước lượng phân phối
+# =========================
+
+mu <- colMeans(dat)
+
+Sigma <- cov(dat)
+
+
+# =========================
+# 3. Tạo grid
+# =========================
+
+x <- seq(
+  min(dat$Height) - 5,
+  max(dat$Height) + 5,
+  length.out = 20
+)
+
+y <- seq(
+  min(dat$Volume) - 5,
+  max(dat$Volume) + 5,
+  length.out = 20
+)
+
+grid <- expand.grid(
+  Height = x,
+  Volume = y
+)
+
+
+# =========================
+# 4. Tính mật độ
+# =========================
+
+z <- dmvnorm(
+  grid,
+  mean = mu,
+  sigma = Sigma
+)
+
+z <- matrix(
+  z,
+  nrow = length(x),
+  ncol = length(y)
+)
+
+
+# =========================
+# 5. Vẽ 3D + contour
+# =========================
+
+persp3D(
+  x, y, z,
+  
+  col = ramp.col(
+    col = c(
+      "navy",
+      "blue",
+      "cyan",
+      "yellow"
+    ),
+    n = 100
+  ),
+  
+  border = NA,
+  
+  xlab = "Height",
+  ylab = "Volume",
+  zlab = "Density",
+  
+  main = "Bivariate Normal Distribution",
+  
+  theta = 40,
+  phi = 25,
+  
+  shade = 0.3,
+  
+  colkey = TRUE
+)
+
+
+# Contour chiếu xuống mặt phẳng XY
+contour3D(
+  x, y, z,
+  
+  add = TRUE,
+  
+  levels = 10,
+  
+  z = min(z) - max(z) * 0.05,
+  
+  col = "black",
+  
+  lwd = 1
+)
+```
+
+
+```{r}
+# install.packages("car")
+
+library(car)
+
+scatterplot(
+  Volume ~ Height,
+  data = df,
+  smooth = T,
+  regLine = T,
+  boxplots = "xy")
+```
+
+```{r}
+# install.packages("DataVisualizations")
+# 
+# install.packages("ScatterDensity")
+library(DataVisualizations)
+
+DensityScatter(
+  X = df$Height,
+  Y = df$Volume,
+  # Marginals = TRUE,
+  # Plotter = "native",
+  xlab = "Height",
+  ylab = "Volume"
+)
+```
+
+```{r}
+# install.packages("WVPlots")
+
+library(WVPlots)
+
+ScatterHist(
+  frame = df,
+  xvar = "Height",
+  yvar = "Volume",
+  title = "Height vs Volume",
+  contour = TRUE
+)
 ```
 
 

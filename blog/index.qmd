@@ -51,6 +51,8 @@ knitr::opts_chunk$set(message = FALSE,
 
 1. [Tổng quan các loại phân phối dữ liệu](https://probabilityplayground.com/)
 
+2. [Danh sách các phân phối thường gặp](https://distribution-explorer.github.io/)
+
 ## 3. Chủ đề trực quan hóa dữ liệu
 
 ### 3.1 Đồ thị dot plot
