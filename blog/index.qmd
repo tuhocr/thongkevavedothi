@@ -61,6 +61,9 @@ knitr::opts_chunk$set(message = FALSE,
 
 2. [Hướng dẫn vẽ đồ thị dot plot theo nhóm](https://thongkevavedothi.com/blog/huong-dan-ve-do-thi-dot-plot/dot-plot-group.html)
 
+# 4. Các chủ đề khác
+
+1. [Con người, cộng đồng, công ty đào tạo và sử dụng R](https://thongkevavedothi.com/blog/cong-dong-su-dung-r/)
 
 
 

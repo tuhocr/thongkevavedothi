@@ -26,6 +26,15 @@ widgets:
     short: >
       Greek alphabet kèm phát âm      
   -
+    name: Danh sách con người và cộng đồng R
+    url: https://thongkevavedothi.com/blog/cong-dong-su-dung-r/
+    thumbnail: images/p6.png    
+    ghauthor: Cộng đồng
+    tags: people, community
+    cran: true
+    short: >
+      Con người, cộng đồng, công ty đào tạo và sử dụng R trên toàn thế giới  
+  -
     name: Đồ thị dot plot chia theo nhóm
     url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-dot-plot-bang-package-lattice
     thumbnail: images/p2.png    

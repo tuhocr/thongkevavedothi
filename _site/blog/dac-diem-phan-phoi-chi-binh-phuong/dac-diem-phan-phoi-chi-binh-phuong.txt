@@ -4,7 +4,7 @@
 
 ```{r, echo=FALSE, results='hide'}
 knitr::opts_chunk$set(error = TRUE,        # suppress errors
-                      eval = TRUE,        # suppress code run
+                      eval = TRUE,         # suppress code run
                       message = FALSE,     # suppress messages
                       warning = FALSE,     # suppress warnings
                       # results = 'hide',  # suppress code output
@@ -41,6 +41,142 @@ zip(zipfile = "dac-diem-phan-phoi-chi-binh-phuong",
 Phân phối Chi-squared $\chi^2$ distribution hay tiếng Việt gọi là phân phối Chi (Khi) bình phương là dạng phân phối thường gặp trong các kiểm định tỷ lệ, tần số dành cho dữ liệu count data.
 
 Bản chất phân phối Chi-squared
+
+$$f(x) = \frac{1}{2^{\frac{n}{2}} \Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$$
+
+
+```{r}
+my_rchisq <- function(n, df) {
+  
+  # Kiểm tra tham số
+  if (length(n) != 1 || n < 0 || n != as.integer(n)) {
+    stop("n phải là một số nguyên không âm")
+  }
+  
+  if (length(df) != 1 || df <= 0) {
+    stop("df phải là một số dương")
+  }
+  
+  # Sinh n giá trị Chi-squared
+  result <- numeric(n)
+  
+  for (i in seq_len(n)) {
+    z <- rnorm(df)
+    result[i] <- sum(z^2)
+  }
+  
+  return(result)
+}
+
+set.seed(1)
+my_rchisq(n = 10, df = 3)
+set.seed(1)
+rchisq(n = 10, df = 1, ncp = 0)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+my_rchisq <- function(n, df) {
+  
+  if (length(n) != 1 || n < 0 || n != as.integer(n)) {
+    stop("n phải là số nguyên không âm")
+  }
+  
+  if (length(df) != 1 || df <= 0) {
+    stop("df phải > 0")
+  }
+  
+  rgamma(n, shape = df / 2, scale = 2)
+}
+set.seed(1)
+v1 <- my_rchisq(n = 100000, df = 1)
+```
+
+```{r}
+v2 <- rchisq(n = 100000, df = 1, ncp = 0)
+set.seed(1)
+v2
+
+par(mfrow = c(1,2))
+hist(v2, 
+     probability = T,
+     ylim = c(0,1),
+     xaxs = "i",
+     yaxs = "i")
+lines(density(v2))
+
+hist(v1, 
+     probability = T,
+     ylim = c(0,1),
+     xaxs = "i",
+     yaxs = "i")
+lines(density(v1))
+
+mean(v2)
+```
+
+```{r}
+v1 <- rchisq(n = 1000000, df = 3, ncp = 0)
+
+hist(v1, 
+     probability = T,
+     ylim = c(0,0.5),
+     xlim = c(0,8),
+     xaxs = "i",
+     yaxs = "i",
+     breaks = 100)
+lines(density(v1))
+
+mean(v1)
+
+
+median(v1)
+
+3*(1-2/(9*3))^3
+
+var(v1)
+
+2*3
+```
+
+
+```{r}
+
+```
+
+# Tài liệu tham khảo
+
+1. Johnson, N. L., Kotz, S. and Balakrishnan, N. (1995) (2nd) Continuous Univariate Distributions, chapters 18 (volume 1) and 29 (volume 2). Wiley, New York. [[link]](https://class.tuhocr.com/books)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- top -->

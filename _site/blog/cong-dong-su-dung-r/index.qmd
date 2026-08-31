@@ -1,0 +1,47 @@
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(message = FALSE,  
+                      warning = FALSE)   
+```
+
+<a href="https://thongkevavedothi.com/" class="btn btn-primary" role="button"> <i class="bi bi-house-door"></i> home</a> <a href="https://thongkevavedothi.com/roadmap.svg" class="btn btn-warning" role="button"> <i class="bi bi-diagram-3"></i> roadmap</a> <a href="https://class.tuhocr.com/khoa-hoc/" class="btn btn-success" role="button"> <i class="bi bi-file-code"></i> class</a> <a href="https://www.tuhocr.com/register" class="btn btn-danger" role="button"> <i class="bi bi-filetype-html"></i> register</a> <a href="https://tuhocr.github.io/homework/" class="btn btn-info" role="button"> <i class="bi bi-calculator"></i> homework</a>
+
+Mến chào bạn, trong quá trình biên soạn bài giảng R, mình lang thang khắp nơi trên cõi mạng và ghi lại các trang web, con người và tổ chức sử dụng R theo từng chuyên mục cụ thể, hỗ trợ các bạn tham khảo, kết nối khi cần thiết. 
+
+Các bạn có thể liên hệ với mình qua email `tuhocr.com@gmail.com` để recommend thêm các đối tác, nhân sự chuyên đào tạo, sử dụng R để mình đưa vào danh sách luôn nhé. Các nỗ lực này nhằm thúc đẩy việc lan tỏa kỹ năng xử lý dữ liệu bằng R được rộng khắp, giúp ích cho mọi người trong công việc được hiệu quả. 
+
+Định kỳ mình biết được thêm vị nào làm mạnh về R sẽ quay lại update thêm trang này nhé. Cảm ơn các bạn rất nhiều. Trân trọng.
+
+# Con người, cộng đồng
+
+## Việt Nam
+
+• **Duc Nguyen** chuyên đào tạo kỹ năng lập trình R [web](https://www.tuhocr.com/), mình background làm nghiên cứu về công nghệ sinh học sau chuyển qua support 1:1 xử lý dữ liệu bằng R cho các bạn làm đề tài, luận án, chủ yếu các lĩnh vực về y dược, sinh học, kinh tế, xử lý và làm sạch dữ liệu. Mình lập cộng đồng Tự Học R từ năm 2022 [group](https://www.facebook.com/groups/tuhocr), nay đã thu hút được hơn 8000 bạn tham gia, kết nối được nhiều anh chị có chuyên môn trong và ngoài nước. Mình cung cấp khóa đào tạo live zoom định kỳ [training](https://www.tuhocr.com/training), có viết package để trích lọc dữ liệu từ FAOSTAT và tổ chức hệ thống system [class](https://class.tuhocr.com/) online để học viên thuận tiện tra cứu, tham khảo các lệnh R khi cần thiết. Trang [YouTube](https://www.youtube.com/@tuhocr/courses) mình có upload full course R cơ bản, các bạn tham khảo nhé.
+
+## Ấn Độ
+
+• **Aravind Hebbali** đào tạo kỹ năng lập trình R [web](https://www.aravindhebbali.com/), anh này có làm một số package R [list](https://www.aravindhebbali.com/r-packages), viết tài liệu hướng dẫn vẽ Base R các dạng đồ thị căn bản [book](https://viz-base.rsquaredacademy.com/), và lập trang web cung cấp các khóa đào tạo R online [web](https://www.rsquaredacademy.com/). Trang [YouTube](https://www.youtube.com/@RsquaredAcademy/videos) đăng nhiều video bài giảng, video lần cuối đăng cách đây 6 năm.
+
+## Pháp
+
+• **Alboukadel Kassambara** PhD chuyên ngành sinh học tính toán và khoa học máy tính, sáng lập trang STHDA/Datanovia [link](https://www.datanovia.com/about) vào năm 2018, duy trì liên tục đến hiện nay. Là tác giả của các package thường gặp khi vẽ đồ thị như `ggpubr`, `rstatix`, `factoextra`, `survminer` và `ggcorrplot`. Mình biết đến anh này khi đọc sách về kỹ thuật vẽ đồ thị PCA [book](https://studyr.netlify.app/ref/kassambara_principal_component_methods.pdf).
+
+## USA
+
+• **Timothy Idowu** PhD chuyên ngành thống kê, công tác ở đại học Winconsin-Madison. Anh này lập ra trang [Stats Codes](https://www.statscodes.com/) chuyên về các lệnh Base R để mọi người dễ dàng tiếp cận các lệnh căn bản R (không cần dùng package). Bạn có thể tìm đọc về các dạng phân phối xác suất [link](https://www.statscodes.com/distributions/) cũng như công thức các loại kiểm định thường gặp ở đây [link](https://www.statscodes.com/tests-and-intervals/).
+
+## Úc
+
+• **GS. Nguyễn Văn Tuấn** chuyên giảng dạy thống kê về R. Hàng năm Thầy về Việt Nam thực hiện các khóa đào tạo R, hiện tại phối hợp với Viện Phương Nam [link](https://vienphuongnam.com.vn/tin-tuc/tu-phu-bep-thanh-gs-noi-tieng-duoc-nu-hoang-anh-vinh-danh/). Thầy Tuấn cũng có nhiều tài liệu phổ biến R từ năm 2010 đến nay và một kênh [YouTube](https://www.youtube.com/@drnguyenvtuan) về các bài giảng R rất hay.
+
+# Tổ chức, doanh nghiệp
+
+## USA
+
+• **Công ty RStudio** [web](https://posit.co/), thành lập năm 2009 bởi J. J. Allaire, thành viên nòng cốt là Hadley Wickham (tác giả của package `ggplot2`), cung cấp RStudio IDE giao diện lập trình R, quản lý theo folder project rất thuận tiện. Năm 2022 công ty này đổi tên thành Posit với tầm nhìn kết hợp Python và nhiều ngôn ngữ lập trình khác trên dùng IDE. Hiện phát triển Positron IDE và các ứng dụng cloud, Shiny app, data science. Thực tế thì phong trào học và ứng dụng R bùng nổ từ lúc RStudio IDE ra đời vì cung cấp giao diện code thuận tiện hơn RGui mặc định của Base R. Các bước đi tiếp theo của công ty đang gom gọn lại RPubs (nền tảng xuất bản R Markdown), Bookdown, Quarto về một mối trên Posit Cloud, và có cảm giác công ty đang dịch chuyển mạnh qua Python trong những năm tới.
+
+
+
+
+
+
+
