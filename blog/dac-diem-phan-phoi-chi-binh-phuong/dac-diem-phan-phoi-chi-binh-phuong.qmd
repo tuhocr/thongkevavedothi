@@ -126,25 +126,14 @@ var(v1)
 2*3
 ```
 
-A central chi-squared distribution with 
-n
-n degrees of freedom is the same as a Gamma distribution with shape 
-α
-=
-n
-/
-2
-α=n/2 and scale 
-σ
-=
-2
-σ=2. Hence, see dgamma for the Gamma distribution.
 
 ```{r}
 
 ```
 
+# Tài liệu tham khảo
 
+1. Johnson, N. L., Kotz, S. and Balakrishnan, N. (1995) (2nd) Continuous Univariate Distributions, chapters 18 (volume 1) and 29 (volume 2). Wiley, New York. [[link]](https://class.tuhocr.com/books)
 
 
 
