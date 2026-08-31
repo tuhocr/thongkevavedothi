@@ -47,7 +47,7 @@ knitr::opts_chunk$set(message = FALSE,
 
 ## 2. Chủ đề thống kê
 
-### 2.1 Các dạng phân phối thường gặp
+### 2.1 Các dạng phân phối thường gặp {#distribution}
 
 1. [Tổng quan các loại phân phối dữ liệu](https://probabilityplayground.com/)
 
