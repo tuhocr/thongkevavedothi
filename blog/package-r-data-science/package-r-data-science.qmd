@@ -248,7 +248,7 @@ lung_data |>
   head(n=10)
 ```
 
-#### Summary bảng survival
+#### Tạo bảng survival
 
 ```{r, results='asis'}
 # hiển thị bảng HTML thì dùng results='asis' trong code chunk
@@ -282,10 +282,90 @@ gtregression:::km_plot(
 )
 ```
 
+#### Cox model
 
+**Crude Cox model (model đơn biến)**
 
+```{r, results='asis'}
+cox_crude <- gtregression:::cox_reg(
+  data = lung_data,
+  time = time,
+  event = status,
+  exposures = c("treatment", "celltype", "karno", "age"),
+  multivariable = F,
+  format = "gt"
+)
 
+cox_crude
+```
 
+**Multivariable Cox model (model đa biến)**
+
+```{r, results='asis'}
+cox_adjusted <- gtregression:::cox_reg(
+  data = lung_data,
+  time = time,
+  event = status,
+  exposures = c("treatment", "celltype", "karno", "age"),
+  multivariable = TRUE,
+  format = "gt"
+)
+
+cox_adjusted
+```
+
+**Check the proportional-hazards assumption**
+
+```{r, results='asis'}
+gtregression:::check_ph(cox_adjusted, format = "gt")
+```
+
+#### So sánh model
+
+##### Dạng bảng
+
+```{r, results='asis'}
+gtregression:::merge_tables(
+  cox_crude,
+  cox_adjusted,
+  spanners = c("Crude", "Adjusted"),
+  format = "gt"
+)
+```
+
+##### Dạng đồ thị
+
+```{r}
+gtregression:::plot_reg_combine(
+  cox_crude,
+  cox_adjusted,
+  title_uni = "Crude hazard ratios",
+  title_multi = "Adjusted hazard ratios"
+)
+```
+
+##### Forest plot
+
+```{r}
+cox_forest_data <- gtregression:::forest_df(
+  uni = cox_crude,
+  multi = cox_adjusted
+)
+
+# cox_forest_data
+
+cox_forest <- gtregression:::forest_reg(
+  df = cox_forest_data,
+  effects = c("Crude HR", "Adjusted HR"),
+  ticks_at = c(0.5, 1, 2, 4)
+)
+
+gtregression:::save_forest(cox_forest,
+                           "E:/GITHUB/thongkevavedothi/blog/package-r-data-science/cox_forest",
+                           format = "png")
+```
+
+![](cox_forest.png)
 
 # Machine learning
 
