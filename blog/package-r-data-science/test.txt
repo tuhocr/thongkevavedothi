@@ -1,9 +1,17 @@
 ---
-title: "My Website"
-include-in-header:
-  - text: |
-      <link rel = "shortcut icon" href = "favicon.png" />
+title: "test"
+format:
+  html:
+    toc: true
+    toc-depth: 8
 ---
 
-aaa
+# ok1
 
+## ok2
+
+### ok3
+
+#### ok4
+
+#### ok5

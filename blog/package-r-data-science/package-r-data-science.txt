@@ -11,21 +11,24 @@ format:
   html:
     toc: true
     toc-title: "Mục lục"
-    toc-expand: 6
+    toc-expand: 8
+    toc-depth: 8
     toc-location: left
     number-sections: true
-    number-depth: 6
+    number-depth: 2
     theme: [style.scss]
     page-layout: full
     # code-annotations: below # không thuận tiện cho 2 code chunk
     embed-resources: false
     anchor-sections: true
     smooth-scroll: true
+    # code-fold: true
+    # code-summary: "Show the code"
     link-external-newwindow: true
     code-tools:
       source: http://thongkevavedothi.com/blog/package-r-data-science/package-r-data-science.txt
-    # grid:
-    #   sidebar-width: 0px
+    grid:
+      sidebar-width: 400px
     #   body-width: 2000px
     #   margin-width: 0px
 highlight-style: atom-one
@@ -143,7 +146,7 @@ mtcars |> dplyr:::group_by(cyl) |>
                     count = dplyr:::n()) |> as.data.frame()
 ```
 
-# Phân tích thống kê
+# <mark style="background-color: #FFFF00"><span style="color:red;">Phân tích thống kê</span></mark>
 
 ## Package `car` và `effects`
 
@@ -203,6 +206,86 @@ effects:::plot.efflist(effects:::predictorEffects(fit),
 effects:::plot.efflist(effects:::predictorEffects(fit),
                        lines = list(multiline = TRUE))
 ```
+
+
+# <mark style="background-color: #FFFF00"><span style="color:red;">Phân tích survival</span></mark>
+
+## Package `gtregression`
+
+### Ví dụ 1
+
+Sử dụng bộ dữ liệu `data_lungcancer` trong package `gtregression`, ta có dataset sau. [link](https://thinkdenominator.com/try/gtregression/survival/)
+
+Hiển thị 10 dòng đầu tiên:
+
+```{r, echo=T}
+#| code-fold: true
+
+library(gtregression)
+library(dplyr)
+library(gt)
+
+data("data_lungcancer", package = "gtregression")
+
+lung_data <- data_lungcancer |>
+  mutate(
+    treatment = factor(
+      trt,
+      levels = c(1, 2),
+      labels = c("Standard", "Test")
+    ),
+    prior_therapy = factor(
+      prior,
+      levels = c(0, 10),
+      labels = c("No", "Yes")
+    )
+  )
+
+exposures <- c("treatment", "celltype", "karno", "age")
+
+lung_data |>
+  select(treatment, celltype, time, status, karno, age, prior_therapy) |>
+  head(n=10)
+```
+
+#### Summary bảng survival
+
+```{r, results='asis'}
+# hiển thị bảng HTML thì dùng results='asis' trong code chunk
+km_summary <- gtregression:::survival_summary(
+  data = lung_data,
+  time = time,
+  event = status,
+  by = treatment,
+  format = "gt"
+)
+
+km_summary
+```
+
+#### Vẽ đường Kaplan–Meier
+
+```{r, fig.width=8, fig.height=6}
+gtregression:::km_plot(
+  data = lung_data,
+  time = time,
+  event = status,
+  by = treatment,
+  conf.int = T,
+  risk_table = T,
+  p_value = TRUE,
+  break_time_by = 200,
+  xlab = "Follow-up time (days)",
+  title = "Survival was similar between treatment groups",
+  legend_title = "Treatment",
+  palette = c("red", "blue")
+)
+```
+
+
+
+
+
 
 # Machine learning
 

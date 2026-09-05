@@ -1,0 +1,44 @@
+---
+title: "a"
+format: html
+---
+
+
+
+```{r, echo=T}
+library(gt)
+library(gtregression)
+library(dplyr)
+
+data("data_lungcancer", package = "gtregression")
+
+lung_data <- data_lungcancer |>
+  mutate(
+    treatment = factor(
+      trt,
+      levels = c(1, 2),
+      labels = c("Standard", "Test")
+    ),
+    prior_therapy = factor(
+      prior,
+      levels = c(0, 10),
+      labels = c("No", "Yes")
+    )
+  )
+
+exposures <- c("treatment", "celltype", "karno", "age")
+
+km_summary <- survival_summary(
+  data = lung_data,
+  time = time,
+  event = status,
+  by = treatment,
+  format = "gt"
+)
+```
+
+```{r, results='asis'}
+print(km_summary)
+```
+
+
