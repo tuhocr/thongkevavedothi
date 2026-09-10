@@ -146,7 +146,27 @@ mtcars |> dplyr:::group_by(cyl) |>
                     count = dplyr:::n()) |> as.data.frame()
 ```
 
-# <mark style="background-color: #FFFF00"><span style="color:red;">Phân tích thống kê</span></mark>
+
+# <mark style="background-color: #FFFF00"><span style="color:blue;">Kỹ thuật lấy mẫu</span></mark>
+
+## Package `survey`
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+# <mark style="background-color: #FFFF00"><span style="color:blue;">Phân tích thống kê</span></mark>
 
 ## Package `car` và `effects`
 
@@ -208,7 +228,7 @@ effects:::plot.efflist(effects:::predictorEffects(fit),
 ```
 
 
-# <mark style="background-color: #FFFF00"><span style="color:red;">Phân tích survival</span></mark>
+# <mark style="background-color: #FFFF00"><span style="color:blue;">Phân tích survival</span></mark>
 
 ## Package `gtregression`
 
@@ -319,6 +339,24 @@ cox_adjusted
 ```{r, results='asis'}
 gtregression:::check_ph(cox_adjusted, format = "gt")
 ```
+
+#### AFT model
+
+```{r}
+library(survival)
+aft_weibull <- survreg(
+  Surv(time, status) ~ age + celltype + treatment + karno,
+  data = lung_data,
+  dist = "weibull"
+)
+
+summary(aft_weibull)
+exp(coef(aft_weibull))
+```
+
+
+
+
 
 #### So sánh model
 
