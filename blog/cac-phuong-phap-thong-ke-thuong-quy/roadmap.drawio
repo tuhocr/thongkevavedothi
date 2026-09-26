@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="oexL0nYpBycFURwm00-V">
-    <mxGraphModel dx="3098" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+    <mxGraphModel dx="2720" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -34,7 +34,7 @@
         <mxCell id="CNUaKIz-W7LVmkYr1Uqd-10" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-9" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-7" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Mean, Variance, SD&lt;div&gt;Median,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Quantitle&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Min,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Max&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Mode&lt;/div&gt;" vertex="1">
+        <mxCell id="CNUaKIz-W7LVmkYr1Uqd-7" parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="Mean, Variance, SD&lt;div&gt;Median,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Quantitle&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Min,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Max&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Mode&lt;/div&gt;&lt;div&gt;Khoảng tin cậy&lt;/div&gt;" vertex="1">
           <mxGeometry height="80" width="160" x="-40" y="340" as="geometry" />
         </mxCell>
         <mxCell id="CNUaKIz-W7LVmkYr1Uqd-14" edge="1" parent="1" source="CNUaKIz-W7LVmkYr1Uqd-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="CNUaKIz-W7LVmkYr1Uqd-13" value="">
@@ -184,7 +184,7 @@
             <mxGeometry height="40" width="80" x="-361.33" y="80" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="Download" link="https://thongkevavedothi.com/roadmap.png" id="rCSKf9rMT3vSiaWQK2rG-6">
+        <UserObject label="Download" link="http://thongkevavedothi.com/blog/cac-phuong-phap-thong-ke-thuong-quy/roadmap.drawio" id="rCSKf9rMT3vSiaWQK2rG-6">
           <mxCell parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#008a00;strokeColor=#005700;whiteSpace=wrap;fontColor=#ffffff;" vertex="1">
             <mxGeometry height="40" width="80" x="-281.33" y="80" as="geometry" />
           </mxCell>
@@ -200,7 +200,7 @@
         <mxCell id="rCSKf9rMT3vSiaWQK2rG-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#0000FF;" value="&lt;font&gt;Để đọc hiểu code R, bạn cần có kiến thức nền tảng về ngôn ngữ lập trình R được mình trình bày qua các chuyên đề R for Data Science. Bạn có thể đăng ký học qua record hoặc lớp live zoom mình mở định kỳ.&lt;/font&gt;" vertex="1">
           <mxGeometry height="70" width="320" x="-441.33" y="440" as="geometry" />
         </mxCell>
-        <UserObject label="R for Data Science | RPC" link="https://www.tuhocr.com/register" id="rCSKf9rMT3vSiaWQK2rG-11">
+        <UserObject label="R for Data Science | RPC" link="https://www.tuhocr.com/training" id="rCSKf9rMT3vSiaWQK2rG-11">
           <mxCell parent="1" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;strokeColor=none;strokeWidth=1;fillColor=#33A64C;fontColor=#FFFFFF;whiteSpace=wrap;align=center;verticalAlign=middle;spacingLeft=0;fontStyle=0;fontSize=16;spacing=5;textShadow=1;" vertex="1">
             <mxGeometry height="40" width="240" x="-401.33" y="530" as="geometry" />
           </mxCell>
@@ -234,7 +234,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <UserObject label="Các dạng phân phối&amp;nbsp;&lt;div&gt;thường gặp&lt;/div&gt;" id="qev_JHKcMx6pciIhkdef-4">
-          <mxCell parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+          <mxCell parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" vertex="1">
             <mxGeometry height="40" width="180" x="240" y="495" as="geometry" />
           </mxCell>
         </UserObject>
@@ -245,7 +245,7 @@
           <mxGeometry height="40" width="180" x="240" y="560.39" as="geometry" />
         </mxCell>
         <object label="Phân phối Chi bình phương&lt;div&gt;Chi-squared \( \chi^2 \) distribution&lt;/div&gt;" id="qev_JHKcMx6pciIhkdef-8">
-          <mxCell parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+          <mxCell parent="1" style="whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" vertex="1">
             <mxGeometry height="50" width="180" x="240" y="630" as="geometry" />
           </mxCell>
         </object>
@@ -273,32 +273,50 @@
             <mxGeometry height="80" width="200" x="1560" y="560" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-5" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="oGHjbNzdhwZhr2tW2Nbb-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <UserObject label="&lt;div&gt;So sánh giữa các nhóm&lt;/div&gt;&lt;div&gt;ANOVA&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-7">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
             <mxGeometry height="80" width="200" x="2320" y="560" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-24" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="oGHjbNzdhwZhr2tW2Nbb-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="Biến Y outcome là numeric" vertex="1">
-          <mxGeometry height="80" width="200" x="3080" y="120" as="geometry" />
+          <mxGeometry height="80" width="200" x="3160" y="120" as="geometry" />
         </mxCell>
         <mxCell id="oGHjbNzdhwZhr2tW2Nbb-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="Biến Y outcome là categorical" vertex="1">
-          <mxGeometry height="80" width="200" x="3680" y="120" as="geometry" />
+          <mxGeometry height="80" width="200" x="4760" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-1" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="oGHjbNzdhwZhr2tW2Nbb-28">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <UserObject label="&lt;div&gt;Bắt cặp (before-after)&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-13">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
             <mxGeometry height="40" width="160" x="1400" y="720" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-3" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="oGHjbNzdhwZhr2tW2Nbb-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <UserObject label="Không bắt cặp&amp;nbsp;&lt;div&gt;(2 mẫu độc lập)&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-15">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
             <mxGeometry height="40" width="160" x="1760" y="720" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-8" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <UserObject label="&lt;div&gt;Biến Y phân bố chuẩn&amp;nbsp;&lt;/div&gt;&lt;div&gt;(trong từng nhóm)&lt;/div&gt;ANOVA parametric" id="oGHjbNzdhwZhr2tW2Nbb-17">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
             <mxGeometry height="80" width="200" x="2120" y="720" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-10" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <UserObject label="&lt;div&gt;Biến Y không phân bố chuẩn (trong từng nhóm)&lt;/div&gt;ANOVA nonparametric" id="oGHjbNzdhwZhr2tW2Nbb-18">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
             <mxGeometry height="80" width="200" x="2520" y="720" as="geometry" />
@@ -335,23 +353,391 @@
           </mxGeometry>
         </mxCell>
         <UserObject label="&lt;div&gt;Parametric&lt;/div&gt;&lt;div&gt;Paired t-test&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-28">
-          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
             <mxGeometry height="80" width="120" x="1320" y="800.39" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="&lt;div&gt;Nonparametric&lt;/div&gt;&lt;div&gt;Paired&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Wilcoxon&lt;/span&gt;&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-29">
-          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
             <mxGeometry height="80" width="120" x="1520" y="800" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-56" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-55" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <UserObject label="&lt;div&gt;Parametric&lt;/div&gt;&lt;div&gt;Two sample t-test&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-30">
-          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
-            <mxGeometry height="80" width="120" x="1680" y="800.39" as="geometry" />
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="140" x="1670" y="800.39" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="&lt;div&gt;Nonparametric&lt;/div&gt;&lt;div&gt;Two sample&amp;nbsp;&lt;/div&gt;&lt;div&gt;Wilcoxon&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-31">
+        <UserObject label="&lt;div&gt;Nonparametric&lt;/div&gt;&lt;div&gt;Two sample&amp;nbsp;&lt;/div&gt;&lt;div&gt;Wilcoxon rank-sum&lt;/div&gt;&lt;div&gt;Mann-Whitney U test&lt;/div&gt;" id="oGHjbNzdhwZhr2tW2Nbb-31">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="140" x="1870" y="800.39" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-2" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="oGHjbNzdhwZhr2tW2Nbb-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1580" y="830" as="sourcePoint" />
+            <mxPoint x="1480" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-4" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="oGHjbNzdhwZhr2tW2Nbb-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2120" y="720" as="sourcePoint" />
+            <mxPoint x="2020" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-6" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="oGHjbNzdhwZhr2tW2Nbb-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2630" y="800" as="sourcePoint" />
+            <mxPoint x="2430" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="&lt;div&gt;One-way ANOVA&lt;/div&gt;&lt;div&gt;parametric&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-7">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
-            <mxGeometry height="80" width="120" x="1880" y="800.39" as="geometry" />
+            <mxGeometry height="80" width="200" x="2120" y="880" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Kruskal-Wallis test&lt;/div&gt;&lt;div&gt;one-way ANOVA on rank&lt;/div&gt;&lt;div&gt;nonparametric&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-9">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="2520" y="880" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-16" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;1 biến X liên tục&lt;/div&gt;&lt;div&gt;1 biến Z liên tục&lt;/div&gt;&lt;div&gt;biến Y outcome numeric&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-11">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="2840" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-28" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-27" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3580" y="319.6099999999999" as="sourcePoint" />
+            <mxPoint x="3580" y="399.6100000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="&lt;div&gt;1 biến X liên tục&lt;/div&gt;&lt;div&gt;1 biến Z phân loại&lt;/div&gt;&lt;div&gt;biến Y outcome numeric&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-12">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="3480" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-13" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-11" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-11" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3170" y="320" as="sourcePoint" />
+            <mxPoint x="3330" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-14" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-11" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3440" y="330" as="sourcePoint" />
+            <mxPoint x="3480" y="239.6099999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-22" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-21" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Interaction&lt;/div&gt;&lt;div&gt;Y ~ X + Z + X:Z&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-15">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="2840" y="399.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Phương pháp bề mặt đáp ứng,&lt;/div&gt;&lt;div&gt;không gian 3D&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;X: factor 1 (numeric)&lt;/div&gt;&lt;div&gt;Y: factor 2 (numeric&lt;/div&gt;&lt;div&gt;Z: response (numeric)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Z ~ X + Y&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-21">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="160.39" width="200" x="2840" y="559.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-26" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-25" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;1 biến X phân loại&lt;/div&gt;&lt;div&gt;1 biến Z phân loại&lt;/div&gt;&lt;div&gt;biến Y outcome numeric&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-23">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="3160" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Two-way ANOVA&lt;/div&gt;&lt;div&gt;parametric và nonparametric&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-25">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="3160" y="400" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-30" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-29" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3580" y="479.6100000000001" as="sourcePoint" />
+            <mxPoint x="3580" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="&lt;div&gt;Interaction&lt;/div&gt;&lt;div&gt;Y ~ X + Z + X:Z&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-27">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="3480" y="399.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;ANCOVA&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-29">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="3480" y="560" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-34" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-33" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-87" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-86" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Nhiều biến X (numeric, categorical)&lt;/div&gt;&lt;div&gt;biến Y outcome numeric&lt;/div&gt;&lt;div&gt;Supervised machine learning&lt;/div&gt;&lt;div&gt;Học có giám sát, có label&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-31">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="240" x="3960" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-32" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-11" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-31" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3970" y="500" as="sourcePoint" />
+            <mxPoint x="4090" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-48" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-47" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Multiple regression&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-33">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="3760" y="399.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-43" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-37" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Biến Y outcome có 2 mức&lt;div&gt;0 và 1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="4480" y="239.61" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Biến Y outcome có nhiều mức" vertex="1">
+          <mxGeometry height="80" width="200" x="5040" y="239.61" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-58" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-57" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Logistic regression" vertex="1">
+          <mxGeometry height="80" width="200" x="4480" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Các mức có thứ bậc&lt;div&gt;Ordinal logistic regression&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="4840" y="399.61" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-39" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Các mức không có thứ bậc&lt;div&gt;Nominal logistic regression&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="5160" y="399.61" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="&lt;div&gt;Biến Y là count data&lt;/div&gt;Poison regression" vertex="1">
+          <mxGeometry height="80" width="200" x="5480" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-41" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-12" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-36" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="5330" y="110" as="sourcePoint" />
+            <mxPoint x="5770" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-42" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-12" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-35" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="4930" y="290" as="sourcePoint" />
+            <mxPoint x="5010" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-44" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-36" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-38" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="5540" y="210" as="sourcePoint" />
+            <mxPoint x="5620" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-45" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-36" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-39" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="5570" y="280" as="sourcePoint" />
+            <mxPoint x="5470" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-46" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-36" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-40" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="5290" y="300" as="sourcePoint" />
+            <mxPoint x="5610" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-50" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-49" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Phương pháp chọn biến Stepwise&lt;/div&gt;&lt;div&gt;Variable selection&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-47">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="3760" y="560" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-52" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-51" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Phương pháp chọn biến BMA&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-49">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="3760" y="720" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-54" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-53" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Xác định importance của các biến&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-51">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="3760" y="880" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-98" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-97" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Marginal effect plot" id="qCYEoyp9mNiCkdxBSA6Y-53">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="3760" y="1040.78" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Effect size&lt;/div&gt;&lt;div&gt;Power&lt;/div&gt;&lt;div&gt;Sample size&lt;/div&gt;&lt;div&gt;p-value&lt;/div&gt;&lt;div&gt;Type I và Type II error&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-55">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="160.39" width="140" x="1670" y="960.39" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-60" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-59" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="ROC, AUC, threshold" vertex="1">
+          <mxGeometry height="80" width="200" x="4480" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Optimal cut-off" vertex="1">
+          <mxGeometry height="80" width="200" x="4480" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-65" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-64" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Các thuật toán machine learning&lt;/div&gt;&lt;div&gt;(regression)&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-61">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="4200" y="399.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-63" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-61" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="4340" y="500" as="sourcePoint" />
+            <mxPoint x="4120" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-67" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-66" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Random forest&lt;div&gt;XGBoost&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-64">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="4200" y="559.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-100" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-99" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Support vector machine&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-66">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="4200" y="719.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-71" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-70" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Các thuật toán machine learning&lt;/div&gt;&lt;div&gt;(classification)&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-68">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="240" x="5880" y="400" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-69" edge="1" parent="1" source="oGHjbNzdhwZhr2tW2Nbb-12" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="qCYEoyp9mNiCkdxBSA6Y-74" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="5380" y="110" as="sourcePoint" />
+            <mxPoint x="5460" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-73" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-72" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Random forest&lt;div&gt;XGBoost&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-70">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="240" x="5880" y="560" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-102" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-101" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Support vector machine&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-72">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="240" x="5880" y="720" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-75" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-68" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Nhiều biến X (numeric, categorical)&lt;/div&gt;&lt;div&gt;biến Y outcome categorical&lt;/div&gt;&lt;div&gt;Supervised machine learning&lt;/div&gt;&lt;div&gt;Học có giám sát, có label&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-74">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="240" x="5880" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-78" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-77" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-76" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="Dữ liệu có hàng là observation và rất nhiều cột feature/variable" vertex="1">
+          <mxGeometry height="80" width="200" x="6280" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-80" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-79" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Unsupervised machine learning&lt;/div&gt;&lt;div&gt;Học không giám sát, không có label, không có outcome để xác nhận, mục tiêu để chia cụm&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-77">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="6280" y="239.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-83" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-82" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-88" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-81" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Kỹ thuật PCA&lt;/div&gt;&lt;div&gt;t-SNE&lt;/div&gt;&lt;div&gt;UMAP&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-79">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="6280" y="400" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-91" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-90" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-92" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-89" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;Kỹ thuật clustering&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-81">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="6280" y="560" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Scale dữ liệu&lt;/div&gt;&lt;div&gt;Dummy variable&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-82">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="6560" y="400" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Khái niệm tập train/tập test&lt;/div&gt;&lt;div&gt;Chia dữ liệu để kiểm chứng mô hình&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-86">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="180" x="3990" y="400" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Heatmap&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-89">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="6280" y="720" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Hierarchy clustering&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-90">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1">
+            <mxGeometry height="80" width="200" x="6560" y="560" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Nonlinear regression&lt;div&gt;Model GAM&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-97">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1">
+            <mxGeometry height="80" width="200" x="3760" y="1200.78" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Deep learning&lt;/div&gt;Neuron network" id="qCYEoyp9mNiCkdxBSA6Y-99">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="200" x="4200" y="879.61" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div&gt;Deep learning&lt;/div&gt;Neuron network" id="qCYEoyp9mNiCkdxBSA6Y-101">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
+            <mxGeometry height="80" width="240" x="5880" y="880" as="geometry" />
           </mxCell>
         </UserObject>
       </root>
