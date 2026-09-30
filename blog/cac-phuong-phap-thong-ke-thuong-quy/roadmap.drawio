@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="oexL0nYpBycFURwm00-V">
-    <mxGraphModel dx="2720" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+    <mxGraphModel dx="3098" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -510,10 +510,10 @@
         <mxCell id="qCYEoyp9mNiCkdxBSA6Y-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Biến Y outcome có nhiều mức" vertex="1">
           <mxGeometry height="80" width="200" x="5040" y="239.61" as="geometry" />
         </mxCell>
-        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-58" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-57" value="">
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-58" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;" target="qCYEoyp9mNiCkdxBSA6Y-57" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Logistic regression" vertex="1">
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Logistic regression" vertex="1">
           <mxGeometry height="80" width="200" x="4480" y="400" as="geometry" />
         </mxCell>
         <mxCell id="qCYEoyp9mNiCkdxBSA6Y-38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Các mức có thứ bậc&lt;div&gt;Ordinal logistic regression&lt;/div&gt;" vertex="1">
@@ -589,16 +589,16 @@
         </UserObject>
         <UserObject label="&lt;div&gt;Effect size&lt;/div&gt;&lt;div&gt;Power&lt;/div&gt;&lt;div&gt;Sample size&lt;/div&gt;&lt;div&gt;p-value&lt;/div&gt;&lt;div&gt;Type I và Type II error&lt;/div&gt;" id="qCYEoyp9mNiCkdxBSA6Y-55">
           <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1">
-            <mxGeometry height="160.39" width="140" x="1670" y="960.39" as="geometry" />
+            <mxGeometry height="100" width="140" x="1670" y="960.39" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-60" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-59" value="">
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-60" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;" target="qCYEoyp9mNiCkdxBSA6Y-59" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="ROC, AUC, threshold" vertex="1">
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" value="ROC, AUC, threshold" vertex="1">
           <mxGeometry height="80" width="200" x="4480" y="560" as="geometry" />
         </mxCell>
-        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;" value="Optimal cut-off" vertex="1">
+        <mxCell id="qCYEoyp9mNiCkdxBSA6Y-59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Optimal cut-off" vertex="1">
           <mxGeometry height="80" width="200" x="4480" y="720" as="geometry" />
         </mxCell>
         <mxCell id="qCYEoyp9mNiCkdxBSA6Y-65" edge="1" parent="1" source="qCYEoyp9mNiCkdxBSA6Y-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="qCYEoyp9mNiCkdxBSA6Y-64" value="">

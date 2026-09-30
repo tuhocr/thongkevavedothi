@@ -33,7 +33,16 @@ widgets:
     tags: people, community
     cran: true
     short: >
-      Con người, cộng đồng, công ty đào tạo và sử dụng R trên toàn thế giới  
+      Con người, cộng đồng, công ty đào tạo và sử dụng R trên toàn thế giới 
+  -
+    name: Hướng dẫn vẽ sơ đồ Gantt
+    url: https://www.tuhocr.com/blog/huong-dan-ve-so-do-gantt
+    thumbnail: blog/huong-dan-ve-so-do-gantt/gantt_ok.png   
+    ghauthor: Vẽ đồ thị
+    tags: package ggplot2, gantt chart
+    cran: true
+    short: >
+      Quy trình vẽ sơ đồ Gantt quản lý dự án        
   -
     name: Đồ thị dot plot chia theo nhóm
     url: https://www.tuhocr.com/blog/huong-dan-ve-do-thi-dot-plot-bang-package-lattice
