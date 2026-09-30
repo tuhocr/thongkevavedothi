@@ -36,7 +36,7 @@ widgets:
       Con người, cộng đồng, công ty đào tạo và sử dụng R trên toàn thế giới 
   -
     name: Hướng dẫn vẽ sơ đồ Gantt
-    url: https://www.tuhocr.com/blog/huong-dan-ve-so-do-gantt
+    url: https://thongkevavedothi.com/blog/huong-dan-ve-so-do-gantt/huong-dan-ve-so-do-gantt.html
     thumbnail: blog/huong-dan-ve-so-do-gantt/gantt_ok.png   
     ghauthor: Vẽ đồ thị
     tags: package ggplot2, gantt chart

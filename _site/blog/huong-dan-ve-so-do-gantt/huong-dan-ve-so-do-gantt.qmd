@@ -5,7 +5,7 @@ knitr::opts_chunk$set(message = FALSE,
 
 # Import dataset
 
-Quy trình sau giúp vẽ sơ đồ Gantt để trực quan hóa tiến độ các dự án theo thời gian, mình thiết kế code đơn giản để thuận tiện các bạn modify thêm dựa trên khung template này.
+Quy trình sau giúp vẽ sơ đồ Gantt để trực quan hóa tiến độ các dự án theo thời gian, mình thiết kế code đơn giản để thuận tiện các bạn modify thêm dựa trên khung template này. [Download file Excel template](https://thongkevavedothi.com/blog/huong-dan-ve-so-do-gantt/df_tidy.xlsx)
 
 Để thuận tiện đọc code và modify template, bạn tham khảo các bài giảng R ở đây nhé. <https://class.tuhocr.com/>
 
@@ -155,6 +155,10 @@ grid.raster(w, x = 0.9, y = 0.74, width = 0.15)
 dev.off()
 ```
 
+[**Để phóng lớn hình ảnh, bạn right-click vào hình chọn *Open image in new tab*.**]{style="color:#006600"}
+
 ![](gantt_ok.png)
+
+
 
 Tham khảo `https://jtr13.github.io/cc19/gantt-charts.html`
