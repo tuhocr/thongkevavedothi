@@ -11,7 +11,7 @@ widgets:
     name: Lộ trình học thống kê căn bản
     url: https://thongkevavedothi.com/roadmap.svg
     thumbnail: roadmap.png    
-    ghauthor: Phương pháp thống kê
+    ghauthor: Xác suất thống kê
     tags: roadmap, statistics
     cran: true
     short: >
@@ -20,7 +20,7 @@ widgets:
     name: Bảng chữ cái Hy Lạp
     url: https://thongkevavedothi.com/greek_alphabet.html
     thumbnail: images/p5.png    
-    ghauthor: Phương pháp thống kê
+    ghauthor: Xác suất thống kê
     tags: symbol, statistics
     cran: true
     short: >
@@ -34,6 +34,24 @@ widgets:
     cran: true
     short: >
       Con người, cộng đồng, công ty đào tạo và sử dụng R trên toàn thế giới 
+  -
+    name: Mô phỏng tung xúc xắc
+    url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/xacsuat.html
+    thumbnail: images/p7.png   
+    ghauthor: Xác suất thống kê
+    tags: statistics
+    cran: true
+    short: >
+      Khái niệm xác suất qua ví dụ tung xúc xắc và cách tiếp cận mô phỏng theo trường phái Frequentist
+  -
+    name: Mô phỏng tung đồng xu
+    url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/tungdongxu.html
+    thumbnail: images/p8.png   
+    ghauthor: Xác suất thống kê
+    tags: statistics, Bayesian
+    cran: true
+    short: >
+      Tiếp cận Frequentist và Bayesian qua ví dụ tung đồng xu  
   -
     name: Hướng dẫn vẽ sơ đồ Gantt
     url: https://thongkevavedothi.com/blog/huong-dan-ve-so-do-gantt/huong-dan-ve-so-do-gantt.html
