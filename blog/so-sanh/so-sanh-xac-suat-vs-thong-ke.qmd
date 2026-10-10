@@ -1,0 +1,24 @@
+---
+title: "So sánh giữa xác suất và thống kê"
+format: html
+---
+
+::: {.grid}
+
+::: {.g-col-6}
+
+## Xác suất
+
+Xác suất bắt đầu từ một mô hình hoặc quy luật đã biết, rồi tính khả năng xảy ra của các kết quả.
+
+:::
+  
+::: {.g-col-6}
+
+## Thống kê
+
+Thống kê bắt đầu từ dữ liệu thực tế, sau đó dùng dữ liệu để tìm hiểu hoặc suy luận về tổng thể.
+
+:::
+  
+::: 
