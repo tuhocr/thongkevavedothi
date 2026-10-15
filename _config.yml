@@ -51,7 +51,16 @@ widgets:
     tags: statistics, Bayesian
     cran: true
     short: >
-      Tiếp cận Frequentist và Bayesian qua ví dụ tung đồng xu  
+      Tiếp cận Frequentist và Bayesian qua ví dụ tung đồng xu
+  -
+    name: Lý thuyết tập hợp và tổ hợp
+    url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/set_operation.html
+    thumbnail: images/p9.png   
+    ghauthor: Xác suất thống kê
+    tags: set theory, combinatorics
+    cran: true
+    short: >
+      Các lệnh R để tính toán trên tập hợp và tổ hợp       
   -
     name: Hướng dẫn vẽ sơ đồ Gantt
     url: https://thongkevavedothi.com/blog/huong-dan-ve-so-do-gantt/huong-dan-ve-so-do-gantt.html
