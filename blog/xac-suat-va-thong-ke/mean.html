@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Duc Nguyen | tuhocr.com">
+<meta name="dcterms.date" content="2026-10-16">
+
+<title>Công thức tính trung bình | Measures of Central Tendency</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="mean_files/libs/clipboard/clipboard.min.js"></script>
+<script src="mean_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="mean_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="mean_files/libs/quarto-html/popper.min.js"></script>
+<script src="mean_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="mean_files/libs/quarto-html/anchor.min.js"></script>
+<link href="mean_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="mean_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="mean_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="mean_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="mean_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="mean_files/libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="mean_files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<style>html{ scroll-behavior: smooth; }</style>
+<link rel="shortcut icon" href="favicon.png">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="8">
+    <h2 id="toc-title">Mục lục</h2>
+   
+  <ul>
+  <li><a href="#arithmetic-mean" id="toc-arithmetic-mean" class="nav-link active" data-scroll-target="#arithmetic-mean"><span class="header-section-number">1</span> Arithmetic Mean</a></li>
+  <li><a href="#weighted-mean" id="toc-weighted-mean" class="nav-link" data-scroll-target="#weighted-mean"><span class="header-section-number">2</span> Weighted Mean</a></li>
+  <li><a href="#geometric-mean" id="toc-geometric-mean" class="nav-link" data-scroll-target="#geometric-mean"><span class="header-section-number">3</span> Geometric Mean</a></li>
+  <li><a href="#weighted-geometric-mean" id="toc-weighted-geometric-mean" class="nav-link" data-scroll-target="#weighted-geometric-mean"><span class="header-section-number">4</span> Weighted Geometric Mean</a></li>
+  <li><a href="#harmonic-mean" id="toc-harmonic-mean" class="nav-link" data-scroll-target="#harmonic-mean"><span class="header-section-number">5</span> Harmonic Mean</a></li>
+  <li><a href="#weighted-harmonic-mean" id="toc-weighted-harmonic-mean" class="nav-link" data-scroll-target="#weighted-harmonic-mean"><span class="header-section-number">6</span> Weighted Harmonic Mean</a></li>
+  <li><a href="#hölders-mean" id="toc-hölders-mean" class="nav-link" data-scroll-target="#hölders-mean"><span class="header-section-number">7</span> Hölder’s mean</a></li>
+  <li><a href="#minh-họa-bằng-đồ-thị" id="toc-minh-họa-bằng-đồ-thị" class="nav-link" data-scroll-target="#minh-họa-bằng-đồ-thị"><span class="header-section-number">8</span> Minh họa bằng đồ thị</a></li>
+  <li><a href="#tài-liệu-tham-khảo" id="toc-tài-liệu-tham-khảo" class="nav-link" data-scroll-target="#tài-liệu-tham-khảo"><span class="header-section-number">9</span> Tài liệu tham khảo</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Công thức tính trung bình | Measures of Central Tendency</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-right">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Duc Nguyen | <a href="https://www.tuhocr.com/"><strong>tuhocr.com</strong></a> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 16, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><a href="https://www.tuhocr.com/r-statistics"><strong>Tài liệu biên soạn trong chuyên đề R Statistics</strong></a></p>
+<section id="arithmetic-mean" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Arithmetic Mean</h1>
+<p>Trung bình cộng (Arithmetic Mean) là cách tính trung bình phổ biến nhất bằng cách cộng tổng tất cả các giá trị và chia cho tổng số.</p>
+<p><span class="math display">\[\text{Mean} = \frac{\text{Sum of all
+values}}{\text{Number of all values}}\]</span></p>
+<p>Ký hiệu cho trung bình của mẫu:</p>
+<p><span class="math display">\[\bar x = \frac{1}{n}\sum_{i=1}^n x_i\]</span></p>
+<p>Ký hiệu cho trung bình của quần thể:</p>
+<p><span class="math display">\[\mu = \frac{1}{N}\sum_{i=1}^N x_i\]</span></p>
+<p>Với <span class="math inline">\(\sum_{i=1}^n x_i\)</span> là tổng tất cả giá trị của <span class="math inline">\(x_i\)</span>, <span class="math inline">\(N\)</span> là tổng số lượng thành viên trong quần thể, <span class="math inline">\(n\)</span> là tổng số lượng thành viên trong mẫu.</p>
+<p>Trong R, ta có nhiều cách để thực hiện tính trung bình như sau:</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Dataset">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Dataset
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<style>
+div.yes123 pre { background-color:#fff2cc; font-size: 16px; }
+div.yes123 pre.r { background-color:#F1F3F5; font-size: 16px; }
+</style>
+<div class="yes123">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>airquality</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Ozone Solar.R Wind Temp Month Day
+1      41     190  7.4   67     5   1
+2      36     118  8.0   72     5   2
+3      12     149 12.6   74     5   3
+4      18     313 11.5   62     5   4
+5      NA      NA 14.3   56     5   5
+6      28      NA 14.9   66     5   6
+7      23     299  8.6   65     5   7
+8      19      99 13.8   59     5   8
+9       8      19 20.1   61     5   9
+10     NA     194  8.6   69     5  10
+11      7      NA  6.9   74     5  11
+12     16     256  9.7   69     5  12
+13     11     290  9.2   66     5  13
+14     14     274 10.9   68     5  14
+15     18      65 13.2   58     5  15
+16     14     334 11.5   64     5  16
+17     34     307 12.0   66     5  17
+18      6      78 18.4   57     5  18
+19     30     322 11.5   68     5  19
+20     11      44  9.7   62     5  20
+21      1       8  9.7   59     5  21
+22     11     320 16.6   73     5  22
+23      4      25  9.7   61     5  23
+24     32      92 12.0   61     5  24
+25     NA      66 16.6   57     5  25
+26     NA     266 14.9   58     5  26
+27     NA      NA  8.0   57     5  27
+28     23      13 12.0   67     5  28
+29     45     252 14.9   81     5  29
+30    115     223  5.7   79     5  30
+31     37     279  7.4   76     5  31
+32     NA     286  8.6   78     6   1
+33     NA     287  9.7   74     6   2
+34     NA     242 16.1   67     6   3
+35     NA     186  9.2   84     6   4
+36     NA     220  8.6   85     6   5
+37     NA     264 14.3   79     6   6
+38     29     127  9.7   82     6   7
+39     NA     273  6.9   87     6   8
+40     71     291 13.8   90     6   9
+41     39     323 11.5   87     6  10
+42     NA     259 10.9   93     6  11
+43     NA     250  9.2   92     6  12
+44     23     148  8.0   82     6  13
+45     NA     332 13.8   80     6  14
+46     NA     322 11.5   79     6  15
+47     21     191 14.9   77     6  16
+48     37     284 20.7   72     6  17
+49     20      37  9.2   65     6  18
+50     12     120 11.5   73     6  19
+51     13     137 10.3   76     6  20
+52     NA     150  6.3   77     6  21
+53     NA      59  1.7   76     6  22
+54     NA      91  4.6   76     6  23
+55     NA     250  6.3   76     6  24
+56     NA     135  8.0   75     6  25
+57     NA     127  8.0   78     6  26
+58     NA      47 10.3   73     6  27
+59     NA      98 11.5   80     6  28
+60     NA      31 14.9   77     6  29
+61     NA     138  8.0   83     6  30
+62    135     269  4.1   84     7   1
+63     49     248  9.2   85     7   2
+64     32     236  9.2   81     7   3
+65     NA     101 10.9   84     7   4
+66     64     175  4.6   83     7   5
+67     40     314 10.9   83     7   6
+68     77     276  5.1   88     7   7
+69     97     267  6.3   92     7   8
+70     97     272  5.7   92     7   9
+71     85     175  7.4   89     7  10
+72     NA     139  8.6   82     7  11
+73     10     264 14.3   73     7  12
+74     27     175 14.9   81     7  13
+75     NA     291 14.9   91     7  14
+76      7      48 14.3   80     7  15
+77     48     260  6.9   81     7  16
+78     35     274 10.3   82     7  17
+79     61     285  6.3   84     7  18
+80     79     187  5.1   87     7  19
+81     63     220 11.5   85     7  20
+82     16       7  6.9   74     7  21
+83     NA     258  9.7   81     7  22
+84     NA     295 11.5   82     7  23
+85     80     294  8.6   86     7  24
+86    108     223  8.0   85     7  25
+87     20      81  8.6   82     7  26
+88     52      82 12.0   86     7  27
+89     82     213  7.4   88     7  28
+90     50     275  7.4   86     7  29
+91     64     253  7.4   83     7  30
+92     59     254  9.2   81     7  31
+93     39      83  6.9   81     8   1
+94      9      24 13.8   81     8   2
+95     16      77  7.4   82     8   3
+96     78      NA  6.9   86     8   4
+97     35      NA  7.4   85     8   5
+98     66      NA  4.6   87     8   6
+99    122     255  4.0   89     8   7
+100    89     229 10.3   90     8   8
+101   110     207  8.0   90     8   9
+102    NA     222  8.6   92     8  10
+103    NA     137 11.5   86     8  11
+104    44     192 11.5   86     8  12
+105    28     273 11.5   82     8  13
+106    65     157  9.7   80     8  14
+107    NA      64 11.5   79     8  15
+108    22      71 10.3   77     8  16
+109    59      51  6.3   79     8  17
+110    23     115  7.4   76     8  18
+111    31     244 10.9   78     8  19
+112    44     190 10.3   78     8  20
+113    21     259 15.5   77     8  21
+114     9      36 14.3   72     8  22
+115    NA     255 12.6   75     8  23
+116    45     212  9.7   79     8  24
+117   168     238  3.4   81     8  25
+118    73     215  8.0   86     8  26
+119    NA     153  5.7   88     8  27
+120    76     203  9.7   97     8  28
+121   118     225  2.3   94     8  29
+122    84     237  6.3   96     8  30
+123    85     188  6.3   94     8  31
+124    96     167  6.9   91     9   1
+125    78     197  5.1   92     9   2
+126    73     183  2.8   93     9   3
+127    91     189  4.6   93     9   4
+128    47      95  7.4   87     9   5
+129    32      92 15.5   84     9   6
+130    20     252 10.9   80     9   7
+131    23     220 10.3   78     9   8
+132    21     230 10.9   75     9   9
+133    24     259  9.7   73     9  10
+134    44     236 14.9   81     9  11
+135    21     259 15.5   76     9  12
+136    28     238  6.3   77     9  13
+137     9      24 10.9   71     9  14
+138    13     112 11.5   71     9  15
+139    46     237  6.9   78     9  16
+140    18     224 13.8   67     9  17
+141    13      27 10.3   76     9  18
+142    24     238 10.3   68     9  19
+143    16     201  8.0   82     9  20
+144    13     238 12.6   64     9  21
+145    23      14  9.2   71     9  22
+146    36     139 10.3   81     9  23
+147     7      49 10.3   69     9  24
+148    14      20 16.6   63     9  25
+149    30     193  6.9   70     9  26
+150    NA     145 13.2   77     9  27
+151    14     191 14.3   75     9  28
+152    18     131  8.0   76     9  29
+153    20     223 11.5   68     9  30</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nếu có giá trị NA trong cột Ozone thì sẽ không tính được mean</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.12931</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Ozone <span class="sc">~</span> Month,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> airquality,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Month    Ozone
+1     5 23.61538
+2     6 29.44444
+3     7 59.11538
+4     8 59.96154
+5     9 31.44828</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>airquality <span class="sc">|&gt;</span> dplyr<span class="sc">:::</span><span class="fu">group_by</span>(Month) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">:::</span><span class="fu">summarise</span>(<span class="at">Ozone_mean =</span> <span class="fu">mean</span>(Ozone, <span class="at">na.rm =</span> T),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Ozone_observation =</span> <span class="fu">length</span>(<span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(Ozone))),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Ozone_missing_value =</span> <span class="fu">length</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(Ozone))),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Total_observation =</span> <span class="fu">n</span>()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>() <span class="ot">-&gt;</span> kq</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>kq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Month Ozone_mean Ozone_observation Ozone_missing_value Total_observation
+1     5   23.61538                26                   5                31
+2     6   29.44444                 9                  21                30
+3     7   59.11538                26                   5                31
+4     8   59.96154                26                   5                31
+5     9   31.44828                29                   1                30</code></pre>
+</div>
+</div>
+<p><strong>Trong tình huống dữ liệu bị missing value và số lượng quan sát ở mỗi nhóm không đều nhau, ta có thể tính trung bình theo trọng số sẽ cho kết quả chính xác hơn là trung bình cộng.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(kq<span class="sc">$</span>Ozone_mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40.71701</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(<span class="at">x =</span> kq<span class="sc">$</span>Ozone_mean,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">w =</span> kq<span class="sc">$</span>Ozone_observation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.12931</code></pre>
+</div>
+</div>
+<p>Kết quả tính trung bình có trọng số này, cũng bằng với kết quả trung bình của toàn bộ vector <code>Ozone</code> sau khi loại bỏ đi missing value.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.12931</code></pre>
+</div>
+</div>
+<p>Tùy cách ta định nghĩa trọng số mà kết quả tính trung bình sẽ khác một chút. Nếu ta tạo thêm cột “tỷ lệ quan sát mẫu tính theo mỗi tháng” và lấy cột đó làm sampling weight thì kết quả trung bình Ozone trong suốt thời gian theo dõi là:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>kq<span class="sc">$</span>ty_le_quan_sat <span class="ot">&lt;-</span> kq<span class="sc">$</span>Ozone_observation <span class="sc">/</span> kq<span class="sc">$</span>Total_observation</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>kq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Month Ozone_mean Ozone_observation Ozone_missing_value Total_observation ty_le_quan_sat
+1     5   23.61538                26                   5                31      0.8387097
+2     6   29.44444                 9                  21                30      0.3000000
+3     7   59.11538                26                   5                31      0.8387097
+4     8   59.96154                26                   5                31      0.8387097
+5     9   31.44828                29                   1                30      0.9666667</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(<span class="at">x =</span> kq<span class="sc">$</span>Ozone_mean,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">w =</span> kq<span class="sc">$</span>ty_le_quan_sat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.00881</code></pre>
+</div>
+</div>
+<p>Một cách tiếp cận khác, ta có thể imputation giá trị missing value bằng trung bình có trọng số này, rồi tính lại lần nữa giá trị trung bình. Cách gán giá trị này cũng đơn giản, bạn chỉ cần subset theo giá trị NA trong vector rồi gán kết quả vào. Lưu ý là trung bình cộng lúc sau cũng chính là trung bình lúc đầu của vector đó khi loại đi giá trị missing value.</p>
+<p>Ví dụ:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">12</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3 NA  2  3 NA  5  6  7 12</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.428571</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># imputation bằng giá trị mean của x</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> T)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3.000000  5.428571  2.000000  3.000000  5.428571  5.000000  6.000000  7.000000 12.000000</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.428571</code></pre>
+</div>
+</div>
+</section>
+<section id="weighted-mean" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Weighted Mean</h1>
+<p>Trung bình có trọng số (Weighted Mean) để tính cho các tình huống mà trong dãy số liệu có những con số <strong>quan trọng hơn</strong> những con số khác. Về bản chất trung bình cộng (Arithmetic Mean) là trường hợp đặc biệt của trung bình có trọng số khi gán trọng số bằng 1 cho tất cả các con số (xem các giá trị có mức độ quan trọng ngang nhau).</p>
+<p><span class="math display">\[\bar x_w = \frac{\sum_{i=1}^n w_ix_i }{\sum_{i=1}^n w_i}\]</span></p>
+<p>Theo công thức này thì trung bình có trọng số được tính theo kiểu trung bình cộng (sau khi hiệu chỉnh theo trọng số) nên còn gọi là Weighted Arithmetic Mean (trung bình cộng theo trọng số), để phân biệt với các kiểu tính trung bình khác.</p>
+<p>Ví dụ khảo sát chiều cao của 1000 bạn sinh viên, ta thu mẫu được 700 bạn nam, tính trung bình là 170 cm cho nhóm nam, và 300 bạn nữ, trung bình chiều cao là 160 cm cho nhóm nữ. Vậy chiều cao trung bình của sinh viên là bao nhiêu?</p>
+<p><strong>Trung bình cộng</strong> trong trường hợp này không chính xác vì số liệu bị lệch theo giới tính.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>so_luong_nam <span class="ot">&lt;-</span> <span class="dv">700</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>so_luong_nu <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>mean_nam <span class="ot">&lt;-</span> <span class="dv">170</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>mean_nu <span class="ot">&lt;-</span> <span class="dv">160</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">170</span> <span class="sc">+</span> <span class="dv">160</span>)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 165</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">170</span>, <span class="dv">160</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 165</code></pre>
+</div>
+</div>
+<p><strong>Trung bình có trọng số</strong> hiệu chỉnh lại giá trị chiều cao với thông tin từ “số lượng cỡ mẫu” theo nhóm thu thập được.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>((<span class="dv">700</span><span class="sc">*</span><span class="dv">170</span>) <span class="sc">+</span> (<span class="dv">300</span><span class="sc">*</span><span class="dv">160</span>)) <span class="sc">/</span> (<span class="dv">700</span><span class="sc">+</span><span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 167</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">170</span>, <span class="dv">160</span>),</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">w =</span> <span class="fu">c</span>(<span class="dv">700</span>, <span class="dv">300</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 167</code></pre>
+</div>
+</div>
+<p>Điều này có nghĩa là:</p>
+<p>Vì nhóm nam chiếm tỷ lệ 70% (700 nam/1000 sinh viên) nên trung bình chiều cao của sinh viên (nam và nữ) là 167 cm, thì nhóm nam đóng góp 119 cm (0.7 × 170 = 119 cm) và nhóm nữ đóng góp phần còn lại là 48 cm (0.3 × 160 = 48 cm).</p>
+</section>
+<section id="geometric-mean" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Geometric Mean</h1>
+<p>Geometric Mean (trung bình nhân hay trung bình hình học) là một loại trung bình được tính bằng cách lấy tích của các số rồi khai căn bậc n, với n là số lượng các số đó.</p>
+<p><span class="math display">\[\bar x_{geo} = \sqrt[n]{x_1 \cdot x_2
+\cdots x_n} =\bigg(\prod_{i=1}^n x_i \bigg)^{1/n} =
+\sqrt[n]{\prod_{i=1}^n x_i}\]</span></p>
+<blockquote class="blockquote">
+<p>When studying phenomena such as inflation or population changes, which involve periodic increases or decreases (known as rates of change), the geometric mean is more appropriate to find the average change over the entire period under investigation.</p>
+</blockquote>
+<p>Trung bình nhân đặc biệt hữu ích khi tính tốc độ tăng trưởng qua nhiều giai đoạn, tỷ suất sinh lời trung bình hoặc các đại lượng thay đổi theo tỷ lệ nhân.</p>
+<p>Ví dụ: Ta có tốc độ tăng trưởng trung bình hàng năm của 1 đàn ong, theo dõi trong 5 năm. Tốc độ tăng trưởng này thay đổi theo từng năm như sau: năm thứ 1 thì đàn ong tăng trưởng 14% số lượng, năm thứ 2 là 26%, năm thứ 3 là 16% (giảm tốc độ tăng trưởng), năm thứ 4 là -38% (tăng trưởng âm, giảm rất mạnh), năm thứ 5 là (-6%, có tích hiệu “tích cực” vì đã giảm bớt tăng trưởng âm, nhưng vẫn chưa gọi là tăng trưởng dương được). Ta biết đàn ong có 5000 ngàn con ở thời điểm khởi đầu (năm 1), hãy tính <strong>tốc độ tăng trưởng trung bình của quần thể ong</strong>, và <strong>số lượng con ong ở năm thứ 5</strong>.</p>
+<blockquote class="blockquote">
+<p>We consider the annual growth rates of a swarm of honey bees over a 5-year period. These rates of change are: 14 %, 26 %, 16 %, -38 %, -6 %. Further, we know that at the beginning of the monitoring period there were 5,000 bees in the swarm. We are looking for the mean rate of population change.</p>
+</blockquote>
+<p>Như vậy, tốc độ tăng trưởng hàng năm (annual growth rate) này bản chất là số lượng đàn ong năm sau trừ đi số lượng đàn ong năm trước tính theo tỷ lệ phần trăm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>bees <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">26</span>, <span class="dv">16</span>, <span class="sc">-</span><span class="dv">38</span>, <span class="sc">-</span><span class="dv">6</span>) <span class="co"># rate of change per year</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>bees</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  14  26  16 -38  -6</code></pre>
+</div>
+</div>
+<p>Nếu ta tính theo kiểu trung bình cộng cho “tốc độ tăng trưởng hàng năm” thì sẽ có kết quả là 2.4%. Kết quả này cho thấy đàn ong vẫn tăng trưởng (dù trải qua nhiều đợt suy thoái), với kết quả tăng trưởng trung bình mỗi năm là 2,4%. Tuy nhiên cách tính không phản ánh đúng thực tế.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.4</code></pre>
+</div>
+</div>
+<p>Đầu tiên, ta cần tính tỷ lệ tăng trưởng/suy thoái so với năm trước liền kề, bằng cách cộng thêm 1 (đại diện cho “số lượng của năm trước” cộng/trừ đi tỷ lệ tăng trưởng).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>bees_growth_rel <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> (bees<span class="sc">/</span><span class="dv">100</span>) <span class="co"># annual rates of growth/decline (percentage)</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>bees_growth_rel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.14 1.26 1.16 0.62 0.94</code></pre>
+</div>
+</div>
+<p><strong>Tính trung bình nhân trong R</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>bees_len <span class="ot">&lt;-</span> <span class="fu">length</span>(bees) <span class="co"># number of observations</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>bees_growth_geom <span class="ot">&lt;-</span> (bees_growth_rel[<span class="dv">1</span>] <span class="sc">*</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">2</span>] <span class="sc">*</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">3</span>] <span class="sc">*</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">4</span>] <span class="sc">*</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">5</span>])<span class="sc">^</span>(<span class="dv">1</span> <span class="sc">/</span> bees_len)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co"># rounded result</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>bees_growth_geom</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.994147</code></pre>
+</div>
+</div>
+<p><strong>Dùng package</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">:::</span><span class="fu">geometric.mean</span>(bees_growth_rel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.994147</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>The geometric mean indicates that there is a decline in the number of species over time at an average rate of 0.994, which corresponds to -0.006 %</p>
+</blockquote>
+<p>Ta có đàn ong này có tỷ lệ trung bình phát triển là 0.994, nghĩa là có 1 xu hướng giảm theo thời gian, với tỷ lệ giảm trung bình là 6%. Do đó dự đoán lượng đàn ong còn lại sau 5 năm là:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Year 1</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>year1 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">5000</span> <span class="sc">*</span> <span class="fl">0.994147</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>year1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4971</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Year 2</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>year2 <span class="ot">&lt;-</span> <span class="fu">round</span>(year1 <span class="sc">*</span> <span class="fl">0.994147</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>year2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4942</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Year 3</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>year3 <span class="ot">&lt;-</span> <span class="fu">round</span>(year2 <span class="sc">*</span> <span class="fl">0.994147</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>year3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4913</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Year 4</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>year4 <span class="ot">&lt;-</span> <span class="fu">round</span>(year3 <span class="sc">*</span> <span class="fl">0.994147</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>year4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4884</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Year 5</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>year5 <span class="ot">&lt;-</span> <span class="fu">round</span>(year4 <span class="sc">*</span> <span class="fl">0.994147</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>year5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4855</code></pre>
+</div>
+</div>
+<p>Con số này y chang với giá trị biến động thực nếu tính theo cách thủ công từ con số tăng trưởng hàng năm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">5000</span> <span class="sc">*</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">1</span>] <span class="sc">*</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">2</span>] <span class="sc">*</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">3</span>] <span class="sc">*</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">4</span>] <span class="sc">*</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  bees_growth_rel[<span class="dv">5</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4855</code></pre>
+</div>
+</div>
+<p><strong>Kiểm chứng trong Excel để trực quan hóa công thức.</strong> <a href="https://filedn.com/lesyJpQOCafj7katNqunAxu/TUHOCR/STAT/202610_grow_K1/code/bees.xlsx">download</a></p>
+<p><img src="geo.png" class="img-fluid"></p>
+</section>
+<section id="weighted-geometric-mean" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Weighted Geometric Mean</h1>
+<p><span class="math display">\[\bar x_{geo_w} = \bigg(\prod_{i=1}^n
+x_i^{w_i} \bigg)^{1/ \sum_{i=1}^n w_i}\]</span></p>
+</section>
+<section id="harmonic-mean" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Harmonic Mean</h1>
+<p>Harmonic Mean (trung bình điều hòa/hài hòa) là một loại trung bình được dùng để tính giá trị trung bình của các đại lượng dạng tỷ lệ, đặc biệt khi tính trung bình tốc độ, năng suất hoặc giá trên mỗi đơn vị, mật độ người trên diện tích.</p>
+<blockquote class="blockquote">
+<p>The harmonic mean is best used when we want to average inverse metrics, such as speed (km/h) or population density (pop/km2).</p>
+</blockquote>
+<p><span class="math display">\[\bar x_h = \frac{n}{\frac{1}{x_1} +
+\frac{1}{x_2} + \cdots + \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^n
+\frac{1}{x_i}}, \qquad x_i &gt; 0 \text{ for all } i.\]</span></p>
+<p>Ví dụ: Ta có khoảng cách từ nhà đến cơ quan là 50 km, bạn lái xe lượt đi là 40 km/h, lượt về là 30 km/h (có thể lúc về bạn thong thả đi từ từ chẳng hạn)</p>
+<p><strong>Tính thủ công bằng R</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>luot_di <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>luot_ve <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>mau_so <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>luot_di <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>luot_ve</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">/</span> mau_so</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34.28571</code></pre>
+</div>
+</div>
+<p><strong>Tính bằng package</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">:::</span><span class="fu">harmonic.mean</span>(<span class="fu">c</span>(luot_di, luot_ve))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34.28571</code></pre>
+</div>
+</div>
+<p>Con số này sẽ chính xác hơn là giá trị trung bình.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">40</span><span class="sc">+</span><span class="dv">30</span>)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35</code></pre>
+</div>
+</div>
+<p><strong>Kiểm chứng trong Excel để trực quan hóa công thức.</strong> <a href="https://filedn.com/lesyJpQOCafj7katNqunAxu/TUHOCR/STAT/202610_grow_K1/code/speed.xlsx">download</a></p>
+<p><img src="harmony.png" class="img-fluid"></p>
+</section>
+<section id="weighted-harmonic-mean" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Weighted Harmonic Mean</h1>
+<p><span class="math display">\[\bar x_{h_w} = \frac{w_1+w_2+\cdots
++w_n}{\frac{w_1}{x_1} + \frac{w2}{x_2} + \cdots + \frac{w_n}{x_n}} =
+\frac{\sum_{i=1}^n w_i}{\sum_{i=1}^n \frac{w_i}{x_i}}, \qquad x_i &gt; 0
+\text{ for all } i.\]</span></p>
+</section>
+<section id="hölders-mean" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Hölder’s mean</h1>
+<p><span class="math display">\[\bar x_{q} = \left(\frac{1}{n}
+\sum_{i=1}^n x_i^q \right)^\frac{1}{q}\]</span></p>
+</section>
+<section id="minh-họa-bằng-đồ-thị" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Minh họa bằng đồ thị</h1>
+<p><img src="mean_ok.png" class="img-fluid"></p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="600" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="https://filedn.com/lesyJpQOCafj7katNqunAxu/MEDIA/v3/means.mp4"></video></div>
+<p><a href="https://www.geo.fu-berlin.de/en/v/soga-r/Basics-of-statistics/Descriptive-Statistics/Measures-of-Central-Tendency/index.html">source</a></p>
+</section>
+<section id="tài-liệu-tham-khảo" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Tài liệu tham khảo</h1>
+<ol type="1">
+<li><p><a href="https://www.geo.fu-berlin.de/en/v/soga-r/Basics-of-statistics/Descriptive-Statistics/Measures-of-Central-Tendency/Different-types-of-Mean/index.html">Different types of Mean</a></p></li>
+<li><p><a href="https://filedn.com/lesyJpQOCafj7katNqunAxu/THANKS/r/sample_size/Sampling-%20Design%20and%20Analysis%20Sharon%20L_%20Lohr%20--%203%2C%202022.pdf">Cách tính trung bình theo trọng số - Chapter 2.4 Sampling Weight trong lấy mẫu hoàn toàn ngẫu nhiên SRS</a> | <a href="https://filedn.com/lesyJpQOCafj7katNqunAxu/THANKS/r/sample_size/Stuvia-3998678-sampling-design-and-analysis-3rd-edition-solution-manual.pdf">Solution</a></p></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
+
+
+
+
+<script src="mean_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
