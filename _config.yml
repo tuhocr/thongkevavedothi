@@ -60,7 +60,16 @@ widgets:
     tags: set theory, combinatorics
     cran: true
     short: >
-      Các lệnh R để tính toán trên tập hợp và tổ hợp       
+      Các lệnh R để tính toán trên tập hợp và tổ hợp     
+  -
+    name: Công thức tính trung bình
+    url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/mean.html
+    thumbnail: images/p10.png   
+    ghauthor: Xác suất thống kê
+    tags: statistics
+    cran: true
+    short: >
+      Minh họa cách tính trung bình cho những tình huống cụ thể       
   -
     name: Hướng dẫn vẽ sơ đồ Gantt
     url: https://thongkevavedothi.com/blog/huong-dan-ve-so-do-gantt/huong-dan-ve-so-do-gantt.html
