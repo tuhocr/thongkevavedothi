@@ -73,7 +73,7 @@ widgets:
   -
     name: Hướng dẫn phân tích Before-After | Repeated measures
     url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/paired_samples.html
-    thumbnail: images/p11.png   
+    thumbnail: images/p12.png   
     ghauthor: Xác suất thống kê
     tags: paried samples, statistics
     cran: true
