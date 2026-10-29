@@ -66,10 +66,19 @@ widgets:
     url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/compare_test.html
     thumbnail: images/p11.png   
     ghauthor: Xác suất thống kê
-    tags: roadmap, statistics
+    tags: hypothesis testing, statistics
     cran: true
     short: >
-      Hướng dẫn ráp code R để kiểm định thống kê so sánh giữa các nhóm     
+      Hướng dẫn ráp code R để kiểm định thống kê so sánh giữa các nhóm   
+  -
+    name: Hướng dẫn phân tích Before-After | Repeated measures
+    url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/paired_samples.html
+    thumbnail: images/p11.png   
+    ghauthor: Xác suất thống kê
+    tags: paried samples, statistics
+    cran: true
+    short: >
+      Phân tích paired t-test và repeated measures ANOVA       
   -
     name: Công thức tính trung bình
     url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/mean.html
