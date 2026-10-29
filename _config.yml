@@ -75,7 +75,7 @@ widgets:
     url: https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/paired_samples.html
     thumbnail: images/p12.png   
     ghauthor: Xác suất thống kê
-    tags: paried samples, statistics
+    tags: paired samples, statistics
     cran: true
     short: >
       Phân tích paired t-test và repeated measures ANOVA       
