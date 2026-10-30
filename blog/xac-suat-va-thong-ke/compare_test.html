@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Duc Nguyen | tuhocr.com">
-<meta name="dcterms.date" content="2026-10-29">
+<meta name="dcterms.date" content="2026-10-30">
 
 <title>Kiểm định thống kê so sánh giữa các nhóm</title>
 <style>
@@ -2310,7 +2310,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 29, 2026</p>
+      <p class="date">October 30, 2026</p>
     </div>
   </div>
   
@@ -2914,7 +2914,7 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 ==================
 
 Good evening!
-The current time is 23:02 PM on Thursday October 29, 2026.
+The current time is 19:59 PM on Friday October 30, 2026.
 
 The character(0) Cohen&#39;s d between &gt;= 30 and &lt; 30 is 0.448 [95%CI 0.054, 0.851].
 The p-value of the two-sided permutation t-test is 0.0272, calculated for legacy purposes only.
@@ -3375,7 +3375,7 @@ mean of x
 ==================
 
 Good evening!
-The current time is 23:02 PM on Thursday October 29, 2026.
+The current time is 19:59 PM on Friday October 30, 2026.
 
 The paired mean difference between hk2 and hk1 is 0.89 [95%CI -2.85, 4.404].
 The p-value of the two-sided permutation t-test is 0.5916, calculated for legacy purposes only.
@@ -4011,8 +4011,9 @@ trt1    4.7      b</code></pre>
 <span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> PlantGrowth<span class="sc">$</span>weight,</span>
 <span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">g =</span> PlantGrowth<span class="sc">$</span>group,</span>
 <span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>,</span>
-<span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">TRUE</span></span>
-<span id="cb150-6"><a href="#cb150-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb150-6"><a href="#cb150-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">TRUE</span></span>
+<span id="cb150-7"><a href="#cb150-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pairwise comparisons using t tests with pooled SD 
@@ -4029,8 +4030,9 @@ P value adjustment method: bonferroni </code></pre>
 <span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> PlantGrowth<span class="sc">$</span>weight,</span>
 <span id="cb152-3"><a href="#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">g =</span> PlantGrowth<span class="sc">$</span>group,</span>
 <span id="cb152-4"><a href="#cb152-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>,</span>
-<span id="cb152-5"><a href="#cb152-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">TRUE</span></span>
-<span id="cb152-6"><a href="#cb152-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb152-5"><a href="#cb152-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb152-6"><a href="#cb152-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">TRUE</span></span>
+<span id="cb152-7"><a href="#cb152-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pairwise comparisons using t tests with pooled SD 
@@ -4047,8 +4049,9 @@ P value adjustment method: BH </code></pre>
 <span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> PlantGrowth<span class="sc">$</span>weight,</span>
 <span id="cb154-3"><a href="#cb154-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">g =</span> PlantGrowth<span class="sc">$</span>group,</span>
 <span id="cb154-4"><a href="#cb154-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;holm&quot;</span>,</span>
-<span id="cb154-5"><a href="#cb154-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">TRUE</span></span>
-<span id="cb154-6"><a href="#cb154-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb154-5"><a href="#cb154-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb154-6"><a href="#cb154-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">TRUE</span></span>
+<span id="cb154-7"><a href="#cb154-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pairwise comparisons using t tests with pooled SD 
@@ -4065,8 +4068,9 @@ P value adjustment method: holm </code></pre>
 <span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> PlantGrowth<span class="sc">$</span>weight,</span>
 <span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">g =</span> PlantGrowth<span class="sc">$</span>group,</span>
 <span id="cb156-4"><a href="#cb156-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>,</span>
-<span id="cb156-5"><a href="#cb156-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">FALSE</span></span>
-<span id="cb156-6"><a href="#cb156-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb156-5"><a href="#cb156-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb156-6"><a href="#cb156-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pool.sd =</span> <span class="cn">FALSE</span></span>
+<span id="cb156-7"><a href="#cb156-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pairwise comparisons using t tests with non-pooled SD 
