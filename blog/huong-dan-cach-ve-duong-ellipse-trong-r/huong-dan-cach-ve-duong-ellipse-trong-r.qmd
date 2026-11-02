@@ -418,8 +418,8 @@ scat(
   mtcars,
   x = "mpg",
   y = "wt",
-  marg = "dens",
-  group = "vs"
+  marg = "dens"
+  # group = "vs"
   
 )
 ```
