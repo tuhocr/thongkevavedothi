@@ -1,0 +1,220 @@
+---
+title: K1_STAT_multiple_regression
+author: Duc Nguyen
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 8
+    toc-depth: 6
+    toc-location: left
+    code-fold: false
+    code-summary: "Show the code"
+    number-sections: true
+    number-depth: 8
+    page-layout: full
+    embed-resources: true
+    anchor-sections: true
+    smooth-scroll: true
+engine: knitr
+knitr:
+  opts_chunk:
+    R.options:
+      width: 120
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(message = FALSE,  
+                      warning = FALSE)   
+```
+
+# Import dataset
+
+```{r}
+library(Countr)
+
+data("fertility")
+
+fertility -> df
+
+head(df, n = 30)
+```
+
+# Check dataset
+
+```{r}
+dim(df)
+str(df)
+names(df)
+```
+
+```{r}
+library(table1)
+library(flextable)
+library(magrittr)
+library(openxlsx)
+library(dplyr)
+
+table_freq <- table1:::table1.formula( ~ . | german,
+                     topclass="Rtable1-grid",
+                     data = df,
+                    # digits = 4,
+                    render.continuous = c("Mean (± SD)" = "MEAN (± SD)",
+                                          "Median [Min, Max]" = "MEDIAN [MIN, MAX]")
+                          )
+
+table_freq
+```
+
+# Chuyển biến factor cho các biến binary
+
+```{r}
+df$german <- factor(df$german,
+                    levels = c("no", "yes"))
+
+df$voc_train <- factor(df$voc_train,
+                       levels = c("no", "yes"))
+
+df$university <- factor(df$university,
+                       levels = c("no", "yes"))
+
+df$rural <- factor(df$rural,
+                   levels = c("no", "yes"))
+
+# df$religion
+```
+
+#  Vẽ đồ thị correlation
+
+```{r}
+dg <- df
+```
+
+```{r}
+dg$german <- as.numeric(dg$german) - 1
+# german: no = 0
+# german: yes = 1
+
+dg$voc_train <- as.numeric(dg$voc_train) - 1
+# voc_train: no = 0
+# voc_train: yes = 1
+
+dg$university <- as.numeric(dg$university) - 1
+# university: no = 0
+# university: yes = 1
+
+dg$rural <- as.numeric(dg$rural) - 1
+# rural: no = 0
+# rural: yes = 1
+```
+
+
+```{r}
+png(filename = "cor.png",
+    width = 9,
+    height = 9,
+    units = "in",
+    res = 300)
+
+source("https://applyr.netlify.app/blog/chart.Correlation_check.R")
+
+chart.Correlation_check(
+R = dg[ , -6], # bỏ cột religion vì là character
+histogram = TRUE,
+method = "pearson",
+cex_text = 3,
+cex_sign = 3
+)
+
+dev.off()
+```
+
+![](cor.png)
+
+## Kiểm tra `children` và `german`
+
+```{r}
+aggregate(children ~ german,
+          data = df,
+          FUN = mean)
+```
+
+# Multiple regression 
+
+```{r}
+fit1 <- glm(children ~ german + 
+             years_school +
+             voc_train +
+             university + 
+             religion + 
+             year_birth + 
+             rural + 
+             age_marriage,
+           data = df)
+
+summary(fit1)
+```
+
+```{r}
+library(car)
+
+car:::vif(fit1)
+```
+
+Trong kết quả car::vif(fit1), GVIF (Generalized Variance Inflation Factor) là hệ số dùng để đánh giá hiện tượng đa cộng tuyến (multicollinearity) giữa các biến độc lập trong mô hình multiple regression.
+
+
+
+
+
+
+
+library performance đánh giá phương sai hiệu năng
+
+Effect
+
+Interaction package 
+
+Cách xuất ra model bảng excel
+Jtools
+
+Stargazer
+
+Robust error
+
+https://meth.ikmz.uzh.ch/Moderation.html
+
+
+
+
+
+Goldfeld–Quandt test
+lmtest::gqtest()
+Kiểm tra phương sai thay đổi trong mô hình hồi quy.
+Breusch–Pagan test
+lmtest::bptest()
+Kiểm tra phương sai sai số thay đổi trong hồi quy.
+White test
+skedastic::white() hoặc các hàm tương đương
+Kiểm tra phương sai sai số thay đổi trong hồi quy, không phải kiểm định đồng nhất phương sai giữa các nhóm theo nghĩa ANOVA.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
