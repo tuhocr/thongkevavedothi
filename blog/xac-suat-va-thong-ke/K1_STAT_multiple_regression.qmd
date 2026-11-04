@@ -17,6 +17,8 @@ format:
     embed-resources: true
     anchor-sections: true
     smooth-scroll: true
+    grid:
+      sidebar-width: 300px
 engine: knitr
 knitr:
   opts_chunk:
@@ -35,6 +37,8 @@ knitr::opts_chunk$set(message = FALSE,
 
 ```{r}
 library(Countr)
+library(tidyverse)
+library(lattice)
 
 data("fertility")
 
@@ -84,13 +88,18 @@ df$university <- factor(df$university,
 df$rural <- factor(df$rural,
                    levels = c("no", "yes"))
 
-# df$religion
+df$religion <- factor(df$religion,
+                   levels = c("Catholic", "Muslim", "Protestant", "Other"))
 ```
 
 #  Vẽ đồ thị correlation
 
+Việc tạo các đối tượng `df` khác nhau giúp tách ra các luồng xử lý dataset độc lập không bị ảnh hưởng khi cần biến đổi dữ liệu.
+
 ```{r}
 dg <- df
+
+df -> df_ori # lưu lại dataset gốc để phục hồi khi cần
 ```
 
 ```{r}
@@ -142,76 +151,520 @@ aggregate(children ~ german,
           FUN = mean)
 ```
 
+
+# Simple regression
+
+$$Y = \beta_0 + \beta_1 \times X_1 + \epsilon$$
+
+## Y là numeric | X là numeric
+
+
+
+$$\text{children} = 4.53090 - 0.09291 \times \text{age\_marriage}$$
+
+```{r}
+m1 <- lm(children ~ age_marriage,
+          data = df)
+
+summary(m1)
+```
+
+Khi độ tuổi kết hôn tăng lên 1 đơn vị thì số trẻ trung bình mà người phụ nữ sinh ra sẽ giảm đi -0.092 đơn vị.
+
+### Cách tính phần dư
+
+```{r}
+y_pred <- coef(m1)[1] + coef(m1)[2]*df$age_marriage
+
+y_fit <- fitted(m1)
+names(y_fit) <- NULL
+
+identical(round(y_pred, 10), round(y_fit, 10))
+
+y_res <- df$children - y_pred
+
+# y_res
+
+m1_res <- resid(m1)
+names(m1_res) <- NULL
+
+identical(y_res, m1_res)
+
+y_res[1:10]
+m1_res[1:10]
+
+identical(round(y_res, 10), round(m1_res, 10))
+
+df$y_pred <- fitted(m1)
+df$residual <- resid(m1)
+```
+
+
+### Effect plot
+
+```{r}
+library(ggplot2)
+
+ggplot(data = df,
+       mapping = aes(x = age_marriage,
+                     y = children)) +
+  
+  geom_point() +
+  
+  geom_smooth()
+```
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+ggplot(data = df,
+       mapping = aes(x = factor(age_marriage),
+                     y = children)) +
+  
+  # geom_boxplot() +
+  
+  stat_summary(fun.data = mean_cl_boot,
+               geom ='crossbar',
+               width = 0.5,
+               aes(fill = factor(age_marriage)),
+               position = position_dodge2(padding = 0.3)) 
+```
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+ggplot() +
+  
+  # geom_boxplot() +
+  
+  stat_summary(data = df,
+               mapping = aes(x = factor(age_marriage),
+                             y = children,
+                             fill = factor(age_marriage)),
+               fun.data = mean_cl_boot,
+               geom ='crossbar',
+               width = 0.5,
+               position = position_dodge2(padding = 0.3),
+               alpha = 0.5) +
+  
+  geom_smooth(data = df,
+       mapping = aes(x = as.numeric(factor(age_marriage)),
+                     y = children),
+       fill = "darkgreen",
+       color = "red",
+       method = "lm") 
+  
+  
+```
+
+```{r}
+library(effects)
+
+# plot(predictorEffects(m1, ~ age_marriage))
+
+effects:::plot.efflist(predictorEffects(m1, ~ age_marriage))
+```
+
+### Model validate
+
+**Check assumptions**
+
+```{r}
+par(mfrow = c(2,2))
+
+plot(m1)
+```
+
+```{r}
+library(performance)
+
+performance:::performance(m1)
+
+performance:::check_normality(m1)
+
+performance:::check_heteroscedasticity(m1)
+
+# performance:::check_collinearity(m1)
+```
+
+**The Durbin Watson test** (tham khảo @sec-dwt)
+
+One of the assumptions of regression is that the observations are independent. If observations are made over time, it is likely that successive observations are related. 
+
+The Durbin Watson statistic tests the hypothesis that there is no autocorrelation. If there is no autocorrelation (where subsequent observations are related), the Durbin-Watson statistic should be between 1.5 and 2.5 and the p-value will be above 0.05. [[#1]](https://filedn.com/lesyJpQOCafj7katNqunAxu/THANKS/r/Durbin_Watson_tables.pdf) [[#2]](https://filedn.com/lesyJpQOCafj7katNqunAxu/THANKS/r/correlationandregressionr/stcp-karadimitriou-furtherRegressionR.pdf)
+
+```{r}
+library(car)
+
+car:::dwt(m1)
+```
+
+### Variable selection
+
+```{r}
+m_null <- lm(children ~ 1,
+             data = df)
+
+anova(m_null, m1, test = "F")
+anova(m_null, m1, test = "Chisq")
+
+library(lmtest)
+
+lmtest:::lrtest(m_null, m1)
+```
+
+### Predict
+
+Nếu một người phụ nữ ở độ tuổi 28,5 thì khả năng người đó sinh bao nhiêu đứa trẻ.
+
+```{r}
+data_pred <- data.frame(age_marriage = 28.5)
+data_pred
+
+pred1 <- predict(m1,
+                 newdata = data_pred,
+                 interval = "confidence")
+
+pred1
+
+# pred1b <- predict(m1,
+#                  newdata = data_pred,
+#                  interval = "prediction")
+# 
+# pred1b
+```
+
+## Y là numeric | X là category (2 mức)
+
+$$\text{children} = 2.29690 + 0.17135 \times  \text{(rural = no | 0)}$$
+
+$$\text{children} = 2.29690 + 0.17135 \times  \text{(rural = yes | 1)}$$
+
+```{r}
+m2 <- lm(children ~ rural,
+          data = df)
+
+summary(m2)
+```
+
+Phụ nữ ở vùng nông thôn `rural = 1` có mức sinh cao hơn phụ nữ không ở vùng nông thôn `rural = 0` với trung bình 0.171 đứa trẻ trên mỗi phụ nữ.
+
+```{r}
+aggregate(children ~ rural,
+          data = df,
+          FUN = mean)
+```
+
+**Thường khi biến X là binary, ta có thể chuyển qua dạng numeric để thuận tiện biện luận**
+
+```{r}
+df$rural_numeric <- as.numeric(df$rural) - 1
+  
+m2a <- lm(children ~ rural_numeric ,
+          data = df)
+
+summary(m2a)
+```
+
+Khi `rural` tăng lên (phụ nữ ở nông thôn nhiều hơn) thì tác động đến số lượng đứa trẻ sinh ra trên mỗi phụ nữ.
+
+### Effect plot
+
+```{r}
+library(ggplot2)
+
+ggplot(data = df,
+       mapping = aes(x = rural,
+                     y = children)) +
+  
+  geom_point() +
+  
+  geom_smooth()
+```
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+ggplot(data = df,
+       mapping = aes(x = rural,
+                     y = children)) +
+  
+  # geom_boxplot() +
+  
+  stat_summary(fun.data = mean_cl_boot,
+               geom ='crossbar',
+               width = 0.5,
+               aes(fill = rural),
+               position = position_dodge2(padding = 0.3)) 
+```
+
+```{r}
+effects:::plot.efflist(predictorEffects(m2, ~ rural))
+```
+
+### Predict
+
+Nếu một người phụ nữ ở nông thôn thì số con trung bình sinh ra là bao nhiêu.
+
+```{r}
+data_pred <- data.frame(rural = "yes")
+
+data_pred$rural <- factor(data_pred$rural,
+                          levels = c("no", "yes"))
+
+pred2 <- predict(m2,
+                 newdata = data_pred,
+                 interval = "confidence")
+
+pred2
+```
+
+## Y là numeric | X là category (>2 mức)
+
+```{r}
+levels(df$religion)
+```
+
+
+$$\text{children (religion = Catholic)} = 2.17692 + 0.25734 \times  \text{(religion = Muslim | 0)} -0.06125 \times  \text{(religion = Protestant | 0)} + 2.14308 \times  \text{(religion = Other | 0)} = 2.1769 $$
+
+$$\text{children (religion = Muslim)} = 2.17692 + 0.25734 \times  \text{(religion = Muslim | 1)} -0.06125 \times  \text{(religion = Protestant | 0)} + 2.14308 \times  \text{(religion = Other | 0)} = 2.17692 + 0.25734 = 2.43422 $$
+
+$$\text{children (religion = Protestant)} = 2.17692 + 0.25734 \times  \text{(religion = Muslim | 0)} -0.06125 \times  \text{(religion = Protestant | Protestant)} + 2.14308 \times  \text{(religion = Other | 0)} = 2.17692 - 0.06125 = 2.11567 $$
+
+$$\text{children (religion = Other)} = 2.17692 + 0.25734 \times  \text{(religion = Muslim | 0)} -0.06125 \times  \text{(religion = Protestant | Protestant)} + 2.14308 \times  \text{(religion = Other | 1)} = 2.17692 +  2.14308 = 4.32 $$
+
+```{r}
+aggregate(children ~ religion,
+          data = df,
+          FUN = mean)
+```
+
+
+```{r}
+m3 <- lm(children ~ religion,
+          data = df)
+
+summary(m3)
+```
+
+### Effect plot
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+ggplot(data = df,
+       mapping = aes(x = religion,
+                     y = children)) +
+  
+  # geom_boxplot() +
+  
+  stat_summary(fun.data = mean_cl_boot,
+               geom ='crossbar',
+               width = 0.5,
+               aes(fill = religion),
+               position = position_dodge2(padding = 0.3)) 
+```
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+ggplot(data = df,
+       mapping = aes(x = religion,
+                     y = children)) +
+  
+  # geom_boxplot() +
+  
+  stat_summary(fun.data = mean_cl_boot,
+               geom ='crossbar',
+               width = 0.5,
+               aes(fill = rural),
+               position = position_dodge2(padding = 0.3)) 
+```
+
+```{r}
+effects:::plot.efflist(predictorEffects(m3, ~religion))
+```
+
 # Multiple regression 
 
 ```{r}
-fit1 <- glm(children ~ german + 
-             years_school +
-             voc_train +
-             university + 
-             religion + 
-             year_birth + 
-             rural + 
+dr <- df_ori
+```
+
+
+## Y là numeric | X1 là numeric + X2 là numeric
+
+$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \epsilon$$
+
+```{r}
+fit1 <- lm(children ~ years_school +
              age_marriage,
-           data = df)
+           data = dr)
 
 summary(fit1)
 ```
+
+### Model validate
+
+```{r}
+par(mfrow = c(2,2))
+
+plot(fit1)
+
+performance:::performance(fit1)
+```
+
+#### Residuals | Normality
+
+Kiểm tra phân bố chuẩn của phần dư
+
+```{r}
+performance:::check_normality(fit1)
+```
+
+#### Residuals | Heteroscedasticity
+
+Kiểm tra phương sai thay đổi trong mô hình hồi quy.
+
+```{r}
+performance:::check_heteroscedasticity(fit1)
+
+performance:::check_heteroscedasticity(fit1)
+```
+
+```{r}
+library(lmtest)
+
+# Goldfeld-Quandt test against heteroskedasticity.
+# H0: Homogeneity phương sai của sai số không đổi giữa hai nhóm quan sát.
+# H1: Heteroskedasticity phương sai của sai số thay đổi giữa hai nhóm quan sát.
+lmtest:::gqtest(fit1)
+
+# Breusch–Pagan test
+lmtest:::bptest(fit1)
+
+# White test
+library(skedastic)
+skedastic:::white(fit1)
+```
+
+#### Residuals | Autocorrelation
+
+```{r}
+performance:::check_autocorrelation(fit1)
+
+library(car)
+car:::dwt(fit1)
+```
+
+#### Residuals | Collinearity
 
 ```{r}
 library(car)
 
 car:::vif(fit1)
+
+performance:::check_collinearity(fit1)
 ```
 
-Trong kết quả car::vif(fit1), GVIF (Generalized Variance Inflation Factor) là hệ số dùng để đánh giá hiện tượng đa cộng tuyến (multicollinearity) giữa các biến độc lập trong mô hình multiple regression.
+### Standard errors
+
+```{r}
+# Conventional standard errors
+
+lmtest:::coeftest(fit1)
+confint(fit1)
+
+# Robust standard errors
+
+library(sandwich)
+lmtest:::coeftest(fit1, vcov = vcovHC(fit1, type = "HC3"))
+```
+
+
+### Effect plot
+
+```{r}
+effects:::plot.efflist(predictorEffects(fit1, ~ years_school + age_marriage))
+```
+
+## Y là numeric | X1 là numeric × X2 là numeric
+
+$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \epsilon$$
+
+```{r}
+fit1 <- lm(children ~ years_school +
+             age_marriage,
+           data = dr)
+
+summary(fit1)
+```
+
+
+<!-- Effect -->
+
+<!-- Interaction package  -->
+
+<!-- Cách xuất ra model bảng excel -->
+<!-- Jtools -->
+
+<!-- Stargazer -->
+
+
+<!-- https://meth.ikmz.uzh.ch/Moderation.html -->
 
 
 
 
 
+# Phụ lục
+
+## Kiểm định hiện tượng tự tương quan của residual trong model hồi quy {#sec-dwt}
+
+Sử dụng function `car:::dwt()` Durbin-Watson Test for Autocorrelated Errors
+
+Trong Durbin–Watson test, mục đích là kiểm tra hiện tượng tự tương quan (autocorrelation) của sai số (residuals/errors) trong mô hình hồi quy tuyến tính.
+
+H0: Không có hiện tượng tự tương quan bậc 1 (first-order autocorrelation) giữa các sai số.
+
+H1: Có hiện tượng tự tương quan bậc 1 (first-order autocorrelation) giữa các sai số.
+
+Ý nghĩa chỉ số Durbin–Watson (DW)
+
+Giá trị DW nằm trong khoảng từ 0 đến 4.
+
+* DW ≈ 2	Không có autocorrelation
+* DW < 2	Có xu hướng positive autocorrelation
+* DW > 2	Có xu hướng negative autocorrelation
+* DW ≈ 0	Positive autocorrelation mạnh
+* DW ≈ 4	Negative autocorrelation mạnh
+
+## Kiểm định hiện tượng đa cộng tuyến (tự tương quan giữa các biến X) trong model hồi quy 
+
+Trong kết quả `car::vif()`, GVIF (Generalized Variance Inflation Factor) là hệ số dùng để đánh giá hiện tượng đa cộng tuyến (multicollinearity) giữa các biến độc lập trong mô hình multiple regression.
+
+* VIF: sử dụng cho biến độc lập có 1 bậc tự do (1 degree of freedom)
+
+* GVIF: sử dụng cho biến độc lập có nhiều bậc tự do (multiple degrees of freedom), là phiên bản tổng quát của VIF, được sử dụng khi mô hình có các biến độc lập dạng categorical với nhiều mức (factor).
+
+* `GVIF^(1/(2*Df))` là chỉ số	GVIF đã được điều chỉnh theo số bậc tự do (adjusted GVIF), giúp so sánh giữa các biến có bậc tự do khác nhau.
+
+Nhìn chung các biến có chỉ số VIF < 5 thì không có đa cộng tuyến.
+
+# Homework
+
+```{r}
+hw <- read.csv("stcp-Rdataset-birthweight_reduced.csv")
+dim(hw)
+# head(hw, n = 30)
+```
 
 
-library performance đánh giá phương sai hiệu năng
 
-Effect
+# Tài liệu tham khảo
 
-Interaction package 
-
-Cách xuất ra model bảng excel
-Jtools
-
-Stargazer
-
-Robust error
-
-https://meth.ikmz.uzh.ch/Moderation.html
-
-
-
-
-
-Goldfeld–Quandt test
-lmtest::gqtest()
-Kiểm tra phương sai thay đổi trong mô hình hồi quy.
-Breusch–Pagan test
-lmtest::bptest()
-Kiểm tra phương sai sai số thay đổi trong hồi quy.
-White test
-skedastic::white() hoặc các hàm tương đương
-Kiểm tra phương sai sai số thay đổi trong hồi quy, không phải kiểm định đồng nhất phương sai giữa các nhóm theo nghĩa ANOVA.
-
-
-
-
-
-
-
-
-
-
-
-
+1. Homogeneity of Variance <https://methods.sagepub.com/ency/edvol/encyc-of-research-design/chpt/homogeneity-variance>
 
 
 
