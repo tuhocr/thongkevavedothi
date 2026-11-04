@@ -497,6 +497,13 @@ dr <- df_ori
 
 $$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \epsilon$$
 
+
+$$\text{children} = 6.14825 -0.21015 \times \text{years\_school} -0.08018  \times \text{age\_marriage} $$
+
+Khi `years_school` tăng lên 1 đơn vị thì `children` giảm đi -0.21 đơn vị, trong điều kiện các biến khác giữ ở giá trị trung bình.
+
+As `years_school` increases by one unit, `children` decreases by 0.21 units on average, *ceteris paribus* (nghĩa là: với điều kiện các yếu tố khác không đổi)
+
 ```{r}
 fit1 <- lm(children ~ years_school +
              age_marriage,
@@ -582,41 +589,79 @@ library(sandwich)
 lmtest:::coeftest(fit1, vcov = vcovHC(fit1, type = "HC3"))
 ```
 
-
 ### Effect plot
+
+**Effect plot này có thể sử dụng khoảng tin cậy từ conventional standard error, ta có thể tính thủ công và vẽ lại effect plot sử dụng robust standard error nếu muốn chính xác hơn.**
 
 ```{r}
 effects:::plot.efflist(predictorEffects(fit1, ~ years_school + age_marriage))
 ```
 
-## Y là numeric | X1 là numeric × X2 là numeric
+## Y là numeric | X1 là numeric × X2 là numeric | interaction
 
-$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \epsilon$$
+$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \beta_3 \times X_1 \times X_2$$
 
 ```{r}
-fit1 <- lm(children ~ years_school +
-             age_marriage,
+fit2 <- lm(children ~ years_school * age_marriage,
            data = dr)
 
-summary(fit1)
+summary(fit2)
 ```
 
+```{r}
+fit2a <- lm(children ~ years_school + age_marriage + years_school:age_marriage,
+           data = dr)
 
-<!-- Effect -->
+summary(fit2a)
+```
 
-<!-- Interaction package  -->
+### Interaction
 
-<!-- Cách xuất ra model bảng excel -->
-<!-- Jtools -->
+```{r}
+library(interactions)
 
-<!-- Stargazer -->
+interactions:::interact_plot(fit2, 
+                             pred = years_school,
+                             modx = age_marriage,
+                             vary.lty = F,
+                             colors = c("red", "blue", "darkgreen"))
+```
 
+Nhận xét xu hướng:
 
-<!-- https://meth.ikmz.uzh.ch/Moderation.html -->
+- Đường Mean (xanh dương): Khi số năm đi học (`years_school`) tăng, số con trung bình có xu hướng giảm. Điều này cho thấy mối quan hệ tỷ lệ nghịch giữa trình độ học vấn và số con.
 
+- Đường +1 SD của `age_marriage` (xanh lá cây): Đại diện cho nhóm phụ nữ có tuổi kết hôn `age_marriage` (kết hôn muộn) cao hơn mức trung bình 1 độ lệch chuẩn. Đường này có độ dốc âm tương đối nhỏ, cho thấy số năm đi học tăng lên thì số con trung bình giảm nhưng mức độ giảm không mạnh trong nhóm phụ nữ kết hôn muộn.
 
+- Đường -1 SD của `age_marriage` (màu đỏ): Đại diện cho nhóm phụ nữ có tuổi kết hôn thấp `age_marriage` (kết hôn sớm) hơn mức trung bình 1 độ lệch chuẩn. Đường này có độ dốc âm rất lớn, cho thấy số năm đi học tăng lên thì số con trung bình giảm mạnh hơn đáng kể trong nhóm phụ nữ kết hôn sớm.
 
+Biểu đồ cho thấy độ dốc của ba đường hồi quy khác nhau, chứng tỏ tác động của số năm đi học (`years_school`) lên số con trung bình (`children`) thay đổi tùy theo tuổi kết hôn (`age_marriage`).
 
+Cụ thể, ở nhóm phụ nữ kết hôn muộn (+1 SD), số năm đi học tăng lên chỉ làm giảm nhẹ số con trung bình. Ngược lại, ở nhóm phụ nữ kết hôn sớm (-1 SD), số năm đi học tăng lên có liên hệ với sự sụt giảm mạnh hơn trong số con trung bình.
+
+Điều này gợi ý rằng tuổi kết hôn có thể đóng vai trò điều tiết (moderating effect) trong mối quan hệ giữa trình độ học vấn và số con.
+
+```{r}
+interactions:::interact_plot(fit2, 
+                             pred = age_marriage,
+                             modx = years_school)
+```
+
+### Effect plot
+
+```{r}
+png(filename = "int1.png",
+    width = 12,
+    height = 6,
+    units = "in",
+    res = 300)
+
+effects:::plot.efflist(predictorEffects(fit2, ~ years_school + age_marriage))
+
+dev.off()
+```
+
+![](int1.png)
 
 # Phụ lục
 
@@ -652,20 +697,11 @@ Trong kết quả `car::vif()`, GVIF (Generalized Variance Inflation Factor) là
 
 Nhìn chung các biến có chỉ số VIF < 5 thì không có đa cộng tuyến.
 
-# Homework
-
-```{r}
-hw <- read.csv("stcp-Rdataset-birthweight_reduced.csv")
-dim(hw)
-# head(hw, n = 30)
-```
-
-
-
 # Tài liệu tham khảo
 
 1. Homogeneity of Variance <https://methods.sagepub.com/ency/edvol/encyc-of-research-design/chpt/homogeneity-variance>
 
+2. Package `interactions` <https://interactions.jacob-long.com/articles/interactions>
 
 
 
