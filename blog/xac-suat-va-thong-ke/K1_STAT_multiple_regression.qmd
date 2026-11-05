@@ -120,7 +120,6 @@ dg$rural <- as.numeric(dg$rural) - 1
 # rural: yes = 1
 ```
 
-
 ```{r}
 png(filename = "cor.png",
     width = 9,
@@ -156,7 +155,7 @@ aggregate(children ~ german,
 
 $$Y = \beta_0 + \beta_1 \times X_1 + \epsilon$$
 
-## Y là numeric | X là numeric
+## Y numeric | X numeric
 
 
 
@@ -169,7 +168,18 @@ m1 <- lm(children ~ age_marriage,
 summary(m1)
 ```
 
+```{r}
+m1_p2 <- lm(children ~ poly(age_marriage, 2, raw = TRUE),
+          data = df)
+
+summary(m1_p2)
+
+```
+
+
 Khi độ tuổi kết hôn tăng lên 1 đơn vị thì số trẻ trung bình mà người phụ nữ sinh ra sẽ giảm đi -0.092 đơn vị.
+
+Điều này có nghĩa là: nếu kết hôn muộn thì khả năng cao là số trẻ sinh ra sẽ ít, vì sao, cơ chế, [tìm bài báo]
 
 ### Cách tính phần dư
 
@@ -211,7 +221,7 @@ ggplot(data = df,
   
   geom_point() +
   
-  geom_smooth()
+  geom_smooth(method = "lm")
 ```
 
 ```{r}
@@ -262,7 +272,11 @@ library(effects)
 
 # plot(predictorEffects(m1, ~ age_marriage))
 
+# par(mfrow = c(2,1))
+
 effects:::plot.efflist(predictorEffects(m1, ~ age_marriage))
+
+effects:::plot.efflist(predictorEffects(m1_p2, ~ age_marriage))
 ```
 
 ### Model validate
@@ -273,19 +287,30 @@ effects:::plot.efflist(predictorEffects(m1, ~ age_marriage))
 par(mfrow = c(2,2))
 
 plot(m1)
+
+plot(m1_p2)
 ```
 
 ```{r}
 library(performance)
 
 performance:::performance(m1)
-
+performance:::performance(m1_p2)
 performance:::check_normality(m1)
 
 performance:::check_heteroscedasticity(m1)
 
 # performance:::check_collinearity(m1)
 ```
+
+
+```{r}
+# aaaa
+# aaaa
+# 
+# aaaa
+```
+
 
 **The Durbin Watson test** (tham khảo @sec-dwt)
 
@@ -298,6 +323,8 @@ library(car)
 
 car:::dwt(m1)
 ```
+
+p-value < 0.05 nên `age_marriage` có hiện tượng tự tương quan, cần kiểm tra thêm.
 
 ### Variable selection
 
@@ -334,7 +361,7 @@ pred1
 # pred1b
 ```
 
-## Y là numeric | X là category (2 mức)
+## Y numeric | X category (2 mức)
 
 $$\text{children} = 2.29690 + 0.17135 \times  \text{(rural = no | 0)}$$
 
@@ -419,7 +446,7 @@ pred2 <- predict(m2,
 pred2
 ```
 
-## Y là numeric | X là category (>2 mức)
+## Y numeric | X category (>2 mức)
 
 ```{r}
 levels(df$religion)
@@ -493,7 +520,7 @@ dr <- df_ori
 ```
 
 
-## Y là numeric | X1 là numeric + X2 là numeric
+## Y numeric | X1 numeric + X2 numeric | Không tương tác
 
 $$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \epsilon$$
 
@@ -505,8 +532,7 @@ Khi `years_school` tăng lên 1 đơn vị thì `children` giảm đi -0.21 đơ
 As `years_school` increases by one unit, `children` decreases by 0.21 units on average, *ceteris paribus* (nghĩa là: với điều kiện các yếu tố khác không đổi)
 
 ```{r}
-fit1 <- lm(children ~ years_school +
-             age_marriage,
+fit1 <- lm(children ~ years_school + age_marriage,
            data = dr)
 
 summary(fit1)
@@ -537,15 +563,16 @@ Kiểm tra phương sai thay đổi trong mô hình hồi quy.
 ```{r}
 performance:::check_heteroscedasticity(fit1)
 
-performance:::check_heteroscedasticity(fit1)
 ```
 
 ```{r}
 library(lmtest)
 
 # Goldfeld-Quandt test against heteroskedasticity.
-# H0: Homogeneity phương sai của sai số không đổi giữa hai nhóm quan sát.
-# H1: Heteroskedasticity phương sai của sai số thay đổi giữa hai nhóm quan sát.
+# H0: Homogeneity phương sai của sai số không đổi giữa hai nhóm quan sát. Heteroscedasticity is not present.
+
+# H1: Heteroskedasticity phương sai của sai số thay đổi giữa hai nhóm quan sát. Heteroscedasticity is present.
+
 lmtest:::gqtest(fit1)
 
 # Breusch–Pagan test
@@ -597,9 +624,11 @@ lmtest:::coeftest(fit1, vcov = vcovHC(fit1, type = "HC3"))
 effects:::plot.efflist(predictorEffects(fit1, ~ years_school + age_marriage))
 ```
 
-## Y là numeric | X1 là numeric × X2 là numeric | interaction
+## Y numeric | X1 numeric + X2 numeric | Có tương tác
 
-$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \beta_3 \times X_1 \times X_2$$
+$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \beta_3 \times X_1 \times X_2 + \epsilon$$
+
+$$\text{children} = 17.82888 -1.51479  \times \text{years\_school} -0.56368 \times \text{age\_marriage} + 0.05390 \times \text{years\_school} \times \text{age\_marriage} $$
 
 ```{r}
 fit2 <- lm(children ~ years_school * age_marriage,
@@ -662,6 +691,277 @@ dev.off()
 ```
 
 ![](int1.png)
+
+
+
+## Y numeric | X1 numeric + X2 category | Không tương tác
+
+$$Y = \beta_0 + \beta_1 \times X_1 + \beta_2 \times X_2 + \epsilon$$
+
+
+$$\text{children} = 4.87182 -0.07645 \times \text{age\_marriage} -0.89834  \times \text{(german = no | 0)} = 4.87182 -0.07645 \times \text{age\_marriage}$$
+
+$$\text{children} = 4.87182 -0.07645 \times \text{age\_marriage} -0.89834  \times \text{(german = yes | 1)} = 3.97348 -0.07645 \times \text{age\_marriage}$$
+
+```{r}
+fit3 <- lm(children ~ age_marriage + german,
+           data = dr)
+
+summary(fit3)
+```
+
+### Đồ thị
+
+```{r}
+library(ggplot2)
+
+ggplot(data = dr,
+       mapping = aes(x = age_marriage,
+                     y = children,
+                     color = german)) +
+  
+  # geom_point() +
+  
+  geom_smooth(method = "lm") +
+  
+  labs(title = "Bản chất hai đường hồi quy này là subset riêng từng dataset")
+```
+
+```{r}
+plot(children ~ jitter(age_marriage),
+     data = dr,
+     col = c(adjustcolor("blue", alpha.f = 0.1), 
+             adjustcolor("red", alpha.f = 0.1))[factor(dr$german)],
+     main = "[age_marriage] numeric + [german] category\nKhông tương tác"
+     )
+
+abline(a = coef(fit3)[1],
+       b = coef(fit3)[2],
+       col = "blue",
+       lwd = 2)
+
+abline(a = coef(fit3)[1] + coef(fit3)[3],
+       b = coef(fit3)[2],
+       col = "red",
+       lwd = 2)
+
+legend(x = "topleft",
+       y = NULL,
+       legend = c("german = NO", "german = YES"),
+       col = c("blue", "red"),
+       lwd = 2,
+       lty = 1
+       )
+```
+
+```{r}
+library(effects)
+
+effects:::plot.efflist(predictorEffects(fit3, ~ age_marriage + german))
+```
+
+## Y numeric | X1 numeric + X2 category | Có tương tác
+
+$$\text{children} = 6.09240 -0.13133  \times \text{age\_marriage} -2.56918 \times \text{(german = no | 0)} + 0.07419 \times \text{age\_marriage} \times \text{(german = no | 0)} = 6.09240 -0.13133  \times \text{age\_marriage}$$
+
+$$\text{children} = 6.09240 -0.13133  \times \text{age\_marriage} -2.56918 \times \text{(german = yes | 1)} + 0.07419 \times \text{age\_marriage} \times \text{(german = yes | 1)} = 8.66158 -0.05714  \times \text{age\_marriage}$$
+
+```{r}
+fit4 <- lm(children ~ age_marriage * german,
+           data = dr)
+
+summary(fit4)
+```
+
+
+### Đồ thị
+
+```{r}
+plot(children ~ jitter(age_marriage),
+     data = dr,
+     col = c(adjustcolor("blue", alpha.f = 0.1), 
+             adjustcolor("red", alpha.f = 0.1))[factor(dr$german)],
+     main = "[age_marriage] numeric + [german] category\nCó tương tác"
+     )
+
+abline(a = coef(fit4)[1],
+       b = coef(fit4)[2],
+       col = "blue",
+       lwd = 2)
+
+abline(a = coef(fit4)[1] + coef(fit4)[3],
+       b = coef(fit4)[2] + coef(fit4)[4],
+       col = "red",
+       lwd = 2)
+
+legend(x = "topleft",
+       y = NULL,
+       legend = c("german = NO", "german = YES"),
+       col = c("blue", "red"),
+       lwd = 2,
+       lty = 1
+       )
+```
+
+```{r}
+library(interactions)
+
+interactions:::interact_plot(fit4, 
+                             pred = age_marriage,
+                             modx = german,
+                             vary.lty = F,
+                             colors = c("blue", "red"))
+```
+
+```{r, fig.width=10, fig.height=6}
+library(effects)
+
+effects:::plot.efflist(predictorEffects(fit4, ~ age_marriage + german))
+
+effects:::plot.efflist(predictorEffects(fit4, ~ age_marriage + german))
+
+effects:::plot.efflist(effects:::predictorEffects(fit4, ~ age_marriage + german),
+                       lines = list(multiline = TRUE))
+```
+
+### ANCOVA | Đánh giá tác động của `german` (yes|no) khi được điều chỉnh bởi `age_marriage`
+
+```{r}
+fit5 <- aov(children ~ age_marriage * german,
+           data = dr)
+
+summary(fit5)
+```
+
+Ta quan tâm hiệu ứng interaction:
+
+Nếu p ≥ 0,05: Chưa tìm thấy bằng chứng rõ ràng rằng độ dốc khác nhau giữa các nhóm. Có thể tiếp tục xem xét ANCOVA không tương tác nếu các giả định khác phù hợp.
+
+Nếu p < 0,05: Có bằng chứng về tương tác. Khi đó, nên giữ mô hình tương tác và đánh giá sự khác biệt giữa các nhóm tại những giá trị `age_marriage` ban đầu cụ thể.
+
+Những giả định ANCOVA cần kiểm tra:
+
+1. Các quan sát độc lập.
+
+2. Mối liên hệ gần tuyến tính giữa covariate (biến X numeric) và biến phụ thuộc (biến Y numeric).
+
+3. Độ dốc hồi quy giữa các nhóm tương đối đồng nhất đối với mô hình không tương tác
+
+4. Phần dư có phương sai tương đối đồng nhất và phân phối đủ phù hợp với suy luận của mô hình.
+
+5. Không có các điểm ngoại lai ảnh hưởng quá mạnh đến kết quả.
+
+```{r}
+library(emmeans)
+emm <- emmeans(fit5, ~ german)
+summary(emm)
+confint(emm)
+# plot(emm)
+emmeans:::plot.emmGrid(emm)
+
+# Partial eta squared cho hiệu ứng nhóm
+tab <- car:::Anova(fit5, type = 2)
+tab
+eta_p2 <- tab["german", "Sum Sq"] /
+  (tab["german", "Sum Sq"] +
+   tab["Residuals", "Sum Sq"])
+
+eta_p2
+```
+
+```{r}
+emm_int <- emmeans(
+  fit5,
+  ~ german | age_marriage,
+  at = list(age_marriage = c(20, 30, 40))
+)
+
+pairs(emm_int, adjust = "tukey")
+```
+
+**Kết quả cho biết sự khác biệt giữa số con trung bình của phụ nữ là [german] hoặc [không phải là german] tại các độ tuổi kết hôn khác nhau.**
+
+```{r}
+# plot(emm_int)
+emmeans:::plot.emmGrid(emm_int)
+```
+
+Cách trình bày kết quả trong bài báo khoa học:
+
+Phân tích hiệp phương sai (ANCOVA) được sử dụng nhằm so sánh hai nhóm phụ nữ là [german] hoặc [không phải là german], với `age_marriage` được đưa vào mô hình như một biến covariate (biến phụ, hiệu chỉnh). Sau khi điều chỉnh, ghi nhận sự khác biệt có ý nghĩa thống kê giữa các nhóm, F = 73.4149; p = < 0.001 (dùng kết quả của lệnh `car:::Anova()` ở biến `german`); partial η² = 0.055. Phân tích hậu kiểm sử dụng phương pháp Tukey được thực hiện để xác định sự khác biệt giữa các cặp nhóm.
+
+## Y numeric | X1 category + X2 category | Có tương tác
+
+```{r}
+fit6 <- lm(children ~ rural * german,
+           data = dr)
+
+summary(fit6) 
+```
+
+### Đồ thị
+
+```{r}
+library(interactions)
+
+interactions:::cat_plot(fit6, 
+                        pred = rural,
+                        modx = german,
+                        vary.lty = F,
+                        colors = c("blue", "red"))
+```
+
+### ANOVA 2 YẾU TỐ
+
+```{r}
+fit7 <- aov(children ~ rural * german,
+           data = dr)
+
+summary(fit7) 
+```
+
+```{r}
+library(emmeans)
+
+emm_int <- emmeans(
+  fit7,
+  ~ german | rural,
+  at = list(rural = c("no", "yes"))
+)
+
+pairs(emm_int, adjust = "tukey")
+
+emmeans:::plot.emmGrid(emm_int)
+```
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+ggplot(data = df,
+       mapping = aes(x = german,
+                     y = children)) +
+  
+  # geom_boxplot() +
+  
+  stat_summary(fun.data = mean_cl_boot,
+               geom ='crossbar',
+               width = 0.5,
+               aes(fill = rural),
+               position = position_dodge2(padding = 0.3)) 
+```
+
+```{r}
+library(agricolae)
+
+HSD.test(fit7, 
+         trt = c("german", "rural"),
+         console = T)
+
+aggregate(children ~ german + rural,
+          data = dr,
+          FUN = mean)
+```
+
 
 # Phụ lục
 
