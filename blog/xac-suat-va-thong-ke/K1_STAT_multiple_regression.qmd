@@ -962,6 +962,287 @@ aggregate(children ~ german + rural,
           FUN = mean)
 ```
 
+## Y numeric | Full model
+
+```{r}
+fit8 <- lm(children ~ .,
+           data = dr)
+
+summary(fit8)
+```
+
+### Compare model 
+
+```{r}
+fit8a <- lm(children ~ . + age_marriage:german,
+           data = dr)
+
+summary(fit8a)
+```
+
+```{r}
+anova(fit1, fit8, test = "F")
+
+anova(fit8, fit8a, test = "F")
+```
+
+
+#### Package `stargazer`
+
+<https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf>
+
+
+
+```{r}
+library(stargazer)
+
+stargazer:::stargazer(fit1, fit6, fit8, fit8a,
+                      no.space = T,
+                      type = "text")
+```
+
+```{r}
+library(stargazer)
+
+stargazer:::stargazer(fit1, fit6, fit8, fit8a,
+                      no.space = T,
+                      type = "text",
+                      title = "So sánh model",
+                      # ko hiển thị biến X
+                      # keep = names(dr)[-c(4)],
+                      # tên model
+                      column.labels = c("Model 1", 
+                            "Model 2", 
+                            "Model 3", 
+                            "Model 4"
+                            ),
+                      add.lines = list(
+                        c("AIC", 
+                          round(AIC(fit1),2), 
+                          round(AIC(fit6),2), 
+                          round(AIC(fit8),2),
+                          round(AIC(fit8a),2)),
+                        c("BIC", 
+                          round(BIC(fit1),2), 
+                          round(BIC(fit6),2), 
+                          round(BIC(fit8),2),
+                          round(BIC(fit8a),2))
+                        
+                        ),
+                      # nếu cần exp hệ số
+                      # apply.coef = exp,
+                      # apply.ci = exp,
+                      # keep.stat = c("n"),
+                      model.names = T,
+                      digits = 3)
+```
+
+#### Package `jtools`
+
+<https://cran.r-project.org/web/packages/jtools/vignettes/summ.html>
+
+```{r}
+library(jtools)
+
+jtools:::summ(fit1)
+
+jtools:::summ(fit1, robust = "HC3")
+
+```
+
+```{r}
+p1 <- jtools:::effect_plot(fit1, 
+                     pred = age_marriage, 
+                     interval = TRUE,
+                     plot.points = TRUE, 
+                     jitter = 0,
+                     point.alpha = 0.1,
+                     colors = c("blue"),
+                      main.title = "children ~ years_school + age_marriage")
+
+p1
+p2 <- jtools:::effect_plot(fit8a, 
+                     pred = age_marriage, 
+                     interval = TRUE,
+                     plot.points = TRUE, 
+                     jitter = 0,
+                     point.alpha = 0.1,
+                     colors = c("red"),
+                      main.title = "children ~ . + age_marriage:german")
+p2
+```
+
+```{r}
+library(patchwork)
+
+p1 + p2
+```
+
+```{r}
+jtools:::plot_summs(fit1,
+                    fit6,
+                    fit8,
+                    fit8a,
+                    model.names = c("fit1", "fit6", "fit8", "fit8a"))
+```
+
+```{r}
+jtools:::export_summs(fit1,
+                    fit6,
+                    fit8,
+                    fit8a,
+                    statistics = c(N = "nobs",
+                                   R2 = "r.squared",
+                                   "logLik", 
+                                   "AIC",
+                                   "BIC"),
+                    model.names = c("fit1", "fit6", "fit8", "fit8a")
+                    # to.file = "docx",
+                    # file.name = "compare_model_jtools.docx"
+                    )
+```
+
+### Variable important
+
+```{r}
+library(caret)
+
+caret:::varImp(fit8)
+```
+
+```{r}
+caret:::varImp(fit8) |> dplyr:::arrange(Overall) -> var_imp_data
+```
+
+```{r}
+# colnames(var_imp_data) <- ""
+
+par(pty = "s")
+graphics:::dotchart(as.matrix(var_imp_data),
+         main = "Variable importance",
+         pt.cex = 2)
+```
+
+### Variable selection | stepwise regression
+
+#### package `olsrr`
+
+<https://olsrr.rsquaredacademy.com/>
+
+```{r}
+library(olsrr)
+
+# step1 <- ols_step_both_p(fit8, 
+#                          p_enter = 0.01,
+#                          p_remove = 0.05,
+#                          details = TRUE)
+
+step1 <- olsrr:::ols_step_forward_p(fit8,
+                         p_enter = 0.01,
+                         p_remove = 0.05,
+                         details = TRUE)
+
+step1
+
+class(step1)
+
+
+png(filename = "olsrr.png",
+    width = 9,
+    height = 9,
+    units = "in",
+    res = 300)
+
+olsrr:::plot.ols_step_forward_p(step1)
+
+dev.off()
+```
+
+#### package `StepReg`
+
+<https://cran.r-project.org/web/packages/StepReg/vignettes/StepReg.html>
+
+```{r}
+library(StepReg)
+
+formula(fit8)
+
+# formula <- children ~ .
+
+res_ok <- StepReg:::stepwise(formula = formula(fit8),
+                 data = dr,
+                 type = "linear",
+                 include = "rural",
+                 strategy = "forward",
+                 metric = "AIC")
+
+res_ok$overview
+
+summary(res_ok$forward$AIC)
+```
+
+```{r}
+png(filename = "stepreg.png",
+    width = 9,
+    height = 9,
+    units = "in",
+    res = 300)
+
+plot_list <- setNames(
+  lapply(c("forward"),function(i){
+    setNames(
+      lapply(c("detail","overview"),function(j){
+        plot(res_ok,strategy=i,process=j)
+    }),
+    c("detail","overview")
+    )
+  }),
+  c("forward")
+)
+cowplot::plot_grid(plotlist = plot_list$forward, 
+                   ncol = 1, 
+                   rel_heights = c(2, 1))
+
+dev.off()
+```
+
+### Variable selection | BMA
+
+<https://github.com/hanase/BMA>
+
+<https://sites.stat.washington.edu/raftery/Research/bma.html>
+
+<https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/steel/steel_homepage/bma/>
+
+```{r}
+library(BMA)
+
+set.seed(1)
+
+bma_out <- BMA:::bic.glm.formula(f =  children ~ .,
+                                 data = dr,
+                            strict = FALSE,
+                            OR = 20,
+                            glm.family = gaussian(link = "identity"))
+
+summary(bma_out)
+```
+
+```{r}
+par(oma = c(0, 10, 0, 0))
+imageplot.bma(bma_out,
+              color = c("red", "blue", "lightyellow"))
+```
+
+RED to use when the variable estimate is positive: risk factor (hệ số coef dương, sự kiện 1 dễ xảy ra, tỷ lệ thuận với biến outcome)
+
+BLUE when the variable estimate is negative: protective factor (hệ số coef âm, sự kiện 1 ít xảy ra,  tỷ lệ nghịch với biến outcome)
+
+LIGHT YELLOW when the variable is not included in the model.
+
+```{r}
+# BMA:::plot.bic.glm(bma_out)
+```
 
 # Phụ lục
 
