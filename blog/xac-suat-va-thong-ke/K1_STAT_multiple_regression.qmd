@@ -33,6 +33,10 @@ knitr::opts_chunk$set(message = FALSE,
                       warning = FALSE)   
 ```
 
+[**Tài liệu biên soạn trong chuyên đề R Statistics**](https://www.tuhocr.com/r-statistics)
+
+[**Version final xem ở đây**](https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/K1_STAT_multiple_regression.html)
+
 # Import dataset
 
 ```{r}
@@ -1219,6 +1223,7 @@ library(BMA)
 
 set.seed(1)
 
+
 bma_out <- BMA:::bic.glm.formula(f =  children ~ .,
                                  data = dr,
                             strict = FALSE,
@@ -1227,6 +1232,7 @@ bma_out <- BMA:::bic.glm.formula(f =  children ~ .,
 
 summary(bma_out)
 ```
+
 
 ```{r}
 par(oma = c(0, 10, 0, 0))
@@ -1243,6 +1249,43 @@ LIGHT YELLOW when the variable is not included in the model.
 ```{r}
 # BMA:::plot.bic.glm(bma_out)
 ```
+
+
+# Mediation analysis  
+
+<span style="color:red;">**Mặc dù áp dụng vào model mediation ta vẫn ra kết quả nhưng bản chất mô hình phân tích biến trung gian này bắt buộc biến trung gian "mediator" <u>phải xuất hiện sau biến X</u>, do đó ta không dùng cách tiếp cận này cho bài toán này được.**</span>
+
+```{r}
+library(gtregression)
+
+
+fit_med <- gtregression:::mediation_analysis(
+  data = dr,
+  exposure = university,
+  mediator = age_marriage,
+  outcome = children,
+  covariates = NULL,
+  # mediator_approach = "linear",
+  outcome_approach = "linear",
+  sims = 100,
+  seed = 123
+)
+
+fit_med
+fit_med$table
+fit_med$table_body
+plot_mediation(fit_med)
+```
+
+Chủ đề phân tích biến trung gian sẽ dành ở 1 dataset về bệnh sẽ phù hợp hơn.
+
+<https://cran.r-project.org/web/packages/gtregression/vignettes/causal-mediation.html>
+
+# Confounder analysis
+
+<span style="color:red;">**Ta sẽ minh họa việc phân tích biến trung gian và biến gây nhiễu trong dataset về bệnh tiểu đường ở session về logistic regression.**</span>
+
+<https://cran.r-project.org/web/packages/gtregression/vignettes/confounding-interaction.html>
 
 # Phụ lục
 
