@@ -1,0 +1,910 @@
+---
+title: K1_STAT_logistic_regression
+author: Duc Nguyen
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-title: "Mục lục"
+    toc-expand: 8
+    toc-depth: 6
+    toc-location: left
+    code-fold: false
+    code-summary: "Show the code"
+    number-sections: true
+    number-depth: 8
+    page-layout: full
+    embed-resources: true
+    anchor-sections: true
+    smooth-scroll: true
+    grid:
+      sidebar-width: 300px
+engine: knitr
+knitr:
+  opts_chunk:
+    R.options:
+      width: 120
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo=FALSE, results='hide'}
+knitr::opts_chunk$set(message = FALSE,  
+                      warning = FALSE)   
+```
+
+[**Tài liệu biên soạn trong chuyên đề R Statistics**](https://www.tuhocr.com/r-statistics)
+
+[**Version final xem ở đây**](https://thongkevavedothi.com/blog/xac-suat-va-thong-ke/K1_STAT_logistic_regression.html)
+
+# Import dataset
+
+```{r}
+library(tidyverse)
+library(gtregression)
+library(dplyr)
+
+data("data_diabetes_mediation", 
+     package = "gtregression")
+
+# ?data_diabetes_mediation
+
+data_diabetes_mediation -> df
+
+```
+
+# Check dataset
+
+```{r}
+dim(df)
+summary(df)
+names(df)
+```
+
+# Table summary
+
+```{r}
+df1 <- df
+
+df1$diabetes <- factor(df1$diabetes,
+                       levels = c("Yes", "No"))
+
+df1$obesity <- factor(df1$obesity,
+                       levels = c("Yes", "No"))
+```
+
+```{r}
+library(table1)
+library(flextable)
+library(magrittr)
+library(openxlsx)
+library(dplyr)
+
+table_freq <- table1:::table1.formula( ~ . | diabetes,
+                     topclass="Rtable1-grid",
+                     data = df1,
+                    # digits = 4,
+                    render.continuous = c("Mean (± SD)" = "MEAN (± SD)",
+                                          "Median [Min, Max]" = "MEDIAN [MIN, MAX]")
+                          )
+
+table_freq
+```
+
+# Compare groups | Raw OR
+
+```{r}
+library(compareGroups)
+
+table_compare <- createTable(compareGroups(diabetes ~ .,
+                                        data = df1,
+                                        ref = 1,
+                                        riskratio = FALSE,
+                                        byrow = TRUE),
+                          show.ratio = TRUE,
+                          show.p.ratio = FALSE,
+                          show.p.overall = TRUE)
+
+table_compare
+
+# (206/259)/(59/203)
+```
+
+# Correlation
+
+```{r}
+df_cor <- df
+
+df_cor$diabetes <- factor(df_cor$diabetes ,
+                       levels = c("No", "Yes"))
+
+df_cor$obesity <- factor(df_cor$obesity,
+                       levels = c("No", "Yes"))
+
+df_cor$diabetes <- as.numeric(df_cor$diabetes) - 1
+
+df_cor$obesity  <- as.numeric(df_cor$obesity ) - 1
+
+library(rstatix)
+library(corrplot)
+# p-value
+rstatix:::cor_pmat(df_cor,
+                  method = "pearson") -> p_all
+
+p_all <- as.data.frame(p_all)
+
+row.names(p_all) <- p_all$rowname
+
+p_all <- p_all[ , -1]
+
+p_all <- as.matrix(p_all)
+options(scipen = 6)
+p_all
+```
+
+```{r, fig.width=8, fig.height=8}
+# correlation
+cor_m <- cor(df_cor)
+par(pty = "s")
+corrplot(cor_m,
+         addCoef.col = "black",
+           method = "color",
+         type = "lower",
+         diag = F,
+         # col = viridis(100),
+         p.mat = p_all,
+         sig.level = 0.05,
+         tl.col = 'red',
+         insig = "label_sig",
+         pch = "*
+         ",
+         title = "\nCorrelation plot",
+         mar = c(0,0,0,0),
+         addgrid.col = "black",
+         outline = T,
+         pch.cex =2
+         # order = "hclust", # hierarchical clustering of correlations
+         # addrect = 2
+         )
+```
+
+# Simple logistic regression | Crude OR
+
+<https://www.geo.fu-berlin.de/en/v/soga-r/Basics-of-statistics/Logistic-Regression/The-Logistic-Regression-Model/index.html>
+
+`diabetes` ~ `age`
+
+$$\text{log(odds(Diabetes = 1))} = \text{log}\frac{\text{p(Diabetes = 1)}}{1-\text{p(Diabetes = 1)}} = logit(p)= \beta_0 + \beta_1 \times Age = \eta$$
+$$logit(p) = \eta = \text{log}\frac{p}{1-p} \Rightarrow p = logit^{-1}(\eta) = \phi(\eta)= \frac{e^\eta}{1+e^{\eta}} = \frac{1}{1 + e^{-\eta}} = \frac{1}{1 + e^{-{(\beta_0 +\beta_1 \times Age)}}}$$
+[The logit] **models** [the log odds] of [the outcome] as a linear combination of the predictors.
+
+Mô hình logit (thuật toán logit) sẽ "mô hình hóa" các giá trị log odds của biến Y về dạng tuyến tính của các biến X.
+
+::: {.callout-tip }
+
+Ví dụ: Xác suất để xảy ra sự kiện 1 (bị tiểu đường) của bệnh nhân thứ $i$ có độ tuổi là 55 ($x_i = 55$)
+
+$$\phi(\eta)=P(y=1|x_i,\beta_i) = 0.65$$
+
+Nghĩa là bệnh nhân thứ $i$ có độ tuổi 55, được model hồi quy logistic này dự đoán "trung bình" xác suất bị tiểu đường là 65%, ngược lại (otherwise) bệnh nhân này có 100 - 65 = 35% xác suất KHÔNG bị tiểu đường.
+
+:::
+
+Bây giờ ta ráp code vào tính cụ thể.
+
+```{r}
+dg <- df
+
+dg$diabetes <- factor(dg$diabetes ,
+                       levels = c("No", "Yes"))
+
+dg$obesity <- factor(dg$obesity,
+                       levels = c("No", "Yes"))
+
+dg$diabetes <- as.numeric(dg$diabetes) - 1
+
+dg$obesity  <- as.numeric(dg$obesity ) - 1
+```
+
+**Ta sắp xếp bệnh nhân theo độ tuổi từ nhỏ đến lớn để thuận tiện vẽ đồ thị sau này.**
+
+```{r}
+dg |> dplyr:::arrange(age) -> dg
+```
+
+
+```{r}
+fit1 <- glm(diabetes ~ age,
+            data = dg,
+            family = "binomial")
+
+summary(fit1)
+
+coef(fit1)
+
+exp(coef(fit1))
+```
+
+$$Y = \beta_0 + \beta_1 \times X$$
+
+$p_i$ là xác suất xảy ra sự kiện 1 (Diabetes = Yes) của bệnh nhân thứ $i$
+
+$$\text{log}\frac{p_i}{1-p_i} = \beta_0 + \beta_1 \times Age = -1.79248 + 0.03659 \times Age$$
+
+$$\text{Odds Ratio của Age = OR(Age) =} e^{\beta_1} = e^{0.03659} = 1.0372657$$
+**`predict()` sử dụng `type = "link"` sẽ trả về kết quả của phương trình còn ở dạng log, ta cần tính thủ công để tìm ra `p` là xác suất bị tiểu đường.**
+
+```{r}
+df_pred <- data.frame(age = 55)
+
+pred1a <- predict(fit1,
+                 newdata = df_pred, 
+                 type = "link")
+pred1a
+
+# log(p / (1-p)) = 0.2198
+# ==> p / (1-p) = e^0.2198
+
+ok1 <- exp(1)^0.2198
+
+# p + 1.2458*p = 1.2458
+# ==> p = 1.2458/(2.2458) = 0.55473
+```
+
+**Để thuận tiện, sử dụng `type = "response"` để cho ra trực tiếp kết quả xác suất bệnh tiểu đường khi bệnh nhân có độ tuổi là 55.**
+
+```{r}
+pred1b <- predict(fit1,
+                 newdata = df_pred, 
+                 type = "response")
+pred1b
+```
+
+<https://www.geo.fu-berlin.de/en/v/soga-r/Basics-of-statistics/Logistic-Regression/Logistic-Regression-in-R---An-Example/index.html>
+
+**Biện luận:**
+
+The coefficient of `age` is 0.03659. Dấu của hệ số này dương, nghĩa là xác suất xảy ra bệnh tiểu đường sẽ tăng theo độ tuổi. Cụ thể, với khi độ tuổi tăng 1 đơn vị thì xác suất trung bình bệnh tiểu đường (the log-odd) tăng lên 1 hằng số là 0.03659 đơn vị.
+
+By taking the exponent of the coefficient value, we get the odds ratio của `age` là 1.0372
+
+Nghĩa là, khi độ tuổi tăng 1 đơn vị thì odds ratio/"proability" (của sự kiện bị tiểu đường) tăng lên một tỷ lệ là 1 - 1.0372 = 0.03 = 3%.
+
+::: {.callout-tip title="Note"}
+OR của biến numeric `age` trong bảng compare group này chính là kết quả của model logistic, với outcome `diabetes` đi theo thứ tự level được quy định.
+
+**Yes = 0 ; No = 1**
+
+```{r}
+library(compareGroups)
+
+table_compare <- createTable(compareGroups(diabetes ~ .,
+                                        data = df1[ , c("diabetes", "age")],
+                                        ref = 1,
+                                        riskratio = FALSE,
+                                        byrow = TRUE),
+                          show.ratio = TRUE,
+                          show.p.ratio = FALSE,
+                          show.p.overall = TRUE)
+
+table_compare
+```
+
+**No = 0 ; Yes = 1**
+
+```{r}
+library(compareGroups)
+
+df1$diabetes <- factor(df1$diabetes,
+                       levels = c("No", "Yes"))
+
+table_compare <- createTable(compareGroups(diabetes ~ .,
+                                        data = df1[ , c("diabetes", "age")],
+                                        ref = 1,
+                                        riskratio = FALSE,
+                                        byrow = TRUE),
+                          show.ratio = TRUE,
+                          show.p.ratio = FALSE,
+                          show.p.overall = TRUE)
+
+table_compare
+```
+:::
+
+## Predict
+
+### Outcome quy về xác suất
+
+```{r}
+ages <- seq(min(dg$age), 
+            max(dg$age),
+            by = 0.1)
+
+probs <- predict(fit1,
+  newdata = data.frame(age = ages),
+  type = "response",
+  se.fit = TRUE
+)
+
+pm <- probs$fit
+pu <- probs$fit + probs$se.fit * 1.96 # 95% confidence interval
+pl <- probs$fit - probs$se.fit * 1.96 # 95% confidence interval
+
+plot(x = dg$age,
+     y = dg$diabetes,
+  pch = 1,
+  cex = 1,
+  ylab = "Probability (Diabetes = Yes)",
+  xlab = "Age",
+  main = "Dự đoán nội suy trong vùng 20-80"
+)
+
+polygon(c(rev(ages), ages), c(rev(pl), pu),
+  col = "grey90", border = NA
+)
+
+lines(ages, pm, lwd = 2)
+lines(ages, pu, lwd = 2, col = "red")
+lines(ages, pl, lwd = 2, col = "red")
+
+abline(h = 0.1, lty = 2)
+abline(h = 0.5, lty = 2)
+abline(h = 0.9, lty = 2)
+```
+
+```{r}
+ages <- seq(0, 
+            100,
+            by = 0.1)
+
+probs <- predict(fit1,
+  newdata = data.frame(age = ages),
+  type = "response",
+  se.fit = TRUE
+)
+
+pm <- probs$fit
+pu <- probs$fit + probs$se.fit * 1.96 # 95% confidence interval
+pl <- probs$fit - probs$se.fit * 1.96 # 95% confidence interval
+
+plot(x = dg$age,
+     y = dg$diabetes,
+  pch = 1,
+  cex = 1,
+  ylab = "Probability (Diabetes = Yes)",
+  xlab = "Age", 
+  xlim = c(0, 100),  ,
+  main = "Dự đoán ngoại suy ngoài vùng 20-80"
+)
+
+polygon(c(rev(ages), ages), c(rev(pl), pu),
+  col = "grey90", border = NA
+)
+
+lines(ages, pm, lwd = 2)
+lines(ages, pu, lwd = 2, col = "red")
+lines(ages, pl, lwd = 2, col = "red")
+
+abline(h = 0.1, lty = 2)
+abline(h = 0.5, lty = 2)
+abline(h = 0.9, lty = 2)
+```
+
+```{r}
+ages <- seq(-100, 
+            200,
+            by = 0.1)
+
+probs <- predict(fit1,
+  newdata = data.frame(age = ages),
+  type = "response",
+  se.fit = TRUE
+)
+
+pm <- probs$fit
+pu <- probs$fit + probs$se.fit * 1.96 # 95% confidence interval
+pl <- probs$fit - probs$se.fit * 1.96 # 95% confidence interval
+
+plot(x = dg$age,
+     y = dg$diabetes,
+  pch = 1,
+  cex = 1,
+  ylab = "Probability (Diabetes = Yes)",
+  xlab = "Age", 
+  xlim = c(-100, 200),  ,
+  main = "Hàm sigmoid"
+)
+
+polygon(c(rev(ages), ages), c(rev(pl), pu),
+  col = "grey90", border = NA
+)
+
+lines(ages, pm, lwd = 2)
+lines(ages, pu, lwd = 2, col = "red")
+lines(ages, pl, lwd = 2, col = "red")
+
+abline(h = 0.1, lty = 2)
+abline(h = 0.5, lty = 2)
+abline(h = 0.9, lty = 2)
+```
+
+### Outcome quy về log odds
+
+```{r}
+ages <- dg$age
+
+probs <- predict(fit1,
+  newdata = data.frame(age = ages),
+  type = "link",
+  se.fit = TRUE
+)
+
+pm <- probs$fit
+pu <- probs$fit + probs$se.fit * 1.96 # 95% confidence interval
+pl <- probs$fit - probs$se.fit * 1.96 # 95% confidence interval
+
+plot(x = dg$age,
+     y = pm,
+  pch = 1,
+  cex = 1,
+  ylab = "Log( odds(Diabetes = Yes) )",
+  xlab = "Age",
+  main = "Age vs. Log( odds(Diabetes = Yes) )",
+  ylim = c(-3, 3)
+)
+
+
+
+polygon(c(rev(ages), ages), c(rev(pl), pu),
+  col = "grey90", border = NA
+)
+
+lines(ages, pm, lwd = 2)
+lines(ages, pu, lwd = 2, col = "red")
+lines(ages, pl, lwd = 2, col = "red")
+
+abline(h = log(0.1/(1-0.1)), lty = 2)
+
+abline(h = log(0.5/(1-0.5)), lty = 2)
+abline(h = log(0.9/(1-0.9)), lty = 2)
+
+points(x = dg$age,
+       y = pm,
+       pch = 1,
+       cex = 1)
+
+text(x = 30,
+     y = log(0.1/(1-0.1)),
+     label = "p = 0.1",
+     pos = 3)
+
+text(x = 30,
+     y = log(0.5/(1-0.5)),
+     label = "p = 0.5",
+     pos = 3)
+
+text(x = 30,
+     y = log(0.9/(1-0.9)),
+     label = "p = 0.9",
+     pos = 3)
+
+
+```
+
+## Effect plot
+
+```{r}
+library(effects)
+library(cowplot) 
+library(grid)
+library(gridExtra)
+library(lattice)
+library(latticeExtra)
+
+fit1_ok <- allEffects(fit1)
+
+fit1_eff <- effects:::plot.efflist(x = fit1_ok,
+                            selection = "age",
+                            axes = list(y = list(lim = c(-2, 2)),
+                                        x = list(rotate = 0))
+                            )
+
+
+plot_grid(fit1_eff)
+```
+
+```{r}
+ages <- dg$age
+
+probs <- predict(fit1,
+  newdata = data.frame(age = ages),
+  type = "response",
+  se.fit = TRUE
+)
+
+pm <- probs$fit
+pu <- probs$fit + probs$se.fit * 1.96 # 95% confidence interval
+pl <- probs$fit - probs$se.fit * 1.96 # 95% confidence interval
+
+plot(x = dg$age,
+     y = pm,
+     las = 1,
+  pch = 1,
+  cex = 1,
+  ylim = c(0, 1),
+  ylab = "Probability (Diabetes = Yes)",
+  xlab = "Age",
+  main = "Age vs. Probability (Diabetes = Yes)"
+)
+
+
+
+
+polygon(c(rev(ages), ages), c(rev(pl), pu),
+  col = "grey90", border = NA
+)
+
+lines(ages, pm, lwd = 2)
+lines(ages, pu, lwd = 2, col = "red")
+lines(ages, pl, lwd = 2, col = "red")
+
+abline(h = 0.1, lty = 2)
+
+abline(h = 0.5, lty = 2)
+abline(h = 0.9, lty = 2)
+
+points(x = dg$age,
+       y = pm,
+       pch = 1,
+       cex = 1)
+
+text(x = 30,
+     y = 0.1,
+     label = "p = 0.1",
+     pos = 3)
+
+text(x = 30,
+     y = 0.5,
+     label = "p = 0.5",
+     pos = 3)
+
+text(x = 30,
+     y = 0.9,
+     label = "p = 0.9",
+     pos = 3)
+
+rug(jitter(dg$age),
+    col = adjustcolor(col = "black",
+                      alpha.f = 0.5))
+
+box()
+```
+
+## Model validation
+
+```{r, fig.width=9, fig.height=9}
+library(performance)
+library(see)
+
+# 1. Model performance
+performance::model_performance(fit1)
+
+# 2. Predictive accuracy (ROC-AUC)
+performance::performance_accuracy(
+  fit1,
+  method = "cv",
+  k = 5
+)
+
+# 3. Check residual distribution
+performance::check_residuals(fit1)
+
+# 4. Check multicollinearity
+# performance::check_collinearity(fit1)
+
+# 5. Check autocorrelation
+performance::check_autocorrelation(fit1)
+
+# 6. Check outliers
+performance::check_outliers(fit1)
+
+# 7. Check binned residuals
+performance::binned_residuals(fit1)
+
+# 8. Check predictions
+performance::check_predictions(fit1)
+
+# 9. Overall diagnostic plots
+performance::check_model(fit1)
+
+par(mfrow = c(2,2))
+plot(fit1)
+```
+
+## ROC | Cut-off threshold
+
+```{r}
+library(pROC)
+
+probs_check <- predict(fit1, 
+                 type = "response")
+
+roc_check <- pROC:::roc(response = dg$diabetes, 
+                   predictor = probs_check,
+                   auc = TRUE, 
+                   ci = TRUE)
+
+roc_check
+
+roc_check$auc 
+```
+
+```{r}
+library(verification)
+verification:::roc.area(obs = dg$diabetes,
+                        pred = probs_check) 
+```
+
+```{r}
+optimal_cutoff <- pROC:::coords(roc_check, 
+                         "best", 
+                         best.method = "youden")
+
+optimal_cutoff
+```
+
+![](youden.png)
+
+### package `pROC`
+
+```{r, fig.width=15, fig.height=5}
+par(mfrow = c(1,2))
+
+pROC:::plot.roc(roc_check, 
+     print.thres = optimal_cutoff$threshold, 
+     type = "S",
+     print.thres.pattern = "%.1f (Spec = %.1f, Sens = %.1f)",
+     print.thres.cex = 1, 
+     legacy.axes = F,
+     main = "ROC curve | Sens vs. Spec")
+
+pROC:::plot.roc(roc_check, 
+     print.thres = optimal_cutoff$threshold, 
+     type = "S",
+     print.thres.pattern = "%.1f (Spec = %.1f, Sens = %.1f)",
+     print.thres.cex = 1, 
+     legacy.axes = T,
+     main = "ROC curve | Sens vs. (1- Spec)")
+```
+
+### package `ROCR`
+
+```{r}
+library(ROCR)
+
+perf <- ROCR:::performance(prediction(predictions = probs_check,
+                                      labels = dg$diabetes),
+                    "tpr",
+                    "fpr")
+
+ROCR:::plot.performance(perf,
+            colorize = TRUE, 
+            print.cutoffs.at = c(0,optimal_cutoff$threshold, 0.5,1),
+            text.adj=c(0.5, 1),
+            ylab = "Sensitivity (True Positive Rate)",
+            xlab = "1 - Specificity (False Positive Rate)",
+            main = "ROC curve | TPR vs. FPR")
+```
+
+## Confusion matrix
+
+```{r}
+dg$probs_check <- probs_check
+
+dg$pred <- ifelse(test = dg$probs_chec > optimal_cutoff$threshold,
+                       yes = 1,
+                       no = 0)
+
+table(pred = dg$pred,
+      ref = dg$diabetes) -> kq
+
+kq <- kq[2:1, 2:1]
+
+kq
+```
+
+```{r}
+library(epiR)
+epiR:::epi.tests(kq, digits = 4)
+```
+
+```{r}
+library(caret)
+
+caret::confusionMatrix(reference = factor(dg$diabetes,
+                                          levels = c(1,0)), #thuc nghiem
+                       data = factor(dg$pred,
+                                       levels = c(1,0)),  #tien luong,
+                       positive = "1",
+                       mode = "everything")
+```
+
+## Cut-off biến X
+
+Ở thời điểm này biến `age` là numeric, ta có nhu cầu muốn tìm ra ngưỡng cut-off của `age` để thuận tiện dự báo rằng nếu 1 người nào đó trên độ tuổi nhất định thì khả năng cao sẽ bị tiểu đường. 
+
+Kết quả cutoff cho thấy nếu chia tuổi ra 2 nhóm: 
+
+* Nhóm 1: nhỏ hơn 26 (ít bị tiểu đường)
+
+* Nhóm 2: lớn hơn 26 (dễ bị tiểu đường)
+
+Ta sẽ xây dựng model logistic regression dựa trên biến `age_group_26` này và thu được kết quả sens, spec tương ứng.
+
+Về bản chất thuật toán này sẽ tự động chia biến `age` thành 2 nhóm khác nhau (theo cut-off của độ tuổi) sau đó thực hiện model logistic đơn biến. Ứng với mỗi phương án cut-off sẽ có kết quả sens và spec khác nhau, phương án cut-off tối ưu là maximum sens và spec (theo method Youden) thì kết quả sẽ đề xuất ngưỡng cut-off đó.
+
+```{r}
+library(pROC)
+library(OptimalCutpoints)
+# Find cut-off with OptimalCutpoints package
+optimal.cutpoint.Youden <- optimal.cutpoints(X = "age", 
+                                            status = "diabetes", 
+                                            tag.healthy = '0',
+                                            methods = "Youden", 
+                                            data = dg
+                                            )
+
+summary(optimal.cutpoint.Youden)
+```
+
+### Check lại kết quả
+
+Kết quả này y chang như model `age` là numeric ở trên (vì cũng là đơn biến), tuy nhiên nếu đưa vào model đa biến thì kết quả sẽ khác.
+
+Ban đầu:
+
+Y ~ age(numeric) + gender
+
+Sau khi biết cut-off tối ưu của `age`, ta có:
+
+Y ~ age(category) + gender
+
+Cách tiếp cận cut-off này giúp thuận tiện chuyển một biến numeric thành biến phân loại, giúp đơn giản hóa bảng khảo sát thông tin vì phân loại nhanh chóng mức độ bị tiểu đường theo tuổi.
+
+Ví dụ ta hỏi bệnh nhân là 30 tuổi (lớn hơn ngưỡng cut-off là 26), thì cột `age_group` sẽ là 1, thuộc nhóm dễ bị tiểu đường.
+
+```{r}
+dg$age_group_26 <- ifelse(test = dg$age >= 26,
+                          yes = 1,
+                          no = 0)
+
+fit2 <- glm(diabetes ~ age_group_26,
+            data = dg,
+            family = "binomial")
+
+summary(fit2)
+
+coef(fit2)
+
+exp(coef(fit2))
+```
+
+### ROC | `age_group_26`
+
+```{r}
+library(pROC)
+
+probs_check <- predict(fit2, 
+                 type = "response")
+
+roc_check <- pROC:::roc(response = dg$diabetes, 
+                   predictor = probs_check,
+                   auc = TRUE, 
+                   ci = TRUE)
+
+roc_check
+
+roc_check$auc 
+```
+
+```{r}
+library(verification)
+verification:::roc.area(obs = dg$diabetes,
+                        pred = probs_check) 
+```
+
+```{r}
+optimal_cutoff <- pROC:::coords(roc_check, 
+                         "best", 
+                         best.method = "youden")
+
+optimal_cutoff
+```
+
+```{r, fig.width=8, fig.height=8}
+pROC:::plot.roc(roc_check, 
+     print.thres = optimal_cutoff$threshold, 
+     type = "S",
+     print.thres.pattern = "%.1f (Spec = %.1f, Sens = %.1f)",
+     print.thres.cex = 1, 
+     legacy.axes = F,
+     main = "ROC curve | Sens vs. Spec")
+```
+
+```{r}
+dg$probs_check <- probs_check
+
+dg$pred <- ifelse(test = dg$probs_check > optimal_cutoff$threshold,
+                       yes = 1,
+                       no = 0)
+
+table(pred = dg$pred,
+      ref = dg$diabetes) -> kq
+
+kq <- kq[2:1, 2:1]
+
+kq
+```
+
+```{r}
+library(epiR)
+epiR:::epi.tests(kq, digits = 4)
+```
+
+```{r}
+library(caret)
+
+caret::confusionMatrix(reference = factor(dg$diabetes,
+                                          levels = c(1,0)), #thuc nghiem
+                       data = factor(dg$pred,
+                                       levels = c(1,0)),  #tien luong,
+                       positive = "1",
+                       mode = "everything")
+```
+
+
+# Tài liệu tham khảo
+
+1. Homogeneity of Variance <https://methods.sagepub.com/ency/edvol/encyc-of-research-design/chpt/homogeneity-variance>
+
+2. Package `interactions` <https://interactions.jacob-long.com/articles/interactions>
+
+3. An introduction to ROC analysis <https://longliveturtle.github.io/water/p1.pdf>
+
+4. Logistic Regression Details Pt1: Coefficients <https://www.youtube.com/watch?v=vN5cNN2-HWE>
+
+5. Logistic Regression <https://stats.oarc.ucla.edu/r/dae/logit-regression/>
+
+6. SOGA-R <https://www.geo.fu-berlin.de/en/v/soga-r/Basics-of-statistics/Logistic-Regression/Logistic-Regression-in-R---An-Example/index.html>
+
+7. Logistic Regression <https://statsandr.com/blog/binary-logistic-regression-in-r/>
+
+8. Cách tính Odds Ratio <https://www.medcalc.org/en/calc/odds_ratio.php>
+
+9. Diễn giải hệ số OR <https://stackoverflow.com/questions/41384075/r-calculate-and-interpret-odds-ratio-in-logistic-regression>
+
+10. Logistic Regression <https://bookdown.org/nhanhocumc/biodata-r/logisticr.html>
+
+11. Logistic Regression <https://argoshare.is.ed.ac.uk/healthyr_book/binary-logistic-regression.html>
+
+12. Phân tích Mediation <https://cran.r-project.org/web/packages/gtregression/vignettes/causal-mediation.html>
+
+13. Phân tích Confounder <https://cran.r-project.org/web/packages/gtregression/vignettes/confounding-interaction.html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
