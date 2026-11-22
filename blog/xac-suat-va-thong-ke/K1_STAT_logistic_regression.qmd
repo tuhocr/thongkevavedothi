@@ -225,6 +225,18 @@ coef(fit1)
 exp(coef(fit1))
 ```
 
+```{r}
+fit1a <- glm(diabetes ~ age,
+            data = dg,
+            family = "gaussian")
+
+summary(fit1a)
+
+coef(fit1a)
+```
+
+
+
 $$Y = \beta_0 + \beta_1 \times X$$
 
 $p_i$ là xác suất xảy ra sự kiện 1 (Diabetes = Yes) của bệnh nhân thứ $i$
@@ -268,7 +280,7 @@ The coefficient of `age` is 0.03659. Dấu của hệ số này dương, nghĩa 
 
 By taking the exponent of the coefficient value, we get the odds ratio của `age` là 1.0372
 
-Nghĩa là, khi độ tuổi tăng 1 đơn vị thì odds ratio/"proability" (của sự kiện bị tiểu đường) tăng lên một tỷ lệ là 1 - 1.0372 = 0.03 = 3%.
+Nghĩa là, khi độ tuổi tăng 1 đơn vị thì odds ratio/"proability" (của sự kiện bị tiểu đường) tăng lên một tỷ lệ là 1.0372 - 1 = 0.03 = 3%.
 
 ::: {.callout-tip title="Note"}
 OR của biến numeric `age` trong bảng compare group này chính là kết quả của model logistic, với outcome `diabetes` đi theo thứ tự level được quy định.
@@ -640,6 +652,13 @@ roc_check$auc
 ```
 
 ```{r}
+dg -> dh
+
+dh$probs_check <- probs_check
+```
+
+
+```{r}
 library(verification)
 verification:::roc.area(obs = dg$diabetes,
                         pred = probs_check) 
@@ -701,7 +720,7 @@ ROCR:::plot.performance(perf,
 ```{r}
 dg$probs_check <- probs_check
 
-dg$pred <- ifelse(test = dg$probs_chec > optimal_cutoff$threshold,
+dg$pred <- ifelse(test = dg$probs_check > optimal_cutoff$threshold,
                        yes = 1,
                        no = 0)
 
@@ -1017,8 +1036,6 @@ summary(fit_diabetes_race)
 ## Dùng lệnh rà soát nhanh confounder
 
 ```{r}
-
-
 confounder_check <- identify_confounder(
   data = dg,
   outcome = diabetes, # Y
