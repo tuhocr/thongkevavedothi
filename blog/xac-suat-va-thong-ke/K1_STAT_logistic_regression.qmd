@@ -862,6 +862,226 @@ caret::confusionMatrix(reference = factor(dg$diabetes,
                        mode = "everything")
 ```
 
+# Multiple logistic regression | Adjusted OR
+
+Ta thực hiện model hồi quy đa biến, biến `age` là biến nền (covariate) hay là biến control, giúp hiệu chỉnh tốt hơn tác động của các biến bệnh học (béo phì, huyết áp, mang thai, di truyền).
+
+```{r}
+fit3 <- glm(diabetes ~ age + 
+              obesity + 
+              blood_pressure + 
+              pregnancies + 
+              diabetes_pedigree,
+            data = dg,
+            family = "binomial")
+
+summary(fit3)
+
+# Adjusted odds ratios
+OR <- exp(coef(fit3))
+
+# 95% CI
+CI <- exp(confint(fit3))
+
+results_logistic <- data.frame(
+  OR = OR,
+  Lower_CI = CI[, 1],
+  Upper_CI = CI[, 2],
+  P_value = coef(summary(fit3))[, 4]
+)
+
+results_logistic
+```
+
+```{r}
+gtsummary:::tbl_regression(fit3,
+                           exponentiate = T)
+```
+
+```{r}
+library(car)
+car:::vif(fit3)
+```
+
+```{r, fig.width=12, fig.height=6}
+library(effects)
+
+plot(predictorEffects(fit3, ~ .))
+```
+
+# Mediation analysis
+
+Biến X tác động lên mediator M (biến trung gian) và sau đó biến mediator tác động lên biến Y. Thứ tự xuất hiện của biến trung gian là xuất hiện sau biến X.
+
+```{r}
+diabetes_med <- mediation_analysis(
+  data = dg,
+  exposure = obesity, # X
+  mediator = glucose, # M
+  outcome = diabetes, # Y
+  covariates = c(age, blood_pressure, pregnancies, diabetes_pedigree),
+  outcome_approach = logit,
+  sims = 100,
+  seed = 123
+)
+
+diabetes_med$table
+```
+
+```{r}
+plot_mediation(diabetes_med)
+```
+
+# Confounder analysis
+
+Confounder C (biến nhiễu) tác động lên cả biến X và biến Y. Thứ tự xuất hiện của biến nhiễu là xuất hiện trước biến X.
+
+![](confounder.png)
+
+## `diabetes` ~ `obesity` | confounder `glucose`
+
+```{r}
+fit_diabetes_obesity <- glm(diabetes ~ obesity,
+            data = dg,
+            family = "binomial")
+
+summary(fit_diabetes_obesity)
+```
+
+```{r}
+fit_obesity_glucose <- glm(obesity ~ glucose,
+            data = dg,
+            family = "binomial")
+
+summary(fit_obesity_glucose)
+```
+
+```{r}
+fit_diabetes_glucose <- glm(diabetes ~ glucose,
+            data = dg,
+            family = "binomial")
+
+summary(fit_obesity_glucose)
+```
+
+## `diabetes` ~ `obesity` | confounder `age`
+
+```{r}
+fit_obesity_age <- glm(obesity ~ age,
+            data = dg,
+            family = "binomial")
+
+summary(fit_obesity_age)
+```
+
+```{r}
+fit_diabetes_age <- glm(diabetes ~ age,
+            data = dg,
+            family = "binomial")
+
+summary(fit_diabetes_age)
+```
+
+## `diabetes` ~ `obesity` | confounder `race`
+
+Tạo thêm cột `race`
+
+```{r}
+# set.seed(1)
+race_ok <- sample(x = c("white", "black", "asia", "hispanic"),
+                  size = nrow(dg),
+                  replace = T,
+                  prob = c(0.9, 0.5, 0.5, 0.5))
+
+dg$race <- race_ok
+
+table(dg$race)
+```
+
+```{r}
+fit_obesity_race <- glm(obesity ~ race,
+            data = dg,
+            family = "binomial")
+
+summary(fit_obesity_race)
+```
+
+```{r}
+fit_diabetes_race <- glm(diabetes ~ race,
+            data = dg,
+            family = "binomial")
+
+summary(fit_diabetes_race)
+```
+
+## Dùng lệnh rà soát nhanh confounder
+
+```{r}
+
+
+confounder_check <- identify_confounder(
+  data = dg,
+  outcome = diabetes, # Y
+  exposure = obesity, # X
+  potential_confounder = c("age", 
+                           "glucose",
+                           "race"), # C
+  approach = logit,
+  method = both,
+  format = gt
+)
+
+confounder_check$table
+```
+
+# Moderator analysis
+
+Biến điều tiết Z (medorator) có tác dụng điều chỉnh tác động (effect) của biến X lên biến Y, bản chất thể hiện qua ý nghĩa thống kê của biến tương tác giữa X và Z.
+
+![](moderator.png)
+
+```{r}
+mod1 <- glm(diabetes ~ obesity * age,
+            data = dg,
+            family = "binomial")
+
+summary(mod1)
+```
+
+```{r}
+dg$obesity_age <- dg$obesity * dg$age
+
+mod2 <- glm(diabetes ~ obesity + age + obesity_age,
+            data = dg,
+            family = "binomial")
+
+summary(mod2)
+```
+
+```{r}
+library(stargazer)
+
+stargazer(mod1, mod2,
+          type = "text")
+```
+
+## Interaction
+
+```{r}
+interaction_check <- gtregression:::interaction_models(
+  data = dg,
+  outcome = diabetes,
+  exposure = obesity,
+  effect_modifier = age,
+  covariates = c("race", "glucose"),
+  approach = logit,
+  test = LRT,
+  format = gt
+)
+
+interaction_check$table
+```
+
 
 # Tài liệu tham khảo
 
